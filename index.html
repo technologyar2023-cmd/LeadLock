@@ -1,9 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dominion AI — The AI Agent Built for Roofing Contractors</title>
+<meta name="description" content="Dominion AI is the intelligent agent built for roofing contractors. Automate lead response, follow-ups, appointment booking, and review requests — 24/7.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Dominion AI — Close More Roofs While You Sleep">
+<meta property="og:description" content="The AI agent that handles your leads, books appointments, and automatically requests reviews after every completed job.">
+<meta property="og:type" content="website">
+<!-- Security headers via meta tags -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHBvbHlnb24gcG9pbnRzPSIzMiw0IDYwLDE4IDYwLDYwIDQsNjAgNCwxOCIgZmlsbD0iI0M4NzgzQSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMzIsMTAgNTYsMjIgNTYsNTYgOCw1NiA4LDIyIiBmaWxsPSIjQTA2MDFFIiBvcGFjaXR5PSIwLjMiLz4KICA8dGV4dCB4PSIzMiIgeT0iNDYiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayxBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjMwIiBmb250LXdlaWdodD0iOTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMDkwQTBDIj5EPC90ZXh0Pgo8L3N2Zz4=">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHBvbHlnb24gcG9pbnRzPSIzMiw0IDYwLDE4IDYwLDYwIDQsNjAgNCwxOCIgZmlsbD0iI0M4NzgzQSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMzIsMTAgNTYsMjIgNTYsNTYgOCw1NiA4LDIyIiBmaWxsPSIjQTA2MDFFIiBvcGFjaXR5PSIwLjMiLz4KICA8dGV4dCB4PSIzMiIgeT0iNDYiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayxBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjMwIiBmb250LXdlaWdodD0iOTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMDkwQTBDIj5EPC90ZXh0Pgo8L3N2Zz4=">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -24,7 +37,7 @@
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-
+ 
   body {
     font-family: 'Outfit', sans-serif;
     background: var(--black);
@@ -32,12 +45,12 @@
     line-height: 1.6;
     overflow-x: hidden;
   }
-
+ 
   /* ─── Scrollbar ─── */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--dark); }
   ::-webkit-scrollbar-thumb { background: var(--copper-dk); border-radius: 2px; }
-
+ 
   /* ─── Nav ─── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -94,7 +107,7 @@
     transition: background 0.2s, transform 0.1s !important;
   }
   .btn-nav:hover { background: var(--copper-lt) !important; transform: translateY(-1px); }
-
+ 
   /* ─── Hero ─── */
   .hero {
     min-height: 100vh;
@@ -232,7 +245,7 @@
     display: inline-block;
   }
   .btn-ghost:hover { border-color: rgba(200,120,58,0.5); color: var(--copper); transform: translateY(-2px); }
-
+ 
   /* Roof SVG decoration */
   .hero-roof {
     position: absolute;
@@ -242,7 +255,7 @@
     opacity: 0.12;
     animation: fadeInUp 1s ease 0.5s both;
   }
-
+ 
   /* Scroll indicator */
   .scroll-hint {
     position: absolute;
@@ -266,7 +279,7 @@
     50% { transform: scaleY(1); transform-origin: top; }
     100% { transform: scaleY(0); transform-origin: bottom; }
   }
-
+ 
   /* ─── Section commons ─── */
   section { padding: 100px 5%; }
   .section-label {
@@ -295,7 +308,7 @@
   }
   .centered { text-align: center; }
   .centered .section-sub { margin: 0 auto; }
-
+ 
   /* ─── Stats Bar ─── */
   .stats-bar {
     padding: 40px 5%;
@@ -330,7 +343,7 @@
     font-weight: 400;
     letter-spacing: 0.5px;
   }
-
+ 
   /* ─── Problem vs Solution ─── */
   .compare-section { background: var(--dark); }
   .compare-grid {
@@ -385,7 +398,7 @@
   }
   .bad .icon { background: rgba(192,68,68,0.2); color: #E06060; }
   .good .icon { background: rgba(76,175,120,0.2); color: var(--success); }
-
+ 
   /* ─── Features ─── */
   .features-section { background: var(--black); }
   .features-grid {
@@ -470,7 +483,7 @@
     background: var(--copper);
     color: var(--black);
   }
-
+ 
   /* ─── Review Boost Section ─── */
   .review-section {
     background: var(--dark);
@@ -547,7 +560,7 @@
     justify-content: flex-start;
   }
   .star-icon { color: #FFB800; font-size: 18px; }
-
+ 
   .review-float {
     position: absolute;
     background: var(--card);
@@ -576,7 +589,7 @@
   }
   .float-val { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--copper); letter-spacing: 1px; }
   .float-lbl { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
-
+ 
   /* Review text side */
   .review-text .steps {
     display: flex; flex-direction: column; gap: 0;
@@ -614,7 +627,7 @@
     margin-bottom: 6px;
   }
   .step-body p { font-size: 14px; color: var(--muted); line-height: 1.6; font-weight: 300; }
-
+ 
   /* ─── How It Works ─── */
   .how-section { background: var(--black); }
   .how-grid {
@@ -665,7 +678,7 @@
     line-height: 1.7;
     font-weight: 300;
   }
-
+ 
   /* ─── Testimonials ─── */
   .testimonials-section { background: var(--dark); }
   .testimonials-grid {
@@ -711,7 +724,7 @@
   }
   .author-name { font-size: 15px; font-weight: 600; color: var(--white); }
   .author-biz { font-size: 13px; color: var(--muted); }
-
+ 
   /* ─── Pricing ─── */
   .pricing-section { background: var(--black); }
   .pricing-grid {
@@ -810,7 +823,7 @@
     color: var(--black);
   }
   .btn-plan.filled:hover { background: var(--copper-lt); }
-
+ 
   /* ─── CTA Banner ─── */
   .cta-section {
     background: var(--dark);
@@ -857,7 +870,7 @@
     position: relative; z-index: 1;
     opacity: 0.6;
   }
-
+ 
   /* ─── Footer ─── */
   footer {
     background: var(--black);
@@ -909,7 +922,7 @@
   }
   .footer-bottom a { color: var(--muted); text-decoration: none; }
   .footer-bottom a:hover { color: var(--copper); }
-
+ 
   /* ─── Animations ─── */
   @keyframes fadeInDown {
     from { opacity: 0; transform: translateY(-20px); }
@@ -928,7 +941,7 @@
     opacity: 1;
     transform: translateY(0);
   }
-
+ 
   /* ─── Mobile ─── */
   @media (max-width: 768px) {
     .nav-links { display: none; }
@@ -947,7 +960,7 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- ─── Navigation ─── -->
 <nav>
   <a href="#" class="nav-logo">
@@ -962,12 +975,12 @@
     <li><a href="#contact" class="btn-nav">Get Started</a></li>
   </ul>
 </nav>
-
+ 
 <!-- ─── Hero ─── -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-glow"></div>
-
+ 
   <div class="hero-content">
     <div class="hero-badge">
       <span class="badge-dot"></span>
@@ -985,20 +998,20 @@
       <a href="#how" class="btn-ghost">See How It Works</a>
     </div>
   </div>
-
+ 
   <!-- Roof SVG bg decoration -->
   <svg class="hero-roof" width="800" height="120" viewBox="0 0 800 120">
     <polyline points="0,120 200,20 400,80 600,10 800,120" fill="none" stroke="rgba(200,120,58,0.6)" stroke-width="1.5"/>
     <polyline points="0,120 200,40 400,100 600,30 800,120" fill="none" stroke="rgba(200,120,58,0.3)" stroke-width="1"/>
     <polyline points="0,120 200,60 400,110 600,50 800,120" fill="none" stroke="rgba(200,120,58,0.15)" stroke-width="0.5"/>
   </svg>
-
+ 
   <div class="scroll-hint">
     <div class="scroll-line"></div>
     Scroll
   </div>
 </section>
-
+ 
 <!-- ─── Stats Bar ─── -->
 <div class="stats-bar">
   <div class="stats-grid">
@@ -1024,7 +1037,7 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- ─── Problem vs Solution ─── -->
 <section class="compare-section" id="why">
   <div class="centered reveal">
@@ -1032,7 +1045,7 @@
     <h2 class="section-title">The Old Way Is Costing You Jobs</h2>
     <p class="section-sub">Every missed call, delayed follow-up, and forgotten review request is revenue walking out the door.</p>
   </div>
-
+ 
   <div class="compare-grid reveal">
     <div class="compare-col bad">
       <h3>❌ Without Dominion AI</h3>
@@ -1059,9 +1072,9 @@
         </li>
       </ul>
     </div>
-
+ 
     <div class="compare-vs">VS</div>
-
+ 
     <div class="compare-col good">
       <h3>✓ With Dominion AI</h3>
       <ul class="compare-list">
@@ -1089,7 +1102,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ─── Features ─── -->
 <section class="features-section" id="features">
   <div class="centered reveal">
@@ -1097,79 +1110,79 @@
     <h2 class="section-title">Every Tool You Need. One Agent.</h2>
     <p class="section-sub">Built specifically for roofing contractors — not a generic chatbot, but a purpose-built AI that understands your business.</p>
   </div>
-
+ 
   <div class="features-grid">
-
+ 
     <div class="feature-card reveal">
       <div class="feature-icon">⚡</div>
       <h3>Instant Lead Response</h3>
       <p>The moment a lead submits a form, calls, or texts — Dominion AI responds in under 2 minutes. No more losing jobs to faster competitors.</p>
       <span class="tag">24/7 Automation</span>
     </div>
-
+ 
     <div class="feature-card reveal">
       <div class="feature-icon">🔄</div>
       <h3>Automated Follow-Up Sequences</h3>
       <p>Multi-step follow-up campaigns via SMS and email. Dominion keeps nurturing cold leads until they're ready to book — without you lifting a finger.</p>
       <span class="tag">Lead Nurturing</span>
     </div>
-
+ 
     <div class="feature-card reveal">
       <div class="feature-icon">📅</div>
       <h3>Smart Appointment Booking</h3>
       <p>Your AI agent qualifies leads and books inspection appointments directly into your calendar. Syncs with Google Calendar and iCal in real time.</p>
       <span class="tag">Calendar Sync</span>
     </div>
-
+ 
     <div class="feature-card star reveal">
       <div class="feature-icon">⭐</div>
       <h3>Automated Review Requests</h3>
       <p>Once a job is marked complete, Dominion AI automatically sends a personalized review request to your customer via SMS — directing them straight to your Google or Facebook page to leave a 5-star review.</p>
       <span class="tag">Reputation Builder</span>
     </div>
-
+ 
     <div class="feature-card reveal">
       <div class="feature-icon">💬</div>
       <h3>Two-Way SMS & Email</h3>
       <p>All customer conversations in one inbox. Respond via SMS or email directly from the Dominion dashboard, or let the AI handle it automatically.</p>
       <span class="tag">Unified Inbox</span>
     </div>
-
+ 
     <div class="feature-card reveal">
       <div class="feature-icon">📊</div>
       <h3>Pipeline & Job Tracking</h3>
       <p>See every lead, estimate, and job in one visual pipeline. Know exactly where each opportunity stands and what needs your attention.</p>
       <span class="tag">Full Visibility</span>
     </div>
-
+ 
     <div class="feature-card reveal">
       <div class="feature-icon">💰</div>
       <h3>Quote & Estimate Follow-Up</h3>
       <p>Sent a quote and heard nothing? Dominion automatically follows up on unseen or unaccepted estimates with polite, professional messages.</p>
       <span class="tag">Revenue Recovery</span>
     </div>
-
+ 
     <div class="feature-card reveal">
       <div class="feature-icon">🔗</div>
       <h3>CRM & Tool Integrations</h3>
       <p>Connects with the tools you already use — JobNimbus, AccuLynx, Google Business, Facebook, Zapier, and more. No disruption to your workflow.</p>
       <span class="tag">Plug & Play</span>
     </div>
-
+ 
     <div class="feature-card reveal">
       <div class="feature-icon">📍</div>
       <h3>Local Area Domination</h3>
       <p>Rank higher on Google Maps. More reviews, faster responses, and a professional online presence all drive your local search rankings up.</p>
       <span class="tag">SEO Boost</span>
     </div>
-
+ 
   </div>
 </section>
-
+ 
 <!-- ─── Review Boost Deep Dive ─── -->
 <section class="review-section" id="reviews">
   <div class="review-layout">
-
+ 
     <!-- Phone mockup visual -->
     <div class="review-visual reveal">
       <div class="phone-mockup">
@@ -1199,7 +1212,7 @@
         <div class="float-lbl">Average Google rating</div>
       </div>
     </div>
-
+ 
     <!-- Text side -->
     <div class="review-text reveal">
       <span class="section-label">Signature Feature</span>
@@ -1207,7 +1220,7 @@
       <p class="section-sub">
         Happy customers rarely leave reviews on their own. Dominion AI catches them at the perfect moment — right after a successful job — and makes it effortless.
       </p>
-
+ 
       <div class="steps">
         <div class="step-item">
           <div class="step-num">1</div>
@@ -1239,10 +1252,10 @@
         </div>
       </div>
     </div>
-
+ 
   </div>
 </section>
-
+ 
 <!-- ─── How It Works ─── -->
 <section class="how-section" id="how">
   <div class="centered reveal">
@@ -1250,7 +1263,7 @@
     <h2 class="section-title">Up and Running in 48 Hours</h2>
     <p class="section-sub">No tech skills needed. We handle the setup, you handle the roofs.</p>
   </div>
-
+ 
   <div class="how-grid">
     <div class="how-card reveal">
       <div class="how-num">01</div>
@@ -1274,7 +1287,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ─── Testimonials ─── -->
 <section class="testimonials-section" id="testimonials">
   <div class="centered reveal">
@@ -1282,7 +1295,7 @@
     <h2 class="section-title">Roofing Contractors Love It</h2>
     <p class="section-sub">Don't take our word for it — hear from contractors who are closing more jobs and collecting more reviews every week.</p>
   </div>
-
+ 
   <div class="testimonials-grid">
     <div class="testimonial-card reveal">
       <div class="testimonial-stars">
@@ -1297,7 +1310,7 @@
         </div>
       </div>
     </div>
-
+ 
     <div class="testimonial-card reveal">
       <div class="testimonial-stars">
         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -1311,7 +1324,7 @@
         </div>
       </div>
     </div>
-
+ 
     <div class="testimonial-card reveal">
       <div class="testimonial-stars">
         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -1327,7 +1340,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ─── Pricing ─── -->
 <section class="pricing-section" id="pricing">
   <div class="centered reveal">
@@ -1335,7 +1348,7 @@
     <h2 class="section-title">Simple, Transparent Pricing</h2>
     <p class="section-sub">No contracts. No setup fees. Cancel anytime. Built for contractors, priced for growth.</p>
   </div>
-
+ 
   <div class="pricing-grid">
     <div class="pricing-card reveal">
       <div class="pricing-name">Starter</div>
@@ -1352,7 +1365,7 @@
       </ul>
       <a href="#contact" class="btn-plan outline">Get Started</a>
     </div>
-
+ 
     <div class="pricing-card featured reveal">
       <div class="pricing-name">Pro</div>
       <div class="pricing-price"><span class="dollar">$</span>597<span class="period">/mo</span></div>
@@ -1368,7 +1381,7 @@
       </ul>
       <a href="#contact" class="btn-plan filled">Get Started</a>
     </div>
-
+ 
     <div class="pricing-card reveal">
       <div class="pricing-name">Scale</div>
       <div class="pricing-price" style="font-size:42px; padding-top:12px;">Custom</div>
@@ -1386,7 +1399,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ─── CTA ─── -->
 <section class="cta-section" id="contact">
   <h2>Ready to <span>Dominate</span><br>Your Market?</h2>
@@ -1394,7 +1407,7 @@
   <a href="mailto:hello@dominionai.com" class="btn-primary">Book Your Free Demo →</a>
   <p class="cta-note">No credit card required · Setup in 48 hours · Cancel anytime</p>
 </section>
-
+ 
 <!-- ─── Footer ─── -->
 <footer>
   <div class="footer-grid">
@@ -1438,7 +1451,7 @@
     <span>Built for the roofing industry. &nbsp;⬥&nbsp; <a href="mailto:hello@dominionai.com">hello@dominionai.com</a></span>
   </div>
 </footer>
-
+ 
 <script>
   // ─── Scroll Reveal ───
   const revealEls = document.querySelectorAll('.reveal');
@@ -1451,7 +1464,7 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
   revealEls.forEach(el => observer.observe(el));
-
+ 
   // ─── Nav active scroll ───
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
@@ -1459,7 +1472,7 @@
       ? 'rgba(9,10,12,0.97)'
       : 'rgba(9,10,12,0.88)';
   });
-
+ 
   // ─── Smooth scroll for all anchors ───
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
@@ -1470,7 +1483,7 @@
       }
     });
   });
-
+ 
   // ─── Counter animation for stats ───
   function animateCounter(el, target, suffix, duration = 1800) {
     let start = 0;
@@ -1485,7 +1498,7 @@
     };
     requestAnimationFrame(step);
   }
-
+ 
   const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1505,3 +1518,4 @@
 </script>
 </body>
 </html>
+ 
