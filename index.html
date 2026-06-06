@@ -117,7 +117,7 @@
     display: flex; align-items: center; justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: 120px 5% 80px;
+    padding: 168px 5% 80px;
   }
   .hero-bg {
     position: absolute; inset: 0;
@@ -926,6 +926,50 @@
   .footer-bottom a { color: var(--muted); text-decoration: none; }
   .footer-bottom a:hover { color: var(--copper); }
 
+  /* ─── Storm Banner ─── */
+  .storm-banner {
+    position: fixed; top: 70px; left: 0; right: 0; z-index: 99;
+    background: linear-gradient(90deg,rgba(200,120,58,.18),rgba(200,120,58,.07) 50%,rgba(200,120,58,.18));
+    border-bottom: 1px solid rgba(200,120,58,.3);
+    padding: 9px 5%;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    font-size: 13px; color: var(--text); flex-wrap: wrap;
+  }
+  .storm-banner strong { color: var(--copper); font-weight: 600; }
+  .storm-banner a { color: var(--copper); text-decoration: none; font-weight: 600; margin-left: 4px; border-bottom: 1px solid rgba(200,120,58,.4); white-space: nowrap; }
+  .storm-banner a:hover { border-bottom-color: var(--copper); }
+  .s-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--copper); animation: pulse 2s infinite; flex-shrink: 0; }
+  @media(max-width:768px){ .storm-banner { font-size:11px; top:70px; } }
+
+  /* ─── Guarantee Bar ─── */
+  .guarantee-bar { background: var(--dark); border-bottom: 1px solid rgba(76,175,120,.12); padding: 16px 5%; }
+  .guarantee-items { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 40px; }
+  .g-item { font-size: 13px; color: var(--text); display: flex; align-items: center; gap: 7px; font-weight: 500; }
+  .g-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); flex-shrink: 0; }
+  @media(max-width:480px){ .g-item { font-size:12px; } }
+
+  /* ─── Numbers Section ─── */
+  .numbers-section { background: var(--black); padding: 100px 5%; text-align: center; }
+  .numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0; max-width: 1000px; margin: 52px auto 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .num-card { background: var(--card); padding: 40px 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; border-right: 1px solid var(--border); transition: background .3s; }
+  .num-card:last-child { border-right: none; }
+  .num-card:hover { background: var(--card2); }
+  .num-value { font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 1; color: var(--copper); letter-spacing: 1px; }
+  .num-label { font-size: 13px; color: var(--text); line-height: 1.5; text-align: center; max-width: 140px; font-weight: 500; }
+  .num-sub { font-size: 11px; color: var(--muted); text-align: center; line-height: 1.5; max-width: 150px; }
+  @media(max-width:640px){ .num-card { border-right: none; border-bottom: 1px solid var(--border); } .num-card:last-child { border-bottom: none; } }
+
+  /* ─── Pricing Comparison Strip ─── */
+  .pricing-compare { max-width: 720px; margin: 0 auto 48px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 22px 32px; display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 12px 24px; }
+  .pc-item { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .pc-label { font-size: 11px; color: var(--muted); letter-spacing: .5px; text-transform: uppercase; }
+  .pc-value { font-size: 22px; font-weight: 600; }
+  .pc-value.bad { color: #E57373; text-decoration: line-through; opacity: .75; }
+  .pc-value.mid { color: var(--muted); text-decoration: line-through; opacity: .75; font-size: 18px; }
+  .pc-value.best { color: var(--success); }
+  .pc-divider { color: var(--border); font-size: 24px; align-self: center; }
+  .pc-note { font-size: 12px; color: var(--muted); text-align: center; width: 100%; padding-top: 4px; border-top: 1px solid var(--border); margin-top: 6px; }
+
   /* ─── Animations ─── */
   @keyframes fadeInDown {
     from { opacity: 0; transform: translateY(-20px); }
@@ -963,6 +1007,14 @@
 </style>
 </head>
 <body>
+
+<!-- ─── Storm Season Banner ─── -->
+<div class="storm-banner">
+  <div class="s-dot"></div>
+  Storm season is live — May through September.&nbsp;
+  <strong>The first contractor to answer after a storm gets 85% of the jobs.</strong>
+  <a href="#contact">Get live in 48 hrs →</a>
+</div>
 
 <!-- ─── Navigation ─── -->
 <nav>
@@ -1014,6 +1066,17 @@
     Scroll
   </div>
 </section>
+
+<!-- ─── Guarantee Bar ─── -->
+<div class="guarantee-bar">
+  <div class="guarantee-items">
+    <div class="g-item"><div class="g-dot"></div> 30-Day Money-Back Guarantee</div>
+    <div class="g-item"><div class="g-dot"></div> Live in 48 Hours</div>
+    <div class="g-item"><div class="g-dot"></div> Unlimited Calls Handled</div>
+    <div class="g-item"><div class="g-dot"></div> No Long-Term Contracts</div>
+    <div class="g-item"><div class="g-dot"></div> Full Refund if Agent Misses a Call</div>
+  </div>
+</div>
 
 <!-- ─── Stats Bar ─── -->
 <div class="stats-bar">
@@ -1106,6 +1169,43 @@
   </div>
 </section>
 
+<!-- ─── Numbers Section ─── -->
+<section class="numbers-section" id="impact">
+  <div class="centered reveal">
+    <span class="section-label">The Real Numbers</span>
+    <h2 class="section-title">What a Missed Call Actually Costs You</h2>
+    <p class="section-sub">These aren't estimates. This is what happens every week in roofing businesses across the country.</p>
+  </div>
+
+  <div class="numbers-grid">
+    <div class="num-card reveal">
+      <div class="num-value">62%</div>
+      <div class="num-label">Callers Who Hit Voicemail Never Call Back</div>
+      <div class="num-sub">They call your competitor instead — immediately</div>
+    </div>
+    <div class="num-card reveal">
+      <div class="num-value">85%</div>
+      <div class="num-label">Storm Jobs Go to the First Contractor Who Answers</div>
+      <div class="num-sub">Speed wins. Every time.</div>
+    </div>
+    <div class="num-card reveal">
+      <div class="num-value">$87K</div>
+      <div class="num-label">Average Annual Revenue Lost to Missed Calls</div>
+      <div class="num-sub">Per small contractor — not including storm surges</div>
+    </div>
+    <div class="num-card reveal">
+      <div class="num-value">15–18</div>
+      <div class="num-label">Additional Booked Inspections Per Month</div>
+      <div class="num-sub">Captured by LeadLock from calls that would have gone unanswered</div>
+    </div>
+    <div class="num-card reveal">
+      <div class="num-value">$180K</div>
+      <div class="num-label">Potential Annual Revenue Recovered</div>
+      <div class="num-sub">Based on 18 bookings/mo × 20% close rate × $10K avg job</div>
+    </div>
+  </div>
+</section>
+
 <!-- ─── Features ─── -->
 <section class="features-section" id="features">
   <div class="centered reveal">
@@ -1179,10 +1279,29 @@
       <span class="tag">SEO Boost</span>
     </div>
 
+    <div class="feature-card reveal">
+      <div class="feature-icon">💬</div>
+      <h3>General Questions — Answered Instantly</h3>
+      <p>LeadLock answers common questions about your business — service area, working hours, process, pricing ranges — so callers get real answers at 2am without waiting for a callback.</p>
+      <span class="tag">Always Informed</span>
+    </div>
+
+    <div class="feature-card reveal">
+      <div class="feature-icon">🔀</div>
+      <h3>Smart Call Transfer</h3>
+      <p>When a caller needs to speak with a specific person — an estimator, project manager, or yourself — LeadLock transfers the call live to the right number. No dead ends, no lost callers.</p>
+      <span class="tag">Live Handoff</span>
+    </div>
+
+    <div class="feature-card reveal">
+      <div class="feature-icon">📋</div>
+      <h3>Monthly Call Analytics Report</h3>
+      <p>Every month, you receive a detailed report: total calls handled, leads captured, appointments booked, missed-call recovery rate, and peak call times — so you know exactly what LeadLock is doing for your business.</p>
+      <span class="tag">Full Visibility</span>
+    </div>
+
   </div>
 </section>
-
-<!-- ─── Review Boost Deep Dive ─── -->
 <section class="review-section" id="reviews">
   <div class="review-layout">
 
@@ -1350,6 +1469,24 @@
     <span class="section-label">Pricing</span>
     <h2 class="section-title">Simple, Transparent Pricing</h2>
     <p class="section-sub">One-time setup. No long-term contracts. Cancel anytime. Built for contractors, priced for growth.</p>
+  </div>
+
+  <div class="pricing-compare reveal">
+    <div class="pc-item">
+      <div class="pc-label">Full-Time Receptionist</div>
+      <div class="pc-value bad">$3,200/mo</div>
+    </div>
+    <div class="pc-divider">→</div>
+    <div class="pc-item">
+      <div class="pc-label">Answering Service</div>
+      <div class="pc-value mid">$500/mo</div>
+    </div>
+    <div class="pc-divider">→</div>
+    <div class="pc-item">
+      <div class="pc-label">LeadLock</div>
+      <div class="pc-value best">from $397/mo</div>
+    </div>
+    <div class="pc-note">Answers every call · Books every job · Follows up · Requests reviews · Provides monthly reports — for less than a part-time hire.</div>
   </div>
 
   <div class="pricing-grid">
