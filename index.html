@@ -40,7 +40,7 @@
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
- 
+
   body {
     font-family: 'Outfit', sans-serif;
     background: var(--black);
@@ -48,12 +48,12 @@
     line-height: 1.6;
     overflow-x: hidden;
   }
- 
+
   /* ─── Scrollbar ─── */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--dark); }
   ::-webkit-scrollbar-thumb { background: var(--copper-dk); border-radius: 2px; }
- 
+
   /* ─── Nav ─── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -110,7 +110,7 @@
     transition: background 0.2s, transform 0.1s !important;
   }
   .btn-nav:hover { background: var(--copper-lt) !important; transform: translateY(-1px); }
- 
+
   /* ─── Hero ─── */
   .hero {
     min-height: 100vh;
@@ -248,7 +248,7 @@
     display: inline-block;
   }
   .btn-ghost:hover { border-color: rgba(200,120,58,0.5); color: var(--copper); transform: translateY(-2px); }
- 
+
   /* Roof SVG decoration */
   .hero-roof {
     position: absolute;
@@ -258,7 +258,7 @@
     opacity: 0.12;
     animation: fadeInUp 1s ease 0.5s both;
   }
- 
+
   /* Scroll indicator */
   .scroll-hint {
     position: absolute;
@@ -282,7 +282,7 @@
     50% { transform: scaleY(1); transform-origin: top; }
     100% { transform: scaleY(0); transform-origin: bottom; }
   }
- 
+
   /* ─── Section commons ─── */
   section { padding: 100px 5%; }
   .section-label {
@@ -311,7 +311,7 @@
   }
   .centered { text-align: center; }
   .centered .section-sub { margin: 0 auto; }
- 
+
   /* ─── Stats Bar ─── */
   .stats-bar {
     padding: 40px 5%;
@@ -346,7 +346,7 @@
     font-weight: 400;
     letter-spacing: 0.5px;
   }
- 
+
   /* ─── Problem vs Solution ─── */
   .compare-section { background: var(--dark); }
   .compare-grid {
@@ -401,7 +401,7 @@
   }
   .bad .icon { background: rgba(192,68,68,0.2); color: #E06060; }
   .good .icon { background: rgba(76,175,120,0.2); color: var(--success); }
- 
+
   /* ─── Features ─── */
   .features-section { background: var(--black); }
   .features-grid {
@@ -486,7 +486,7 @@
     background: var(--copper);
     color: var(--black);
   }
- 
+
   /* ─── Review Boost Section ─── */
   .review-section {
     background: var(--dark);
@@ -563,7 +563,7 @@
     justify-content: flex-start;
   }
   .star-icon { color: #FFB800; font-size: 18px; }
- 
+
   .review-float {
     position: absolute;
     background: var(--card);
@@ -592,7 +592,7 @@
   }
   .float-val { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--copper); letter-spacing: 1px; }
   .float-lbl { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
- 
+
   /* Review text side */
   .review-text .steps {
     display: flex; flex-direction: column; gap: 0;
@@ -630,7 +630,7 @@
     margin-bottom: 6px;
   }
   .step-body p { font-size: 14px; color: var(--muted); line-height: 1.6; font-weight: 300; }
- 
+
   /* ─── How It Works ─── */
   .how-section { background: var(--black); }
   .how-grid {
@@ -681,7 +681,7 @@
     line-height: 1.7;
     font-weight: 300;
   }
- 
+
   /* ─── Testimonials ─── */
   .testimonials-section { background: var(--dark); }
   .testimonials-grid {
@@ -727,7 +727,7 @@
   }
   .author-name { font-size: 15px; font-weight: 600; color: var(--white); }
   .author-biz { font-size: 13px; color: var(--muted); }
- 
+
   /* ─── Pricing ─── */
   .pricing-section { background: var(--black); }
   .pricing-grid {
@@ -826,7 +826,7 @@
     color: var(--black);
   }
   .btn-plan.filled:hover { background: var(--copper-lt); }
- 
+
   /* ─── CTA Banner ─── */
   .cta-section {
     background: var(--dark);
@@ -873,7 +873,7 @@
     position: relative; z-index: 1;
     opacity: 0.6;
   }
- 
+
   /* ─── Footer ─── */
   footer {
     background: var(--black);
@@ -925,7 +925,7 @@
   }
   .footer-bottom a { color: var(--muted); text-decoration: none; }
   .footer-bottom a:hover { color: var(--copper); }
- 
+
   /* ─── Animations ─── */
   @keyframes fadeInDown {
     from { opacity: 0; transform: translateY(-20px); }
@@ -944,7 +944,7 @@
     opacity: 1;
     transform: translateY(0);
   }
- 
+
   /* ─── Mobile ─── */
   @media (max-width: 768px) {
     .nav-links { display: none; }
@@ -963,7 +963,7 @@
 </style>
 </head>
 <body>
- 
+
 <!-- ─── Navigation ─── -->
 <nav>
   <a href="#" class="nav-logo">
@@ -978,43 +978,43 @@
     <li><a href="#contact" class="btn-nav">Get Started</a></li>
   </ul>
 </nav>
- 
+
 <!-- ─── Hero ─── -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-glow"></div>
- 
+
   <div class="hero-content">
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      AI Agent for Roofing Contractors
+      LeadLock — AI Agent for Roofing Contractors
     </div>
     <h1>
       Close More Roofs<br>
       <span class="line2">While You Sleep</span>
     </h1>
     <p class="hero-sub">
-      Dominion AI is the <strong>intelligent agent</strong> that handles your leads, books appointments, follows up with customers, and <strong>automatically requests reviews</strong> after every completed job — so you can focus on the work.
+      Dominion AI's AI agent, <strong>LeadLock</strong>, handles your calls, books appointments, follows up with customers, and <strong>automatically requests reviews</strong> after every completed job — so you can focus on the work.
     </p>
     <div class="hero-ctas">
       <a href="#contact" class="btn-primary">Start for Free →</a>
       <a href="#how" class="btn-ghost">See How It Works</a>
     </div>
   </div>
- 
+
   <!-- Roof SVG bg decoration -->
   <svg class="hero-roof" width="800" height="120" viewBox="0 0 800 120">
     <polyline points="0,120 200,20 400,80 600,10 800,120" fill="none" stroke="rgba(200,120,58,0.6)" stroke-width="1.5"/>
     <polyline points="0,120 200,40 400,100 600,30 800,120" fill="none" stroke="rgba(200,120,58,0.3)" stroke-width="1"/>
     <polyline points="0,120 200,60 400,110 600,50 800,120" fill="none" stroke="rgba(200,120,58,0.15)" stroke-width="0.5"/>
   </svg>
- 
+
   <div class="scroll-hint">
     <div class="scroll-line"></div>
     Scroll
   </div>
 </section>
- 
+
 <!-- ─── Stats Bar ─── -->
 <div class="stats-bar">
   <div class="stats-grid">
@@ -1040,7 +1040,7 @@
     </div>
   </div>
 </div>
- 
+
 <!-- ─── Problem vs Solution ─── -->
 <section class="compare-section" id="why">
   <div class="centered reveal">
@@ -1048,7 +1048,7 @@
     <h2 class="section-title">The Old Way Is Costing You Jobs</h2>
     <p class="section-sub">Every missed call, delayed follow-up, and forgotten review request is revenue walking out the door.</p>
   </div>
- 
+
   <div class="compare-grid reveal">
     <div class="compare-col bad">
       <h3>❌ Without Dominion AI</h3>
@@ -1075,9 +1075,9 @@
         </li>
       </ul>
     </div>
- 
+
     <div class="compare-vs">VS</div>
- 
+
     <div class="compare-col good">
       <h3>✓ With Dominion AI</h3>
       <ul class="compare-list">
@@ -1105,7 +1105,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ─── Features ─── -->
 <section class="features-section" id="features">
   <div class="centered reveal">
@@ -1113,79 +1113,79 @@
     <h2 class="section-title">Every Tool You Need. One Agent.</h2>
     <p class="section-sub">Built specifically for roofing contractors — not a generic chatbot, but a purpose-built AI that understands your business.</p>
   </div>
- 
+
   <div class="features-grid">
- 
+
     <div class="feature-card reveal">
       <div class="feature-icon">⚡</div>
       <h3>Instant Lead Response</h3>
       <p>The moment a lead submits a form, calls, or texts — Dominion AI responds in under 2 minutes. No more losing jobs to faster competitors.</p>
       <span class="tag">24/7 Automation</span>
     </div>
- 
+
     <div class="feature-card reveal">
       <div class="feature-icon">🔄</div>
       <h3>Automated Follow-Up Sequences</h3>
       <p>Multi-step follow-up campaigns via SMS and email. Dominion keeps nurturing cold leads until they're ready to book — without you lifting a finger.</p>
       <span class="tag">Lead Nurturing</span>
     </div>
- 
+
     <div class="feature-card reveal">
       <div class="feature-icon">📅</div>
       <h3>Smart Appointment Booking</h3>
       <p>Your AI agent qualifies leads and books inspection appointments directly into your calendar. Syncs with Google Calendar and iCal in real time.</p>
       <span class="tag">Calendar Sync</span>
     </div>
- 
+
     <div class="feature-card star reveal">
       <div class="feature-icon">⭐</div>
       <h3>Automated Review Requests</h3>
       <p>Once a job is marked complete, Dominion AI automatically sends a personalized review request to your customer via SMS — directing them straight to your Google or Facebook page to leave a 5-star review.</p>
       <span class="tag">Reputation Builder</span>
     </div>
- 
+
     <div class="feature-card reveal">
       <div class="feature-icon">💬</div>
       <h3>Two-Way SMS & Email</h3>
       <p>All customer conversations in one inbox. Respond via SMS or email directly from the Dominion dashboard, or let the AI handle it automatically.</p>
       <span class="tag">Unified Inbox</span>
     </div>
- 
+
     <div class="feature-card reveal">
       <div class="feature-icon">📊</div>
       <h3>Pipeline & Job Tracking</h3>
       <p>See every lead, estimate, and job in one visual pipeline. Know exactly where each opportunity stands and what needs your attention.</p>
       <span class="tag">Full Visibility</span>
     </div>
- 
+
     <div class="feature-card reveal">
       <div class="feature-icon">💰</div>
       <h3>Quote & Estimate Follow-Up</h3>
       <p>Sent a quote and heard nothing? Dominion automatically follows up on unseen or unaccepted estimates with polite, professional messages.</p>
       <span class="tag">Revenue Recovery</span>
     </div>
- 
+
     <div class="feature-card reveal">
       <div class="feature-icon">🔗</div>
       <h3>CRM & Tool Integrations</h3>
       <p>Connects with the tools you already use — JobNimbus, AccuLynx, Google Business, Facebook, Zapier, and more. No disruption to your workflow.</p>
       <span class="tag">Plug & Play</span>
     </div>
- 
+
     <div class="feature-card reveal">
       <div class="feature-icon">📍</div>
       <h3>Local Area Domination</h3>
       <p>Rank higher on Google Maps. More reviews, faster responses, and a professional online presence all drive your local search rankings up.</p>
       <span class="tag">SEO Boost</span>
     </div>
- 
+
   </div>
 </section>
- 
+
 <!-- ─── Review Boost Deep Dive ─── -->
 <section class="review-section" id="reviews">
   <div class="review-layout">
- 
+
     <!-- Phone mockup visual -->
     <div class="review-visual reveal">
       <div class="phone-mockup">
@@ -1215,7 +1215,7 @@
         <div class="float-lbl">Average Google rating</div>
       </div>
     </div>
- 
+
     <!-- Text side -->
     <div class="review-text reveal">
       <span class="section-label">Signature Feature</span>
@@ -1223,7 +1223,7 @@
       <p class="section-sub">
         Happy customers rarely leave reviews on their own. Dominion AI catches them at the perfect moment — right after a successful job — and makes it effortless.
       </p>
- 
+
       <div class="steps">
         <div class="step-item">
           <div class="step-num">1</div>
@@ -1255,10 +1255,10 @@
         </div>
       </div>
     </div>
- 
+
   </div>
 </section>
- 
+
 <!-- ─── How It Works ─── -->
 <section class="how-section" id="how">
   <div class="centered reveal">
@@ -1266,7 +1266,7 @@
     <h2 class="section-title">Up and Running in 48 Hours</h2>
     <p class="section-sub">No tech skills needed. We handle the setup, you handle the roofs.</p>
   </div>
- 
+
   <div class="how-grid">
     <div class="how-card reveal">
       <div class="how-num">01</div>
@@ -1290,7 +1290,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ─── Testimonials ─── -->
 <section class="testimonials-section" id="testimonials">
   <div class="centered reveal">
@@ -1298,7 +1298,7 @@
     <h2 class="section-title">Roofing Contractors Love It</h2>
     <p class="section-sub">Don't take our word for it — hear from contractors who are closing more jobs and collecting more reviews every week.</p>
   </div>
- 
+
   <div class="testimonials-grid">
     <div class="testimonial-card reveal">
       <div class="testimonial-stars">
@@ -1313,12 +1313,12 @@
         </div>
       </div>
     </div>
- 
+
     <div class="testimonial-card reveal">
       <div class="testimonial-stars">
         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
       </div>
-      <p class="testimonial-text">"I used to lose leads constantly because I couldn't answer the phone on the job. Now Dominion picks up immediately, qualifies them, and books the appointment. I come home to a full calendar."</p>
+      <p class="testimonial-text">"I used to lose leads constantly because I couldn't answer the phone on the job. Now LeadLock picks up immediately, qualifies them, and books the appointment. I come home to a full calendar."</p>
       <div class="testimonial-author">
         <div class="author-avatar">ML</div>
         <div>
@@ -1327,7 +1327,7 @@
         </div>
       </div>
     </div>
- 
+
     <div class="testimonial-card reveal">
       <div class="testimonial-stars">
         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -1343,48 +1343,48 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ─── Pricing ─── -->
 <section class="pricing-section" id="pricing">
   <div class="centered reveal">
     <span class="section-label">Pricing</span>
     <h2 class="section-title">Simple, Transparent Pricing</h2>
-    <p class="section-sub">No contracts. No setup fees. Cancel anytime. Built for contractors, priced for growth.</p>
+    <p class="section-sub">One-time setup. No long-term contracts. Cancel anytime. Built for contractors, priced for growth.</p>
   </div>
- 
+
   <div class="pricing-grid">
     <div class="pricing-card reveal">
       <div class="pricing-name">Starter</div>
-      <div class="pricing-price"><span class="dollar">$</span>297<span class="period">/mo</span></div>
-      <div class="pricing-desc">Perfect for solo contractors getting started with AI.</div>
+      <div class="pricing-price"><span class="dollar">$</span>397<span class="period">/mo</span></div>
+      <div class="pricing-desc">Perfect for solo contractors. Includes $800 one-time setup fee.</div>
       <ul class="pricing-features">
-        <li><span class="chk">✓</span> 24/7 Lead Response (SMS + Email)</li>
-        <li><span class="chk">✓</span> Automated Follow-Up (3-step)</li>
-        <li><span class="chk">✓</span> Appointment Booking</li>
-        <li><span class="chk">✓</span> Review Request Automation</li>
-        <li><span class="chk">✓</span> Unified Inbox</li>
-        <li><span class="x-icon">✕</span> <span style="color:var(--muted)">CRM Integrations</span></li>
-        <li><span class="x-icon">✕</span> <span style="color:var(--muted)">Custom AI Persona</span></li>
+        <li><span class="chk">✓</span> LeadLock AI Voice Agent 24/7</li>
+        <li><span class="chk">✓</span> Smart Lead Triage (Urgent vs. Planned)</li>
+        <li><span class="chk">✓</span> Appointment Booking — Google Calendar</li>
+        <li><span class="chk">✓</span> Instant SMS Follow-Up on Missed Calls</li>
+        <li><span class="chk">✓</span> Monthly Call Report</li>
+        <li><span class="x-icon">✕</span> <span style="color:var(--muted)">Review Request Automation</span></li>
+        <li><span class="x-icon">✕</span> <span style="color:var(--muted)">Custom AI Persona & Script</span></li>
       </ul>
       <a href="#contact" class="btn-plan outline">Get Started</a>
     </div>
- 
+
     <div class="pricing-card featured reveal">
       <div class="pricing-name">Pro</div>
-      <div class="pricing-price"><span class="dollar">$</span>597<span class="period">/mo</span></div>
-      <div class="pricing-desc">For growing contractors who want every edge.</div>
+      <div class="pricing-price"><span class="dollar">$</span>697<span class="period">/mo</span></div>
+      <div class="pricing-desc">For growing contractors who want every edge. Includes $800 one-time setup.</div>
       <ul class="pricing-features">
-        <li><span class="chk">✓</span> 24/7 Lead Response (SMS + Email + Phone)</li>
-        <li><span class="chk">✓</span> Automated Follow-Up (Unlimited steps)</li>
+        <li><span class="chk">✓</span> LeadLock AI Voice Agent 24/7</li>
+        <li><span class="chk">✓</span> Smart Lead Triage + Storm Surge Mode</li>
         <li><span class="chk">✓</span> Appointment Booking + Reminders</li>
-        <li><span class="chk">✓</span> Advanced Review Request System</li>
-        <li><span class="chk">✓</span> Unified Inbox + Pipeline View</li>
-        <li><span class="chk">✓</span> CRM Integrations (JobNimbus, AccuLynx)</li>
+        <li><span class="chk">✓</span> Instant SMS Follow-Up (30 seconds)</li>
+        <li><span class="chk">✓</span> Review Request Automation After Every Job</li>
         <li><span class="chk">✓</span> Custom AI Persona & Brand Voice</li>
+        <li><span class="chk">✓</span> Priority Support + Monthly Reports</li>
       </ul>
       <a href="#contact" class="btn-plan filled">Get Started</a>
     </div>
- 
+
     <div class="pricing-card reveal">
       <div class="pricing-name">Scale</div>
       <div class="pricing-price" style="font-size:42px; padding-top:12px;">Custom</div>
@@ -1402,15 +1402,161 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ─── CTA ─── -->
 <section class="cta-section" id="contact">
   <h2>Ready to <span>Dominate</span><br>Your Market?</h2>
   <p>Join roofing contractors who are winning more jobs, collecting more reviews, and growing faster with Dominion AI.</p>
   <a href="mailto:hello@dominionai.com" class="btn-primary">Book Your Free Demo →</a>
-  <p class="cta-note">No credit card required · Setup in 48 hours · Cancel anytime</p>
+  <p class="cta-note">$800 one-time setup · Live in 48 hours · Cancel anytime</p>
 </section>
- 
+
+<!-- ─── Privacy Policy ─── -->
+<section id="privacy" style="background: var(--dark); padding: 100px 5%;">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <span class="section-label">Legal</span>
+    <h2 class="section-title">Privacy Policy</h2>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:48px;">Last updated: June 2025</p>
+
+    <div style="display:flex; flex-direction:column; gap:36px;">
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">1. Who We Are</h3>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Dominion AI ("Company," "we," "us," or "our") is a software services company that provides LeadLock, an AI-powered voice receptionist and messaging automation platform built for roofing contractors in the United States. Our registered business contact is: <a href="mailto:hello@dominionai.com" style="color:var(--copper); text-decoration:none;">hello@dominionai.com</a>.</p>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">2. Information We Collect</h3>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">We collect information in two ways:</p>
+        <ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px; margin-top:10px;">
+          <li><strong style="color:var(--text);">From contractors (our clients):</strong> Business name, contact name, phone number, email address, service area, and Google Calendar access credentials required to operate the LeadLock agent.</li>
+          <li><strong style="color:var(--text);">From end-users (homeowners who call contractors):</strong> Name, phone number, property address, nature of roofing inquiry, and appointment details — collected during AI-assisted phone calls on behalf of our contractor clients.</li>
+          <li><strong style="color:var(--text);">Automatically:</strong> Call recordings, call duration, call logs, and appointment data processed through our systems.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">3. How We Use Your Information</h3>
+        <ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px;">
+          <li>To operate and deliver the LeadLock AI voice agent service</li>
+          <li>To book appointments and send confirmation messages</li>
+          <li>To send automated SMS follow-up messages on behalf of contractor clients</li>
+          <li>To send review request messages after job completion</li>
+          <li>To generate monthly call and lead reports for contractor clients</li>
+          <li>To improve our AI models and service quality</li>
+        </ul>
+      </div>
+
+      <div style="background:rgba(200,120,58,0.08); border:1px solid rgba(200,120,58,0.25); border-radius:10px; padding:28px;">
+        <h3 style="font-size:16px; font-weight:600; color:var(--copper); margin-bottom:16px; letter-spacing:0.3px;">4. SMS Messaging — Consent, Frequency &amp; Opt-Out</h3>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:14px;"><strong style="color:var(--text);">How you consent to receive SMS:</strong> When a homeowner provides their phone number to a roofing contractor using LeadLock — whether verbally, on a service agreement, or through an online inquiry form — they consent to receive service-related text messages. These messages include appointment confirmations, missed-call follow-ups, and post-job review requests sent on behalf of that contractor.</p>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:14px;"><strong style="color:var(--text);">Message types and frequency:</strong> Message frequency varies based on your interaction with the contractor. You may receive: (1) one appointment confirmation SMS per booked appointment, (2) one missed-call follow-up SMS per unanswered call, and (3) one review request SMS per completed job.</p>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:14px;"><strong style="color:var(--text);">How to opt out:</strong> Reply <strong style="color:var(--white);">STOP</strong> to any message at any time to unsubscribe. You will receive one final confirmation message and no further messages will be sent. Reply <strong style="color:var(--white);">HELP</strong> for assistance.</p>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;"><strong style="color:var(--text);">Rates:</strong> Message and data rates may apply depending on your mobile carrier plan.</p>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">5. Third-Party Services</h3>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">We use the following third-party providers to operate our service:</p>
+        <ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px; margin-top:10px;">
+          <li><strong style="color:var(--text);">Twilio Inc.</strong> — Provides US phone numbers and SMS/voice infrastructure. Twilio processes call and message data in accordance with their Privacy Policy at twilio.com/legal/privacy.</li>
+          <li><strong style="color:var(--text);">Vapi AI</strong> — Powers the AI voice agent that handles inbound calls. Vapi processes call audio and transcripts.</li>
+          <li><strong style="color:var(--text);">Google Calendar API</strong> — Used to book and manage appointments on behalf of contractor clients. Subject to Google's Privacy Policy.</li>
+          <li><strong style="color:var(--text);">n8n / Make</strong> — Workflow automation platforms used to route data between services.</li>
+        </ul>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-top:14px;">We do not sell, rent, or share personal data with third parties for marketing purposes.</p>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">6. Data Retention</h3>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Call logs and lead data are retained for 12 months and then deleted. Contractor account data is retained for the duration of the service agreement and deleted within 30 days of account termination upon request.</p>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">7. Data Security</h3>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">We implement industry-standard security measures including encrypted data transmission (TLS), access controls, and secure credential storage. We do not store full payment card information — payments are processed by our payment providers.</p>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">8. Your Rights</h3>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">You have the right to request access to, correction of, or deletion of your personal data. To exercise these rights, contact us at <a href="mailto:hello@dominionai.com" style="color:var(--copper); text-decoration:none;">hello@dominionai.com</a>. We will respond within 30 days.</p>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">9. Contact Us</h3>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">For questions about this Privacy Policy or our data practices, contact:<br>
+        <strong style="color:var(--text);">Dominion AI</strong><br>
+        Email: <a href="mailto:hello@dominionai.com" style="color:var(--copper); text-decoration:none;">hello@dominionai.com</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Terms of Service ─── -->
+<section id="terms" style="background: var(--black); padding: 100px 5%; border-top: 1px solid var(--border);">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <span class="section-label">Legal</span>
+    <h2 class="section-title">Terms of Service</h2>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:48px;">Last updated: June 2025</p>
+
+    <div style="display:flex; flex-direction:column; gap:32px;">
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">1. Acceptance of Terms</h3>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">By engaging Dominion AI's LeadLock service, you ("Client") agree to these Terms of Service. If you do not agree, do not use the service.</p>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">2. Services Provided</h3>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Dominion AI provides LeadLock: an AI-powered voice receptionist service that answers inbound calls, qualifies leads, books appointments, and sends automated SMS messages on behalf of the Client's roofing business. Services are delivered remotely. Setup is completed within 48 hours of agreement and payment of the setup fee.</p>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">3. Payment Terms</h3>
+        <ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px;">
+          <li>A one-time setup fee is due before service activation.</li>
+          <li>Monthly retainer fees are billed at the start of each month beginning with month two.</li>
+          <li>All fees are non-refundable except as stated in our 30-Day Performance Guarantee.</li>
+          <li>Payments are processed via Stripe or agreed alternative. Late payments may result in service suspension.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">4. 30-Day Performance Guarantee</h3>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">If the LeadLock AI agent fails to answer any incoming call within 3 rings during the first 30 days of service due to a technical failure attributable to Dominion AI, we will issue a full refund of the setup fee. This guarantee covers agent uptime and call answering performance only. Client revenue outcomes, lead conversion rates, or job close rates are not guaranteed.</p>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">5. Client Responsibilities</h3>
+        <ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px;">
+          <li>Configure call forwarding on your business phone as instructed during onboarding.</li>
+          <li>Provide accurate business information, service hours, and Google Calendar access.</li>
+          <li>Ensure that end-users (homeowners) have provided consent to receive SMS communications.</li>
+          <li>Not use the service for any unlawful, deceptive, or SPAM messaging purposes.</li>
+          <li>Comply with all applicable US telecommunications laws including TCPA and CTIA guidelines.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">6. Cancellation</h3>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Either party may cancel the service with 14 days written notice. Upon cancellation, the Client's dedicated phone number will be released and all automations will be deactivated. Data may be exported upon request within 30 days of cancellation.</p>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">7. Limitation of Liability</h3>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Dominion AI's total liability for any claim arising from the service shall not exceed the total fees paid by the Client in the 3 months preceding the claim. We are not liable for lost revenue, missed leads, or business losses arising from service downtime beyond our direct control, including third-party infrastructure failures (Twilio, Vapi, Google).</p>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">8. Governing Law</h3>
+        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">These Terms are governed by applicable international commercial law. Disputes shall first be addressed through good-faith negotiation. For questions, contact <a href="mailto:hello@dominionai.com" style="color:var(--copper); text-decoration:none;">hello@dominionai.com</a>.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ─── Footer ─── -->
 <footer>
   <div class="footer-grid">
@@ -1444,8 +1590,8 @@
       <ul>
         <li><a href="#">Documentation</a></li>
         <li><a href="#">Integrations</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#privacy">Privacy Policy</a></li>
+        <li><a href="#terms">Terms of Service</a></li>
       </ul>
     </div>
   </div>
@@ -1454,7 +1600,7 @@
     <span>Built for the roofing industry. &nbsp;⬥&nbsp; <a href="mailto:hello@dominionai.com">hello@dominionai.com</a></span>
   </div>
 </footer>
- 
+
 <script>
   // ─── Scroll Reveal ───
   const revealEls = document.querySelectorAll('.reveal');
@@ -1467,7 +1613,7 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
   revealEls.forEach(el => observer.observe(el));
- 
+
   // ─── Nav active scroll ───
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
@@ -1475,7 +1621,7 @@
       ? 'rgba(9,10,12,0.97)'
       : 'rgba(9,10,12,0.88)';
   });
- 
+
   // ─── Smooth scroll for all anchors ───
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
@@ -1486,7 +1632,7 @@
       }
     });
   });
- 
+
   // ─── Counter animation for stats ───
   function animateCounter(el, target, suffix, duration = 1800) {
     let start = 0;
@@ -1501,7 +1647,7 @@
     };
     requestAnimationFrame(step);
   }
- 
+
   const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
