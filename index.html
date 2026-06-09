@@ -970,7 +970,96 @@
   .pc-divider { color: var(--border); font-size: 24px; align-self: center; }
   .pc-note { font-size: 12px; color: var(--muted); text-align: center; width: 100%; padding-top: 4px; border-top: 1px solid var(--border); margin-top: 6px; }
 
-  /* ─── Demo Modal ─── */
+  /* ─── Lead Capture Modal ─── */
+  .lead-overlay {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(0,0,0,.85); backdrop-filter: blur(8px);
+    align-items: center; justify-content: center; padding: 24px;
+    animation: fadeOverlay .25s ease;
+  }
+  .lead-overlay.open { display: flex; }
+  .lead-modal {
+    background: var(--card); border: 1px solid rgba(200,120,58,.3);
+    border-radius: 14px; width: 100%; max-width: 460px;
+    overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,.6);
+    animation: slideUp .3s ease;
+  }
+  .lead-modal-hd {
+    padding: 24px 28px 0;
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .lead-modal-title { font-size: 20px; font-weight: 600; color: var(--white); line-height: 1.3; }
+  .lead-modal-sub { font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+  .lead-close {
+    background: none; border: none; cursor: pointer; color: var(--muted);
+    font-size: 22px; line-height: 1; padding: 0 0 0 12px; flex-shrink: 0;
+    transition: color .2s;
+  }
+  .lead-close:hover { color: var(--white); }
+  .lead-form { padding: 24px 28px 28px; }
+  .lead-field { margin-bottom: 16px; }
+  .lead-label {
+    display: block; font-size: 12px; font-weight: 500;
+    color: var(--muted); margin-bottom: 7px; letter-spacing: .4px; text-transform: uppercase;
+  }
+  .lead-input {
+    width: 100%; background: var(--card2); border: 1px solid var(--border);
+    border-radius: 6px; padding: 13px 16px; font-size: 14px;
+    color: var(--white); font-family: 'Outfit', sans-serif;
+    outline: none; transition: border-color .2s;
+  }
+  .lead-input::placeholder { color: var(--muted); }
+  .lead-input:focus { border-color: rgba(200,120,58,.6); }
+  .lead-submit {
+    width: 100%; padding: 15px; background: var(--copper);
+    color: var(--black); border: none; border-radius: 6px;
+    font-size: 15px; font-weight: 700; cursor: pointer;
+    font-family: 'Outfit', sans-serif; letter-spacing: .3px;
+    transition: background .2s, transform .15s; margin-top: 8px;
+  }
+  .lead-submit:hover { background: var(--copper-lt); transform: translateY(-1px); }
+  .lead-submit:disabled { background: var(--muted); cursor: not-allowed; transform: none; }
+  .lead-guarantee {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 12px; color: var(--muted); margin-top: 12px; justify-content: center;
+  }
+  .lead-guarantee-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--success); flex-shrink: 0; }
+  .lead-success-state {
+    display: none; padding: 40px 28px; text-align: center;
+  }
+  .lead-success-icon { font-size: 44px; margin-bottom: 16px; }
+  .lead-success-title { font-size: 18px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+  .lead-success-msg { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* ─── Video Cover Overlay ─── */
+  .video-cover {
+    position: absolute; inset: 0; z-index: 3;
+    background: linear-gradient(135deg, #0D0F14 0%, #161820 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 16px;
+    cursor: pointer; transition: opacity .3s;
+  }
+  .video-cover.hidden { opacity: 0; pointer-events: none; }
+  .video-play-circle {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: var(--copper); display: flex; align-items: center; justify-content: center;
+    transition: transform .2s, background .2s;
+    box-shadow: 0 0 0 12px rgba(200,120,58,.15);
+  }
+  .video-cover:hover .video-play-circle { transform: scale(1.08); background: var(--copper-lt); }
+  .video-cover-label { font-size: 13px; color: var(--muted); letter-spacing: .5px; }
+  .video-error-state {
+    display: none; position: absolute; inset: 0; z-index: 2;
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; background: #0D0F14; padding: 24px; text-align: center;
+  }
+  .video-error-state p { font-size: 14px; color: var(--muted); }
+  .video-error-state a {
+    font-size: 13px; color: var(--copper); text-decoration: none;
+    border-bottom: 1px solid rgba(200,120,58,.4); padding-bottom: 2px;
+  }
+
+
   .demo-modal-overlay {
     display: none;
     position: fixed; inset: 0; z-index: 999;
@@ -1658,7 +1747,7 @@
 <section class="cta-section" id="contact">
   <h2>Ready to <span>Dominate</span><br>Your Market?</h2>
   <p>Join roofing contractors who are winning more jobs, collecting more reviews, and growing faster with Dominion AI.</p>
-  <a href="mailto:hello@dominionai.com" class="btn-primary">Book Your Free Demo →</a>
+  <button class="btn-primary" onclick="openLeadForm()">Book Your Free Demo →</button>
   <p class="cta-note">$800 one-time setup · Live in 48 hours · Cancel anytime</p>
 </section>
 
@@ -1929,15 +2018,31 @@
     </div>
 
     <div class="demo-video-wrap">
+
+      <!-- Cover shown before play -->
+      <div class="video-cover" id="videoCover" onclick="startVideo()">
+        <div class="video-play-circle">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#0D0F14" style="margin-left:3px">
+            <path d="M5 3 L19 12 L5 21 Z"/>
+          </svg>
+        </div>
+        <span class="video-cover-label">Watch LeadLock handle a real storm damage call</span>
+      </div>
+
+      <!-- Error fallback -->
+      <div class="video-error-state" id="videoError">
+        <p>Video unavailable — make sure <strong style="color:var(--text)">demo.mp4</strong> is in the same folder as index.html</p>
+        <a href="#contact" onclick="closeDemo()">Book a live demo instead →</a>
+      </div>
+
       <video
         id="demoVideo"
         controls
-        preload="none"
+        preload="metadata"
         playsinline
-        poster=""
+        style="position:relative;z-index:1"
       >
         <source src="demo.mp4" type="video/mp4">
-        Your browser does not support the video tag.
       </video>
     </div>
 
@@ -1952,16 +2057,110 @@
   </div>
 </div>
 
+<!-- ─── Lead Capture Modal ─── -->
+<!--
+  SETUP (one-time, 2 minutes):
+  1. Go to https://web3forms.com
+  2. Enter your email address
+  3. Copy your Access Key
+  4. Replace "YOUR_WEB3FORMS_KEY_HERE" below with your key
+  Done — form submissions will arrive in your email inbox.
+-->
+<div class="lead-overlay" id="leadModal" onclick="handleLeadOverlay(event)">
+  <div class="lead-modal" id="leadModalBox">
+
+    <div class="lead-modal-hd">
+      <div>
+        <div class="lead-modal-title">Book Your Free Demo</div>
+        <div class="lead-modal-sub">We'll reach out within a few hours to schedule your demo call.</div>
+      </div>
+      <button class="lead-close" onclick="closeLeadForm()" aria-label="Close">&times;</button>
+    </div>
+
+    <!-- Form state -->
+    <form class="lead-form" id="leadForm" onsubmit="submitLeadForm(event)">
+      <input type="hidden" name="access_key" value="adfd02a2-f0d3-4aac-9181-676025bb1334">
+      <input type="hidden" name="subject" value="New LeadLock Demo Request">
+      <input type="hidden" name="from_name" value="LeadLock Website">
+      <input type="checkbox" name="botcheck" style="display:none">
+
+      <div class="lead-field">
+        <label class="lead-label" for="leadName">Your Name</label>
+        <input class="lead-input" type="text" id="leadName" name="name"
+          placeholder="e.g. Mike Johnson" required autocomplete="name">
+      </div>
+
+      <div class="lead-field">
+        <label class="lead-label" for="leadPhone">Phone Number</label>
+        <input class="lead-input" type="tel" id="leadPhone" name="phone"
+          placeholder="e.g. (713) 555-0192" required autocomplete="tel">
+      </div>
+
+      <button type="submit" class="lead-submit" id="leadSubmitBtn">
+        Request My Demo →
+      </button>
+
+      <div class="lead-guarantee">
+        <div class="lead-guarantee-dot"></div>
+        We'll contact you within a few hours. No spam, ever.
+      </div>
+    </form>
+
+    <!-- Success state -->
+    <div class="lead-success-state" id="leadSuccess">
+      <div class="lead-success-icon">✓</div>
+      <div class="lead-success-title">Request received!</div>
+      <div class="lead-success-msg">We'll be in touch within a few hours to schedule your LeadLock demo. Check your phone.</div>
+    </div>
+
+  </div>
+</div>
+
 <script>
-  function openDemo() {
-    const modal = document.getElementById('demoModal');
-    modal.classList.add('open');
+  /* ── Lead Form ── */
+  function openLeadForm() {
+    document.getElementById('leadModal').classList.add('open');
     document.body.style.overflow = 'hidden';
-    // Auto-play video
-    const video = document.getElementById('demoVideo');
-    video.play().catch(() => {});
+  }
+  function closeLeadForm() {
+    document.getElementById('leadModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function handleLeadOverlay(e) {
+    if (e.target === document.getElementById('leadModal')) closeLeadForm();
+  }
+  async function submitLeadForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('leadSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    try {
+      const formData = new FormData(document.getElementById('leadForm'));
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST', body: formData
+      });
+      const data = await res.json();
+      if (data.success) {
+        document.getElementById('leadForm').style.display = 'none';
+        document.getElementById('leadSuccess').style.display = 'block';
+        setTimeout(closeLeadForm, 4000);
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Request My Demo →';
+        alert('Something went wrong. Please try again.');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Request My Demo →';
+      alert('Connection error. Please try again.');
+    }
   }
 
+  /* ── Demo Video ── */
+  function openDemo() {
+    document.getElementById('demoModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
   function closeDemo() {
     const modal = document.getElementById('demoModal');
     const video = document.getElementById('demoVideo');
@@ -1969,17 +2168,32 @@
     document.body.style.overflow = '';
     video.pause();
     video.currentTime = 0;
+    document.getElementById('videoCover').classList.remove('hidden');
   }
-
   function handleOverlayClick(e) {
-    if (e.target === document.getElementById('demoModal')) {
-      closeDemo();
-    }
+    if (e.target === document.getElementById('demoModal')) closeDemo();
   }
+  function startVideo() {
+    const video = document.getElementById('demoVideo');
+    const cover = document.getElementById('videoCover');
+    cover.classList.add('hidden');
+    video.play().catch(() => { cover.classList.remove('hidden'); });
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    const video = document.getElementById('demoVideo');
+    if (video) {
+      video.addEventListener('error', function () {
+        document.getElementById('videoCover').style.display = 'none';
+        document.getElementById('videoError').style.display = 'flex';
+      });
+    }
+  });
 
-  // Close on ESC key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeDemo();
+  /* ── ESC closes whichever modal is open ── */
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (document.getElementById('demoModal').classList.contains('open')) closeDemo();
+    if (document.getElementById('leadModal').classList.contains('open')) closeLeadForm();
   });
 </script>
 
