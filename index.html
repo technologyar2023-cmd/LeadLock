@@ -970,7 +970,68 @@
   .pc-divider { color: var(--border); font-size: 24px; align-self: center; }
   .pc-note { font-size: 12px; color: var(--muted); text-align: center; width: 100%; padding-top: 4px; border-top: 1px solid var(--border); margin-top: 6px; }
 
-  /* ─── Lead Capture Modal ─── */
+  /* ─── ROI Calculator ─── */
+  .calc-section { background: var(--dark); padding: 100px 5%; }
+  .calc-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 1040px; margin: 60px auto 0; }
+  .calc-inputs { display: flex; flex-direction: column; gap: 30px; }
+  .calc-group { display: flex; flex-direction: column; gap: 10px; }
+  .calc-group-hd { display: flex; justify-content: space-between; align-items: baseline; }
+  .calc-group-label { font-size: 13px; color: var(--text); font-weight: 500; }
+  .calc-group-val { font-size: 22px; font-weight: 700; color: var(--copper); font-family: 'Bebas Neue', sans-serif; letter-spacing: .5px; }
+  .calc-range {
+    -webkit-appearance: none; appearance: none;
+    width: 100%; height: 4px; border-radius: 2px;
+    background: var(--border); outline: none; cursor: pointer;
+  }
+  .calc-range::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--copper); cursor: pointer;
+    border: 2px solid var(--dark);
+    box-shadow: 0 0 0 4px rgba(200,120,58,.18);
+    transition: box-shadow .2s;
+  }
+  .calc-range::-webkit-slider-thumb:hover { box-shadow: 0 0 0 6px rgba(200,120,58,.25); }
+  .calc-range::-moz-range-thumb {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--copper); cursor: pointer;
+    border: 2px solid var(--dark);
+  }
+  .calc-range-limits { display: flex; justify-content: space-between; font-size: 11px; color: rgba(138,136,130,.55); margin-top: 2px; }
+  .calc-results {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 28px; display: flex; flex-direction: column;
+  }
+  .calc-results-title { font-size: 11px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; margin-bottom: 18px; }
+  .calc-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: .5px solid var(--border); }
+  .calc-row:last-of-type { border-bottom: none; }
+  .calc-row-label { font-size: 13px; color: var(--muted); }
+  .calc-row-val { font-size: 17px; font-weight: 700; font-family: 'Bebas Neue', sans-serif; letter-spacing: .5px; }
+  .val-loss { color: #EF9A9A; }
+  .val-gain { color: #A5D6A7; }
+  .val-neutral { color: var(--text); }
+  .calc-sep { height: .5px; background: var(--border); margin: 8px 0; }
+  .calc-net-box {
+    background: linear-gradient(135deg, rgba(76,175,120,.1), rgba(76,175,120,.04));
+    border: 1px solid rgba(76,175,120,.2); border-radius: 10px;
+    padding: 22px 18px; text-align: center; margin-top: 18px;
+  }
+  .calc-net-label { font-size: 11px; color: #A5D6A7; text-transform: uppercase; letter-spacing: .6px; margin-bottom: 6px; }
+  .calc-net-val { font-size: 48px; font-weight: 700; color: #A5D6A7; font-family: 'Bebas Neue', sans-serif; line-height: 1; }
+  .calc-net-roi { font-size: 12px; color: rgba(165,214,167,.65); margin-top: 4px; }
+  .calc-action {
+    display: block; width: 100%; padding: 14px; background: var(--copper);
+    color: var(--black); border: none; border-radius: 6px;
+    font-size: 13px; font-weight: 700; cursor: pointer;
+    font-family: 'Outfit', sans-serif; letter-spacing: .2px;
+    transition: background .2s; text-align: center; text-decoration: none;
+    margin-top: 16px;
+  }
+  .calc-action:hover { background: var(--copper-lt); }
+  .calc-disclaimer { font-size: 11px; color: rgba(138,136,130,.5); text-align: center; margin-top: 14px; max-width: 1040px; margin-left: auto; margin-right: auto; }
+  @media(max-width:768px) { .calc-wrap { grid-template-columns: 1fr; } }
+
+
   .lead-overlay {
     display: none; position: fixed; inset: 0; z-index: 999;
     background: rgba(0,0,0,.85); backdrop-filter: blur(8px);
@@ -1406,6 +1467,110 @@
       <div class="num-sub">Based on 18 bookings/mo × 20% close rate × $10K avg job</div>
     </div>
   </div>
+</section>
+
+<!-- ─── ROI Calculator ─── -->
+<section class="calc-section" id="calculator">
+  <div class="centered reveal">
+    <span class="section-label">ROI Calculator</span>
+    <h2 class="section-title">How Much Are You Losing Right Now?</h2>
+    <p class="section-sub">Adjust the sliders to match your business — see your real numbers instantly.</p>
+  </div>
+
+  <div class="calc-wrap">
+
+    <!-- Inputs -->
+    <div class="calc-inputs">
+
+      <div class="calc-group">
+        <div class="calc-group-hd">
+          <span class="calc-group-label">Monthly incoming calls</span>
+          <span class="calc-group-val" id="v-calls">120 calls</span>
+        </div>
+        <input class="calc-range" type="range" min="30" max="500" value="120" id="s-calls" oninput="updateCalc()">
+        <div class="calc-range-limits"><span>30</span><span>500</span></div>
+      </div>
+
+      <div class="calc-group">
+        <div class="calc-group-hd">
+          <span class="calc-group-label">Calls missed while on the job</span>
+          <span class="calc-group-val" id="v-missed">35%</span>
+        </div>
+        <input class="calc-range" type="range" min="10" max="70" value="35" id="s-missed" oninput="updateCalc()">
+        <div class="calc-range-limits"><span>10%</span><span>70%</span></div>
+      </div>
+
+      <div class="calc-group">
+        <div class="calc-group-hd">
+          <span class="calc-group-label">Calls that convert to a signed job</span>
+          <span class="calc-group-val" id="v-conv">15%</span>
+        </div>
+        <input class="calc-range" type="range" min="5" max="40" value="15" id="s-conv" oninput="updateCalc()">
+        <div class="calc-range-limits"><span>5%</span><span>40%</span></div>
+      </div>
+
+      <div class="calc-group">
+        <div class="calc-group-hd">
+          <span class="calc-group-label">Average job value</span>
+          <span class="calc-group-val" id="v-job">$9,000</span>
+        </div>
+        <input class="calc-range" type="range" min="2000" max="30000" value="9000" step="500" id="s-job" oninput="updateCalc()">
+        <div class="calc-range-limits"><span>$2K</span><span>$30K</span></div>
+      </div>
+
+    </div>
+
+    <!-- Results -->
+    <div class="calc-results">
+      <div class="calc-results-title">Your numbers</div>
+
+      <div class="calc-row">
+        <span class="calc-row-label">Calls missed per month</span>
+        <span class="calc-row-val val-neutral" id="r-missed-n">42 calls</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-row-label">Jobs lost per month</span>
+        <span class="calc-row-val val-loss" id="r-lost-jobs">6 jobs</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-row-label">Revenue lost per month</span>
+        <span class="calc-row-val val-loss" id="r-lost-mo">$56,700</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-row-label">Revenue lost per year</span>
+        <span class="calc-row-val val-loss" id="r-lost-yr">$680,400</span>
+      </div>
+
+      <div class="calc-sep"></div>
+
+      <div class="calc-row">
+        <span class="calc-row-label">Extra jobs LeadLock captures / month</span>
+        <span class="calc-row-val val-gain" id="r-cap-jobs">5 jobs</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-row-label">Revenue recovered / year</span>
+        <span class="calc-row-val val-gain" id="r-recovered">$544,320</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-row-label">LeadLock annual investment</span>
+        <span class="calc-row-val val-neutral">$5,564</span>
+      </div>
+
+      <div class="calc-net-box">
+        <div class="calc-net-label">Net annual profit with LeadLock</div>
+        <div class="calc-net-val" id="r-net">$538,756</div>
+        <div class="calc-net-roi" id="r-roi">ROI — 9,683%</div>
+      </div>
+
+      <button class="calc-action" id="calc-cta" onclick="openLeadForm()">
+        Get LeadLock — Recover $544,320 This Year →
+      </button>
+
+    </div>
+  </div>
+
+  <p class="calc-disclaimer">* LeadLock captures approximately 80% of previously missed calls. Conversion rates and job values vary by market and contractor. Results not guaranteed.</p>
+
 </section>
 
 <!-- ─── Features ─── -->
@@ -2179,7 +2344,51 @@
     cover.classList.add('hidden');
     video.play().catch(() => { cover.classList.remove('hidden'); });
   }
+  /* ── ROI Calculator ── */
+  function updateCalc() {
+    const calls  = parseInt(document.getElementById('s-calls').value);
+    const missed = parseInt(document.getElementById('s-missed').value);
+    const conv   = parseInt(document.getElementById('s-conv').value);
+    const job    = parseInt(document.getElementById('s-job').value);
+
+    document.getElementById('v-calls').textContent  = calls + ' calls';
+    document.getElementById('v-missed').textContent = missed + '%';
+    document.getElementById('v-conv').textContent   = conv + '%';
+    document.getElementById('v-job').textContent    = '$' + job.toLocaleString();
+
+    const missedN   = Math.round(calls * missed / 100);
+    const lostJobs  = Math.round(missedN * conv / 100);
+    const lostMo    = lostJobs * job;
+    const lostYr    = lostMo * 12;
+
+    const capCalls  = Math.round(missedN * 0.80);
+    const capJobs   = Math.round(capCalls * conv / 100);
+    const recYr     = capJobs * job * 12;
+    const llCost    = 5564;
+    const net       = recYr - llCost;
+    const roi       = llCost > 0 ? Math.round((net / llCost) * 100) : 0;
+
+    document.getElementById('r-missed-n').textContent  = missedN + ' calls';
+    document.getElementById('r-lost-jobs').textContent = lostJobs + ' jobs';
+    document.getElementById('r-lost-mo').textContent   = '$' + lostMo.toLocaleString();
+    document.getElementById('r-lost-yr').textContent   = '$' + lostYr.toLocaleString();
+    document.getElementById('r-cap-jobs').textContent  = capJobs + ' jobs';
+    document.getElementById('r-recovered').textContent = '$' + recYr.toLocaleString();
+    document.getElementById('r-net').textContent       = (net >= 0 ? '$' : '-$') + Math.abs(net).toLocaleString();
+    document.getElementById('r-roi').textContent       = 'ROI — ' + roi.toLocaleString() + '%';
+    document.getElementById('calc-cta').textContent    = 'Get LeadLock — Recover $' + recYr.toLocaleString() + ' This Year →';
+
+    ['s-calls','s-missed','s-conv','s-job'].forEach(function(id) {
+      const el  = document.getElementById(id);
+      const min = parseFloat(el.min);
+      const max = parseFloat(el.max);
+      const pct = ((el.value - min) / (max - min)) * 100;
+      el.style.background = 'linear-gradient(to right, var(--copper) ' + pct + '%, var(--border) ' + pct + '%)';
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
+    updateCalc();
     const video = document.getElementById('demoVideo');
     if (video) {
       video.addEventListener('error', function () {
@@ -2188,6 +2397,8 @@
       });
     }
   });
+
+
 
   /* ── ESC closes whichever modal is open ── */
   document.addEventListener('keydown', function (e) {
