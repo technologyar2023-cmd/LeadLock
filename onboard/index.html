@@ -5,196 +5,233 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Start Your Free Trial — LeadLock by Dominion AI</title>
   <meta name="description" content="Fill out this short form and your AI receptionist will be ready within 24 hours. No technical setup required." />
-
+  <meta name="theme-color" content="#C8783A" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── Tokens ── */
+    /* ── Tokens (exact match to dominionai.site) ── */
     :root {
-      --bg:         #0a0a0f;
-      --surface:    #111118;
-      --surface2:   #18181f;
-      --border:     #ffffff12;
-      --border-hover: #ffffff28;
-      --accent:     #6c63ff;
-      --accent-dim: #6c63ff22;
-      --accent-glow:#6c63ff66;
-      --green:      #22c55e;
-      --text:       #f0f0f5;
-      --muted:      #8888a0;
-      --error:      #f87171;
+      --black:     #090A0C;
+      --dark:      #0F1115;
+      --card:      #161820;
+      --card2:     #1C1F28;
+      --border:    rgba(255,255,255,0.07);
+      --border-hover: rgba(255,255,255,0.14);
+      --copper:    #C8783A;
+      --copper-lt: #E09050;
+      --copper-dk: #9A5A25;
+      --white:     #F2EDE6;
+      --muted:     #8A8882;
+      --text:      #D8D4CC;
+      --success:   #4CAF78;
+      --error:     #f87171;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
+      font-family: 'Outfit', sans-serif;
+      background: var(--black);
       color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
       line-height: 1.6;
+      overflow-x: hidden;
       min-height: 100vh;
     }
 
-    /* ── Top bar ── */
-    .topbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 32px;
-      height: 60px;
-      background: #0a0a0fcc;
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--copper-dk); border-radius: 2px; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 5%;
+      height: 70px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(9,10,12,0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
 
-    .logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 17px;
-      color: var(--text);
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
       text-decoration: none;
-      letter-spacing: -0.3px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
 
-    .logo-dot {
-      width: 8px; height: 8px;
-      background: var(--accent);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--accent-glow);
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: var(--copper);
+      clip-path: polygon(50% 0%, 100% 30%, 100% 100%, 0% 100%, 0% 30%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      color: var(--black);
+      letter-spacing: 1px;
     }
+
+    .logo-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 3px;
+      color: var(--white);
+    }
+
+    .logo-text span { color: var(--copper); }
 
     .back-link {
+      display: flex; align-items: center; gap: 7px;
       font-size: 13px;
+      font-weight: 500;
       color: var(--muted);
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      letter-spacing: 0.3px;
       transition: color 0.2s;
     }
 
-    .back-link:hover { color: var(--text); }
+    .back-link:hover { color: var(--white); }
 
     .back-link svg {
-      width: 14px; height: 14px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      width: 15px; height: 15px;
+      stroke: currentColor; fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ── Background geometry (matches hero) ── */
+    .page-bg {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        repeating-linear-gradient(-45deg, transparent, transparent 80px,
+          rgba(200,120,58,0.025) 80px, rgba(200,120,58,0.025) 81px),
+        repeating-linear-gradient(45deg, transparent, transparent 80px,
+          rgba(200,120,58,0.025) 80px, rgba(200,120,58,0.025) 81px);
+    }
+
+    .page-glow {
+      position: fixed;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,120,58,0.07) 0%, transparent 70%);
+      top: 30%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none; z-index: 0;
     }
 
     /* ── Hero ── */
     .hero {
-      padding: 120px 24px 48px;
+      position: relative; z-index: 1;
+      padding: 130px 24px 40px;
       text-align: center;
-      max-width: 600px;
+      max-width: 640px;
       margin: 0 auto;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--accent-dim);
-      border: 1px solid var(--accent-glow);
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px;
+      border: 1px solid rgba(200,120,58,0.4);
       border-radius: 100px;
-      padding: 5px 14px;
-      font-size: 12px;
-      font-weight: 500;
-      color: #a89fff;
-      letter-spacing: 0.3px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--copper);
       margin-bottom: 24px;
+      animation: fadeInDown 0.5s ease both;
     }
 
     .badge-dot {
       width: 6px; height: 6px;
-      background: var(--accent);
       border-radius: 50%;
+      background: var(--copper);
       animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(28px, 5vw, 42px);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.8px;
-      margin-bottom: 16px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(42px, 8vw, 72px);
+      line-height: 0.95;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin-bottom: 20px;
+      animation: fadeInUp 0.6s ease 0.1s both;
     }
 
-    h1 span {
-      background: linear-gradient(135deg, #a89fff, #6c63ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    h1 .accent { color: var(--copper); }
+
+    h1 .outline {
+      -webkit-text-stroke: 1px rgba(200,120,58,0.5);
+      color: transparent;
     }
 
     .hero-sub {
-      color: var(--muted);
       font-size: 16px;
-      line-height: 1.6;
+      color: var(--muted);
       max-width: 480px;
-      margin: 0 auto 32px;
+      margin: 0 auto 28px;
+      font-weight: 300;
+      line-height: 1.7;
+      animation: fadeInUp 0.6s ease 0.2s both;
     }
 
+    .hero-sub strong { color: var(--text); font-weight: 500; }
+
     .checklist {
-      display: flex;
-      flex-wrap: wrap;
+      display: flex; flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 8px;
+      gap: 12px 20px;
+      animation: fadeInUp 0.6s ease 0.3s both;
     }
 
     .check-item {
-      display: flex;
-      align-items: center;
-      gap: 7px;
+      display: flex; align-items: center; gap: 7px;
       font-size: 13px;
       color: var(--muted);
+      font-weight: 400;
     }
 
     .check-item svg {
       width: 15px; height: 15px;
-      stroke: var(--green);
-      fill: none;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      stroke: var(--success); fill: none;
+      stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
       flex-shrink: 0;
     }
 
-    /* ── Form card ── */
+    /* ── Form wrapper ── */
     .form-wrap {
+      position: relative; z-index: 1;
       max-width: 580px;
       margin: 0 auto;
       padding: 0 24px 80px;
     }
 
+    /* ── Form card ── */
     .form-card {
-      background: var(--surface);
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: 16px;
       overflow: hidden;
+      animation: fadeInUp 0.6s ease 0.35s both;
     }
 
-    /* ── Progress ── */
+    /* ── Progress bar ── */
     .progress-bar {
       height: 3px;
       background: var(--border);
@@ -202,28 +239,27 @@
 
     .progress-fill {
       height: 100%;
-      background: linear-gradient(90deg, #6c63ff, #a89fff);
-      border-radius: 2px;
-      transition: width 0.4s ease;
+      background: linear-gradient(90deg, var(--copper-dk), var(--copper), var(--copper-lt));
+      border-radius: 0 2px 2px 0;
+      transition: width 0.45s ease;
       width: 0%;
     }
 
-    /* ── Step indicator ── */
+    /* ── Step tabs ── */
     .steps-nav {
       display: flex;
-      padding: 20px 28px 0;
-      gap: 0;
       border-bottom: 1px solid var(--border);
+      padding: 0 8px;
     }
 
     .step-tab {
       flex: 1;
-      padding: 10px 8px 14px;
+      padding: 14px 8px;
       font-size: 11px;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--muted);
       text-align: center;
-      letter-spacing: 0.4px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
       border-bottom: 2px solid transparent;
       margin-bottom: -1px;
@@ -233,88 +269,81 @@
     }
 
     .step-tab.active {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
+      color: var(--copper);
+      border-bottom-color: var(--copper);
     }
 
     .step-tab.done {
-      color: var(--green);
-      border-bottom-color: var(--green);
+      color: var(--success);
+      border-bottom-color: var(--success);
     }
 
     /* ── Form sections ── */
     .form-section {
       display: none;
-      padding: 32px 28px;
-      animation: fadeIn 0.25s ease;
+      padding: 32px 28px 8px;
+      animation: fadeInUp 0.22s ease both;
     }
 
     .form-section.active { display: block; }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .section-label {
+    .section-eyebrow {
       font-size: 11px;
       font-weight: 600;
-      letter-spacing: 1.2px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 6px;
+      color: var(--copper);
+      margin-bottom: 4px;
     }
 
     .section-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      letter-spacing: -0.3px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 4px;
     }
 
     .section-desc {
       font-size: 13px;
       color: var(--muted);
       margin-bottom: 28px;
+      font-weight: 300;
     }
 
-    /* ── Field ── */
-    .field {
-      margin-bottom: 22px;
-    }
+    /* ── Fields ── */
+    .field { margin-bottom: 20px; }
 
     .field label {
       display: block;
       font-size: 13px;
       font-weight: 500;
       color: var(--text);
-      margin-bottom: 7px;
+      margin-bottom: 6px;
+      letter-spacing: 0.2px;
     }
 
-    .field label .req {
-      color: var(--accent);
-      margin-left: 2px;
-    }
+    .field label .req { color: var(--copper); margin-left: 2px; }
 
     .field .hint {
       font-size: 12px;
       color: var(--muted);
       margin-bottom: 7px;
       margin-top: -3px;
+      font-weight: 300;
     }
 
     .field input,
     .field select,
     .field textarea {
       width: 100%;
-      background: var(--surface2);
+      background: var(--card2);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 8px;
       padding: 11px 14px;
       font-size: 14px;
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
+      font-family: 'Outfit', sans-serif;
+      color: var(--white);
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
       -webkit-appearance: none;
@@ -322,7 +351,7 @@
 
     .field select {
       cursor: pointer;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238888a0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238A8882' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 14px center;
       padding-right: 36px;
@@ -331,21 +360,19 @@
     .field input:focus,
     .field select:focus,
     .field textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px var(--accent-dim);
+      border-color: var(--copper);
+      box-shadow: 0 0 0 3px rgba(200,120,58,0.12);
     }
 
     .field input::placeholder,
-    .field textarea::placeholder {
-      color: #44445a;
-    }
+    .field textarea::placeholder { color: #444240; }
 
     .field textarea {
       resize: vertical;
-      min-height: 90px;
+      min-height: 88px;
     }
 
-    /* ── Checkbox group ── */
+    /* ── Checkbox grid ── */
     .checkbox-group {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -353,32 +380,27 @@
     }
 
     .checkbox-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--surface2);
+      display: flex; align-items: center; gap: 10px;
+      background: var(--card2);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 8px;
       padding: 11px 14px;
       cursor: pointer;
       transition: border-color 0.2s, background 0.2s;
       user-select: none;
     }
 
-    .checkbox-item:hover {
-      border-color: var(--border-hover);
+    .checkbox-item:hover { border-color: var(--border-hover); }
+
+    .checkbox-item.checked {
+      border-color: rgba(200,120,58,0.5);
+      background: rgba(200,120,58,0.06);
     }
 
     .checkbox-item input[type="checkbox"] {
       width: 16px; height: 16px;
-      accent-color: var(--accent);
-      flex-shrink: 0;
-      cursor: pointer;
-    }
-
-    .checkbox-item.checked {
-      border-color: var(--accent);
-      background: var(--accent-dim);
+      accent-color: var(--copper);
+      flex-shrink: 0; cursor: pointer;
     }
 
     .checkbox-item span {
@@ -388,19 +410,13 @@
     }
 
     /* ── Radio group ── */
-    .radio-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+    .radio-group { display: flex; flex-direction: column; gap: 8px; }
 
     .radio-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--surface2);
+      display: flex; align-items: center; gap: 12px;
+      background: var(--card2);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 8px;
       padding: 13px 16px;
       cursor: pointer;
       transition: border-color 0.2s, background 0.2s;
@@ -409,82 +425,71 @@
 
     .radio-item:hover { border-color: var(--border-hover); }
 
+    .radio-item.selected {
+      border-color: rgba(200,120,58,0.5);
+      background: rgba(200,120,58,0.06);
+    }
+
     .radio-item input[type="radio"] {
       width: 16px; height: 16px;
-      accent-color: var(--accent);
-      flex-shrink: 0;
-      cursor: pointer;
+      accent-color: var(--copper);
+      flex-shrink: 0; cursor: pointer;
     }
 
-    .radio-item.selected {
-      border-color: var(--accent);
-      background: var(--accent-dim);
-    }
+    .radio-label { font-size: 14px; font-weight: 500; color: var(--text); }
+    .radio-sub   { font-size: 12px; color: var(--muted); margin-top: 1px; font-weight: 300; }
 
-    .radio-item .radio-label {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .radio-item .radio-sub {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 1px;
-    }
-
-    /* ── Error ── */
+    /* ── Errors ── */
     .field-error {
-      font-size: 12px;
-      color: var(--error);
-      margin-top: 5px;
-      display: none;
+      font-size: 12px; color: var(--error);
+      margin-top: 5px; display: none;
     }
 
     .field.has-error input,
     .field.has-error select,
-    .field.has-error textarea {
-      border-color: var(--error);
-    }
+    .field.has-error textarea { border-color: var(--error); }
 
     .field.has-error .field-error { display: block; }
 
+    /* ── Divider ── */
+    .form-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 8px 0 0;
+    }
+
     /* ── Nav buttons ── */
     .form-nav {
-      display: flex;
-      align-items: center;
+      display: flex; align-items: center;
       justify-content: space-between;
-      padding: 0 28px 28px;
+      padding: 20px 28px 28px;
       gap: 12px;
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-flex; align-items: center; justify-content: center;
       gap: 8px;
-      padding: 12px 24px;
-      border-radius: 10px;
+      padding: 13px 24px;
+      border-radius: 6px;
       font-size: 14px;
       font-weight: 600;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Outfit', sans-serif;
       cursor: pointer;
       border: none;
       transition: all 0.2s;
       text-decoration: none;
+      letter-spacing: 0.3px;
     }
 
     .btn-primary {
-      background: var(--accent);
-      color: #fff;
+      background: var(--copper);
+      color: var(--black);
       flex: 1;
-      box-shadow: 0 4px 20px var(--accent-glow);
     }
 
     .btn-primary:hover {
-      background: #7d75ff;
+      background: var(--copper-lt);
       transform: translateY(-1px);
-      box-shadow: 0 6px 24px var(--accent-glow);
     }
 
     .btn-primary:active { transform: translateY(0); }
@@ -493,33 +498,24 @@
       background: transparent;
       color: var(--muted);
       border: 1px solid var(--border);
-      padding: 12px 18px;
+      padding: 13px 18px;
+      flex-shrink: 0;
     }
 
-    .btn-ghost:hover {
-      border-color: var(--border-hover);
-      color: var(--text);
-    }
+    .btn-ghost:hover { border-color: var(--border-hover); color: var(--text); }
+
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none !important; }
 
     .btn svg {
-      width: 16px; height: 16px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none !important;
+      width: 15px; height: 15px;
+      stroke: currentColor; fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
     }
 
     /* ── Success ── */
     .success-screen {
       display: none;
-      padding: 52px 28px;
+      padding: 52px 28px 48px;
       text-align: center;
     }
 
@@ -527,127 +523,121 @@
 
     .success-icon {
       width: 64px; height: 64px;
-      background: #22c55e18;
-      border: 1px solid #22c55e44;
+      background: rgba(76,175,120,0.1);
+      border: 1px solid rgba(76,175,120,0.3);
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       margin: 0 auto 24px;
     }
 
     .success-icon svg {
       width: 28px; height: 28px;
-      stroke: var(--green);
-      fill: none;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      stroke: var(--success); fill: none;
+      stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
     }
 
     .success-screen h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      letter-spacing: -0.3px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin-bottom: 10px;
     }
 
     .success-screen p {
       color: var(--muted);
       font-size: 15px;
-      max-width: 380px;
+      max-width: 360px;
       margin: 0 auto 28px;
-      line-height: 1.6;
+      font-weight: 300;
+      line-height: 1.7;
     }
 
     .next-steps {
-      background: var(--surface2);
+      background: var(--card2);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 10px;
       padding: 20px;
       text-align: left;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .next-steps-title {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .next-step-item {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 12px;
+      display: flex; gap: 12px;
+      margin-bottom: 14px;
     }
 
     .next-step-item:last-child { margin-bottom: 0; }
 
     .step-num {
       width: 22px; height: 22px;
-      background: var(--accent-dim);
-      border: 1px solid var(--accent-glow);
+      background: rgba(200,120,58,0.12);
+      border: 1px solid rgba(200,120,58,0.3);
       border-radius: 50%;
       font-size: 11px;
       font-weight: 700;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
+      color: var(--copper);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
     }
 
     .next-step-item p {
-      font-size: 13px;
-      color: var(--muted);
-      margin: 0;
+      font-size: 13px; color: var(--muted);
+      margin: 0; font-weight: 300; line-height: 1.6;
     }
 
-    .next-step-item strong {
-      color: var(--text);
-      font-weight: 500;
+    .next-step-item strong { color: var(--text); font-weight: 500; }
+
+    .btn-home {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px;
+      background: var(--copper);
+      color: var(--black);
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      transition: all 0.2s;
     }
 
-    /* ── Footer ── */
+    .btn-home:hover { background: var(--copper-lt); transform: translateY(-1px); }
+
+    .btn-home svg {
+      width: 15px; height: 15px;
+      stroke: currentColor; fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ── Footer note ── */
     .form-footer {
       text-align: center;
-      padding: 0 24px 40px;
+      padding: 16px 24px 40px;
     }
 
-    .form-footer p {
-      font-size: 12px;
-      color: #44445a;
-    }
-
-    .form-footer a {
-      color: var(--muted);
-      text-decoration: none;
-    }
-
-    .form-footer a:hover { color: var(--text); }
-
-    /* ── Divider ── */
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 0 28px 24px;
-    }
+    .form-footer p { font-size: 12px; color: #44424a; }
+    .form-footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .form-footer a:hover { color: var(--copper); }
 
     /* ── Responsive ── */
     @media (max-width: 480px) {
-      .topbar { padding: 0 20px; }
-      .hero { padding: 100px 20px 36px; }
+      nav { padding: 0 20px; }
+      .hero { padding: 110px 20px 32px; }
       .form-wrap { padding: 0 16px 60px; }
-      .form-section { padding: 24px 20px; }
-      .form-nav { padding: 0 20px 24px; }
+      .form-section { padding: 24px 20px 8px; }
+      .form-nav { padding: 16px 20px 24px; }
       .checkbox-group { grid-template-columns: 1fr; }
-      .steps-nav { padding: 16px 20px 0; }
-      h1 { font-size: 26px; }
+      h1 { font-size: 38px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -657,13 +647,16 @@
 </head>
 <body>
 
-  <!-- Top bar -->
-  <nav class="topbar">
-    <a href="https://dominionai.co" class="logo">
-      <span class="logo-dot"></span>
-      Dominion AI
+  <div class="page-bg"></div>
+  <div class="page-glow"></div>
+
+  <!-- Nav -->
+  <nav>
+    <a href="https://dominionai.site" class="nav-logo">
+      <div class="logo-icon">DA</div>
+      <div class="logo-text">DOMINION <span>AI</span></div>
     </a>
-    <a href="https://dominionai.co" class="back-link">
+    <a href="https://dominionai.site" class="back-link">
       <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
       Back to main site
     </a>
@@ -671,13 +664,17 @@
 
   <!-- Hero -->
   <header class="hero">
-    <div class="badge">
+    <div class="hero-badge">
       <span class="badge-dot"></span>
       Free 7-Day Trial
     </div>
-    <h1>Set up your<br /><span>AI receptionist</span><br />in 24 hours</h1>
+    <h1>
+      YOUR AI RECEPTIONIST<br />
+      <span class="accent">READY IN</span> <span class="outline">24 HOURS</span>
+    </h1>
     <p class="hero-sub">
-      Fill out this short form. I'll build your agent, connect it to your calendar, and send you the activation code — no technical setup on your end.
+      Fill out this short form. I'll build your agent, connect it to your calendar,
+      and send you the activation code — <strong>no technical setup on your end.</strong>
     </p>
     <div class="checklist">
       <div class="check-item">
@@ -690,11 +687,11 @@
       </div>
       <div class="check-item">
         <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        Ready in 24 hours
+        2-min activation on your phone
       </div>
       <div class="check-item">
         <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        2-min activation on your phone
+        Direct support from me
       </div>
     </div>
   </header>
@@ -707,7 +704,6 @@
         <div class="progress-fill" id="progressFill"></div>
       </div>
 
-      <!-- Step tabs -->
       <div class="steps-nav">
         <div class="step-tab active" id="tab-1">Company</div>
         <div class="step-tab" id="tab-2">Agent</div>
@@ -716,11 +712,11 @@
 
       <form id="onboardForm" novalidate>
 
-        <!-- ── Step 1: Company ── -->
+        <!-- Step 1 -->
         <div class="form-section active" id="step-1">
-          <div class="section-label">Step 1 of 3</div>
-          <div class="section-title">Your company info</div>
-          <div class="section-desc">This is how your AI receptionist will introduce itself to every caller.</div>
+          <div class="section-eyebrow">Step 1 of 3</div>
+          <div class="section-title">Your Company</div>
+          <div class="section-desc">How your AI receptionist will introduce itself to every caller.</div>
 
           <div class="field" id="field-companyName">
             <label for="companyName">Company name <span class="req">*</span></label>
@@ -731,7 +727,7 @@
 
           <div class="field" id="field-cityState">
             <label for="cityState">City & State you serve <span class="req">*</span></label>
-            <div class="hint">e.g. "Dallas, TX" — helps the agent reference your area</div>
+            <div class="hint">e.g. "Dallas, TX"</div>
             <input type="text" id="cityState" name="cityState" placeholder="City, State" />
             <div class="field-error">Please enter your service area.</div>
           </div>
@@ -769,22 +765,22 @@
           </div>
 
           <div class="field" id="field-hours">
-            <label for="hours">Your working hours <span class="req">*</span></label>
-            <div class="hint">The agent works 24/7 — this tells it when to offer inspection slots</div>
+            <label for="hours">Working hours <span class="req">*</span></label>
+            <div class="hint">The agent answers 24/7 — this tells it when to offer inspection slots</div>
             <input type="text" id="hours" name="hours" placeholder="e.g. Mon–Fri 7am–6pm, Sat 8am–2pm" />
             <div class="field-error">Please enter your working hours.</div>
           </div>
         </div>
 
-        <!-- ── Step 2: Agent ── -->
+        <!-- Step 2 -->
         <div class="form-section" id="step-2">
-          <div class="section-label">Step 2 of 3</div>
-          <div class="section-title">Your AI receptionist</div>
-          <div class="section-desc">Personalize how your agent sounds and presents itself to callers.</div>
+          <div class="section-eyebrow">Step 2 of 3</div>
+          <div class="section-title">Your Agent</div>
+          <div class="section-desc">Personalize how your AI receptionist sounds to callers.</div>
 
           <div class="field" id="field-agentName">
             <label for="agentName">Agent name <span class="req">*</span></label>
-            <div class="hint">The name your AI receptionist uses when answering — e.g. Alex, Sarah, Mike</div>
+            <div class="hint">The name your AI uses when answering — e.g. Alex, Sarah, Mike</div>
             <input type="text" id="agentName" name="agentName" placeholder="e.g. Alex" />
             <div class="field-error">Please enter a name for your agent.</div>
           </div>
@@ -794,21 +790,17 @@
             <div class="radio-group" id="voiceGroup">
               <label class="radio-item">
                 <input type="radio" name="voice" value="Male" />
-                <div>
-                  <div class="radio-label">Male</div>
-                </div>
+                <div class="radio-label">Male</div>
               </label>
               <label class="radio-item">
                 <input type="radio" name="voice" value="Female" />
-                <div>
-                  <div class="radio-label">Female</div>
-                </div>
+                <div class="radio-label">Female</div>
               </label>
               <label class="radio-item">
                 <input type="radio" name="voice" value="No preference" />
                 <div>
                   <div class="radio-label">No preference</div>
-                  <div class="radio-sub">I'll choose the most natural-sounding option</div>
+                  <div class="radio-sub">I'll pick the most natural-sounding option</div>
                 </div>
               </label>
             </div>
@@ -816,51 +808,51 @@
           </div>
 
           <div class="field">
-            <label for="avgJob">Average job value <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+            <label for="avgJob">Average job value <span style="color:var(--muted);font-weight:300">(optional)</span></label>
             <div class="hint">Helps me fine-tune how the agent qualifies leads</div>
             <select id="avgJob" name="avgJob">
               <option value="">Select a range…</option>
-              <option value="Under $5,000">Under $5,000</option>
-              <option value="$5,000 – $10,000">$5,000 – $10,000</option>
-              <option value="$10,000 – $20,000">$10,000 – $20,000</option>
-              <option value="Over $20,000">Over $20,000</option>
+              <option>Under $5,000</option>
+              <option>$5,000 – $10,000</option>
+              <option>$10,000 – $20,000</option>
+              <option>Over $20,000</option>
             </select>
           </div>
 
           <div class="field">
-            <label for="extraInfo">Anything else I should know? <span style="color:var(--muted);font-weight:400">(optional)</span></label>
-            <div class="hint">e.g. insurance work only, specific neighborhoods, bilingual callers, seasonal focus</div>
+            <label for="extraInfo">Anything else I should know? <span style="color:var(--muted);font-weight:300">(optional)</span></label>
+            <div class="hint">e.g. insurance work only, specific neighborhoods, bilingual callers</div>
             <textarea id="extraInfo" name="extraInfo" placeholder="Any details that help me build a better agent for your business…"></textarea>
           </div>
         </div>
 
-        <!-- ── Step 3: Activation ── -->
+        <!-- Step 3 -->
         <div class="form-section" id="step-3">
-          <div class="section-label">Step 3 of 3</div>
-          <div class="section-title">Activation info</div>
-          <div class="section-desc">I'll use this to assign your agent number and send you the exact activation code for your phone.</div>
+          <div class="section-eyebrow">Step 3 of 3</div>
+          <div class="section-title">Activation</div>
+          <div class="section-desc">I'll send your agent number and the exact activation code for your phone.</div>
 
           <div class="field" id="field-phone">
-            <label for="phone">Your business phone number <span class="req">*</span></label>
+            <label for="phone">Business phone number <span class="req">*</span></label>
             <div class="hint">The number your customers call — missed calls will forward to your agent</div>
             <input type="tel" id="phone" name="phone" placeholder="e.g. (214) 555-0192" autocomplete="tel" />
             <div class="field-error">Please enter your business phone number.</div>
           </div>
 
           <div class="field" id="field-email">
-            <label for="email">Your email address <span class="req">*</span></label>
+            <label for="email">Email address <span class="req">*</span></label>
             <div class="hint">I'll send your agent number and activation instructions here</div>
             <input type="email" id="email" name="email" placeholder="you@yourcompany.com" autocomplete="email" />
             <div class="field-error">Please enter a valid email address.</div>
           </div>
 
           <div class="field" id="field-carrier">
-            <label>Your mobile carrier <span class="req">*</span></label>
-            <div class="hint">Needed to send you the exact forwarding code for your phone</div>
+            <label>Mobile carrier <span class="req">*</span></label>
+            <div class="hint">Needed to send you the exact forwarding code</div>
             <div class="radio-group" id="carrierGroup">
               <label class="radio-item">
                 <input type="radio" name="carrier" value="AT&T" />
-                <div class="radio-label">AT&T</div>
+                <div class="radio-label">AT&amp;T</div>
               </label>
               <label class="radio-item">
                 <input type="radio" name="carrier" value="Verizon" />
@@ -886,23 +878,23 @@
           </div>
         </div>
 
-        <!-- Success screen -->
+        <!-- Success -->
         <div class="success-screen" id="successScreen">
           <div class="success-icon">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <h2>You're all set.</h2>
-          <p>I'll have your AI receptionist built and ready within <strong>24 hours</strong>. Check your email for the activation instructions.</p>
+          <h2>YOU'RE ALL SET.</h2>
+          <p>Your AI receptionist will be ready within <strong style="color:var(--text)">24 hours</strong>. Check your email for the activation instructions.</p>
 
           <div class="next-steps">
             <div class="next-steps-title">What happens next</div>
             <div class="next-step-item">
               <div class="step-num">1</div>
-              <p><strong>Within 24 hours</strong> — I'll send your agent number and a calendar link to your email.</p>
+              <p><strong>Within 24 hours</strong> — I'll email your agent number and a calendar link.</p>
             </div>
             <div class="next-step-item">
               <div class="step-num">2</div>
-              <p><strong>2-minute setup</strong> — Dial one short code on your phone to activate call forwarding. That's it.</p>
+              <p><strong>2-minute activation</strong> — Dial one short code on your phone. That's it.</p>
             </div>
             <div class="next-step-item">
               <div class="step-num">3</div>
@@ -910,14 +902,13 @@
             </div>
           </div>
 
-          <a href="https://dominionai.co" class="btn btn-primary" style="max-width:280px;margin:0 auto;display:flex;">
+          <a href="https://dominionai.site" class="btn-home">
             Back to Dominion AI
             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
 
-        <!-- Navigation -->
-        <div class="divider" id="formDivider"></div>
+        <div class="form-divider" id="formDivider"></div>
         <div class="form-nav" id="formNav">
           <button type="button" class="btn btn-ghost" id="btnBack" style="display:none;">
             <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -928,149 +919,102 @@
             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
         </div>
-
       </form>
     </div>
 
-    <div class="form-footer" style="margin-top:20px;">
-      <p>Questions? Text or call Yacine directly &nbsp;·&nbsp; <a href="https://dominionai.co">dominionai.co</a></p>
+    <div class="form-footer">
+      <p>Questions? Text or call Yacine directly &nbsp;·&nbsp; <a href="https://dominionai.site">dominionai.site</a></p>
     </div>
   </main>
 
   <script>
-    // ── State ──────────────────────────────────────────────────────
     let currentStep = 1;
     const totalSteps = 3;
 
-    // ── Elements ──────────────────────────────────────────────────
-    const progressFill = document.getElementById('progressFill');
-    const btnNext      = document.getElementById('btnNext');
-    const btnBack      = document.getElementById('btnBack');
-    const formNav      = document.getElementById('formNav');
-    const formDivider  = document.getElementById('formDivider');
+    const progressFill  = document.getElementById('progressFill');
+    const btnNext       = document.getElementById('btnNext');
+    const btnBack       = document.getElementById('btnBack');
+    const formNav       = document.getElementById('formNav');
+    const formDivider   = document.getElementById('formDivider');
     const successScreen = document.getElementById('successScreen');
 
-    // ── Checkbox styling ─────────────────────────────────────────
+    // Checkbox styling
     document.querySelectorAll('.checkbox-item input').forEach(cb => {
       cb.addEventListener('change', () => {
         cb.closest('.checkbox-item').classList.toggle('checked', cb.checked);
       });
     });
 
-    // ── Radio styling ─────────────────────────────────────────────
+    // Radio styling
     document.querySelectorAll('.radio-item input').forEach(rb => {
       rb.addEventListener('change', () => {
-        const group = rb.closest('.radio-group');
-        group.querySelectorAll('.radio-item').forEach(item => item.classList.remove('selected'));
+        rb.closest('.radio-group').querySelectorAll('.radio-item')
+          .forEach(i => i.classList.remove('selected'));
         rb.closest('.radio-item').classList.add('selected');
       });
     });
 
-    // ── Progress ──────────────────────────────────────────────────
     function updateProgress() {
-      const pct = ((currentStep - 1) / totalSteps) * 100;
-      progressFill.style.width = pct + '%';
-
+      progressFill.style.width = (((currentStep - 1) / totalSteps) * 100) + '%';
       for (let i = 1; i <= totalSteps; i++) {
-        const tab = document.getElementById('tab-' + i);
-        tab.classList.remove('active', 'done');
-        if (i < currentStep)  tab.classList.add('done');
-        if (i === currentStep) tab.classList.add('active');
+        const t = document.getElementById('tab-' + i);
+        t.classList.remove('active', 'done');
+        if (i < currentStep)  t.classList.add('done');
+        if (i === currentStep) t.classList.add('active');
       }
-
       btnBack.style.display = currentStep > 1 ? 'flex' : 'none';
-      btnNext.textContent = currentStep === totalSteps ? 'Submit' : 'Continue';
-
-      if (currentStep === totalSteps) {
-        btnNext.innerHTML = 'Submit <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
-      } else {
-        btnNext.innerHTML = 'Continue <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
-      }
+      const arrowR = '<svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+      const checkI = '<svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+      btnNext.innerHTML = currentStep === totalSteps
+        ? 'Submit ' + checkI
+        : 'Continue ' + arrowR;
     }
 
-    // ── Validation ────────────────────────────────────────────────
-    function clearError(fieldId) {
-      const f = document.getElementById('field-' + fieldId);
+    function clearErr(id) {
+      const f = document.getElementById('field-' + id);
       if (f) f.classList.remove('has-error');
     }
 
-    function setError(fieldId) {
-      const f = document.getElementById('field-' + fieldId);
+    function setErr(id) {
+      const f = document.getElementById('field-' + id);
       if (f) f.classList.add('has-error');
     }
 
-    function validateStep(step) {
-      let valid = true;
-
+    function validate(step) {
+      let ok = true;
       if (step === 1) {
-        const cn = document.getElementById('companyName').value.trim();
-        const cs = document.getElementById('cityState').value.trim();
+        if (!document.getElementById('companyName').value.trim()) { setErr('companyName'); ok = false; } else clearErr('companyName');
+        if (!document.getElementById('cityState').value.trim())   { setErr('cityState');   ok = false; } else clearErr('cityState');
+        if (!document.getElementById('hours').value.trim())       { setErr('hours');       ok = false; } else clearErr('hours');
         const sv = document.querySelectorAll('input[name="services"]:checked');
-        const hr = document.getElementById('hours').value.trim();
-
-        if (!cn) { setError('companyName'); valid = false; } else clearError('companyName');
-        if (!cs) { setError('cityState');   valid = false; } else clearError('cityState');
-        if (!hr) { setError('hours');       valid = false; } else clearError('hours');
-
         const se = document.getElementById('services-error');
         const sf = document.getElementById('field-services');
-        if (sv.length === 0) {
-          se.style.display = 'block';
-          sf.classList.add('has-error');
-          valid = false;
-        } else {
-          se.style.display = 'none';
-          sf.classList.remove('has-error');
-        }
+        if (!sv.length) { se.style.display='block'; sf.classList.add('has-error'); ok=false; }
+        else            { se.style.display='none';  sf.classList.remove('has-error'); }
       }
-
       if (step === 2) {
-        const an = document.getElementById('agentName').value.trim();
+        if (!document.getElementById('agentName').value.trim()) { setErr('agentName'); ok = false; } else clearErr('agentName');
         const vo = document.querySelector('input[name="voice"]:checked');
-
-        if (!an) { setError('agentName'); valid = false; } else clearError('agentName');
-
         const ve = document.getElementById('voice-error');
         const vf = document.getElementById('field-voice');
-        if (!vo) {
-          ve.style.display = 'block';
-          vf.classList.add('has-error');
-          valid = false;
-        } else {
-          ve.style.display = 'none';
-          vf.classList.remove('has-error');
-        }
+        if (!vo) { ve.style.display='block'; vf.classList.add('has-error'); ok=false; }
+        else     { ve.style.display='none';  vf.classList.remove('has-error'); }
       }
-
       if (step === 3) {
-        const ph = document.getElementById('phone').value.trim();
+        if (!document.getElementById('phone').value.trim()) { setErr('phone'); ok = false; } else clearErr('phone');
         const em = document.getElementById('email').value.trim();
+        if (!em || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { setErr('email'); ok = false; } else clearErr('email');
         const ca = document.querySelector('input[name="carrier"]:checked');
-
-        if (!ph) { setError('phone'); valid = false; } else clearError('phone');
-
-        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
-        if (!em || !emailOk) { setError('email'); valid = false; } else clearError('email');
-
         const ce = document.getElementById('carrier-error');
         const cf = document.getElementById('field-carrier');
-        if (!ca) {
-          ce.style.display = 'block';
-          cf.classList.add('has-error');
-          valid = false;
-        } else {
-          ce.style.display = 'none';
-          cf.classList.remove('has-error');
-        }
+        if (!ca) { ce.style.display='block'; cf.classList.add('has-error'); ok=false; }
+        else     { ce.style.display='none';  cf.classList.remove('has-error'); }
       }
-
-      return valid;
+      return ok;
     }
 
-    // ── Navigation ────────────────────────────────────────────────
     btnNext.addEventListener('click', () => {
-      if (!validateStep(currentStep)) return;
-
+      if (!validate(currentStep)) return;
       if (currentStep < totalSteps) {
         document.getElementById('step-' + currentStep).classList.remove('active');
         currentStep++;
@@ -1090,7 +1034,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // ── Submit ────────────────────────────────────────────────────
     async function submitForm() {
       btnNext.disabled = true;
       btnNext.innerHTML = 'Sending…';
@@ -1099,55 +1042,54 @@
       const voice    = document.querySelector('input[name="voice"]:checked')?.value || '';
       const carrier  = document.querySelector('input[name="carrier"]:checked')?.value || '';
 
-      const data = {
-        access_key:   'YOUR_WEB3FORMS_KEY', // ← replace with your Web3Forms key
-        subject:      'New LeadLock Trial — ' + document.getElementById('companyName').value.trim(),
-        from_name:    'LeadLock Onboarding',
-        company_name: document.getElementById('companyName').value.trim(),
-        city_state:   document.getElementById('cityState').value.trim(),
+      const payload = {
+        access_key:    'adfd02a2-f0d3-4aac-9181-676025bb1334',
+        subject:       'New LeadLock Trial — ' + document.getElementById('companyName').value.trim(),
+        from_name:     'LeadLock Onboarding',
+        botcheck:      '',
+        company_name:  document.getElementById('companyName').value.trim(),
+        city_state:    document.getElementById('cityState').value.trim(),
         services,
         working_hours: document.getElementById('hours').value.trim(),
-        agent_name:   document.getElementById('agentName').value.trim(),
+        agent_name:    document.getElementById('agentName').value.trim(),
         voice,
-        avg_job:      document.getElementById('avgJob').value,
-        extra_info:   document.getElementById('extraInfo').value.trim(),
-        phone:        document.getElementById('phone').value.trim(),
-        email:        document.getElementById('email').value.trim(),
+        avg_job:       document.getElementById('avgJob').value,
+        extra_info:    document.getElementById('extraInfo').value.trim(),
+        phone:         document.getElementById('phone').value.trim(),
+        email:         document.getElementById('email').value.trim(),
         carrier,
       };
 
       try {
-        const res = await fetch('https://api.web3forms.com/submit', {
-          method:  'POST',
+        const res  = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify(data),
+          body: JSON.stringify(payload),
         });
         const json = await res.json();
 
         if (json.success) {
-          // Hide form, show success
           document.getElementById('step-3').classList.remove('active');
           formNav.style.display     = 'none';
           formDivider.style.display = 'none';
           successScreen.classList.add('active');
-          progressFill.style.width = '100%';
+          progressFill.style.width  = '100%';
           for (let i = 1; i <= totalSteps; i++) {
-            const tab = document.getElementById('tab-' + i);
-            tab.classList.remove('active');
-            tab.classList.add('done');
+            const t = document.getElementById('tab-' + i);
+            t.classList.remove('active');
+            t.classList.add('done');
           }
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
-          throw new Error('Submission failed');
+          throw new Error('failed');
         }
-      } catch (err) {
+      } catch {
         btnNext.disabled = false;
-        btnNext.innerHTML = 'Submit <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        updateProgress();
         alert('Something went wrong — please try again or contact Yacine directly.');
       }
     }
 
-    // ── Init ──────────────────────────────────────────────────────
     updateProgress();
   </script>
 </body>
