@@ -13,6 +13,11 @@
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#C8783A">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -40,10 +45,25 @@
 
   /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 5%; height: 70px; display: flex; align-items: center; justify-content: space-between; background: rgba(9,10,12,0.88); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+  /* FB top bar - static, scrolls away */
+  .fb-topbar { display: flex; align-items: center; justify-content: center; gap: 9px; padding: 8px 5%; background: #1877F2; font-size: 12px; font-weight: 500; color: #fff; text-decoration: none; letter-spacing: 0.3px; transition: background 0.2s; }
+  .fb-topbar:hover { background: #1565d8; }
+  .fb-topbar svg { width: 15px; height: 15px; fill: #fff; flex-shrink: 0; }
+  .fb-topbar strong { font-weight: 700; }
   .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .logo-icon { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 3px; color: var(--white); }
+  .logo-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 3px; color: var(--white); line-height: 1; }
   .logo-text span { color: var(--copper); }
+  .logo-tagline { font-size: 8px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--copper); opacity: 0.65; display: block; margin-top: 1px; }
+  /* Facebook top bar */
+  .fb-topbar { background: #1877F2; padding: 8px 5%; display: flex; align-items: center; justify-content: center; gap: 9px; font-size: 12px; font-weight: 500; color: #fff; text-decoration: none; letter-spacing: 0.3px; transition: background 0.2s; }
+  .fb-topbar:hover { background: #1565d8; }
+  .fb-topbar svg { width: 15px; height: 15px; fill: #fff; flex-shrink: 0; }
+  .fb-topbar strong { font-weight: 700; }
+  /* Nav fb icon */
+  .nav-fb { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 6px; background: rgba(24,119,242,0.1); border: 1px solid rgba(24,119,242,0.25); color: #5898d4; transition: all 0.2s; flex-shrink: 0; }
+  .nav-fb:hover { background: rgba(24,119,242,0.2); border-color: rgba(24,119,242,0.5); }
+  .nav-fb svg { width: 14px; height: 14px; fill: currentColor; }
   .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
   .nav-links a { text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s; }
   .nav-links a:hover { color: var(--white); }
@@ -51,7 +71,7 @@
   .btn-nav:hover { background: var(--copper-lt) !important; transform: translateY(-1px); }
 
   /* HERO */
-  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 168px 5% 80px; }
+  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 200px 5% 80px; }
   .hero-bg { position: absolute; inset: 0; background: var(--black); z-index: 0; }
   .hero-bg::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, transparent, transparent 48px, rgba(200,120,58,0.025) 48px, rgba(200,120,58,0.025) 49px), repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(91,184,212,0.015) 80px, rgba(91,184,212,0.015) 81px); }
   .hero-bg::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 300px; background: linear-gradient(to top, var(--black), transparent); }
@@ -343,6 +363,13 @@
 </head>
 <body>
 
+<!-- FACEBOOK TOP BAR -->
+<a href="https://web.facebook.com/profile.php?id=61588234268290" target="_blank" rel="noopener noreferrer" class="fb-topbar">
+  <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  <span>Follow <strong>Dominion AI</strong> on Facebook for tips, updates & client wins</span>
+  <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+</a>
+
 <!-- SEASON BANNER -->
 <div class="season-banner">
   <div class="s-dot"></div>
@@ -355,29 +382,23 @@
 <nav>
   <a href="#" class="nav-logo">
     <div class="logo-icon">
-      <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Outer rounded square background -->
-        <rect width="38" height="38" rx="9" fill="#C8783A"/>
-        <!-- Snowflake / cold side (left) -->
-        <line x1="10" y1="19" x2="16" y2="19" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round"/>
-        <line x1="13" y1="16" x2="13" y2="22" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round"/>
-        <line x1="11.2" y1="17.2" x2="14.8" y2="20.8" stroke="#090A0C" stroke-width="1.2" stroke-linecap="round"/>
-        <line x1="14.8" y1="17.2" x2="11.2" y2="20.8" stroke="#090A0C" stroke-width="1.2" stroke-linecap="round"/>
-        <!-- Center divider line -->
-        <line x1="19" y1="11" x2="19" y2="27" stroke="#090A0C" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="2 2"/>
-        <!-- Air wave / heat side (right) -->
-        <path d="M22 14.5 C23.5 14.5 23.5 16 25 16 C26.5 16 26.5 14.5 28 14.5" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-        <path d="M22 19 C23.5 19 23.5 20.5 25 20.5 C26.5 20.5 26.5 19 28 19" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-        <path d="M22 23.5 C23.5 23.5 23.5 25 25 25 C26.5 25 26.5 23.5 28 23.5" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-      </svg>
+      <img src="favicon-64.png" alt="Dominion AI" width="40" height="40" style="border-radius:8px;display:block;">
     </div>
-    <div class="logo-text">Dominion <span>AI</span></div>
+    <div>
+      <div class="logo-text">Dominion <span>AI</span></div>
+      <span class="logo-tagline">LeadLock for HVAC</span>
+    </div>
   </a>
   <ul class="nav-links">
     <li><a href="#features">Features</a></li>
     <li><a href="#reviews">Review Boost</a></li>
     <li><a href="#how">How It Works</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li>
+      <a href="https://web.facebook.com/profile.php?id=61588234268290" target="_blank" rel="noopener noreferrer" class="nav-fb" title="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+    </li>
     <li><a href="#contact" class="btn-nav">Get Started</a></li>
   </ul>
 </nav>
@@ -397,7 +418,7 @@
       <span class="line2">Again</span>
     </h1>
     <p class="hero-sub">
-      Dominion AI's voice agent, <strong>Alex</strong>, answers every call, routes emergencies with priority dispatch, books service appointments, and <strong>automatically requests reviews</strong> after every completed job — 24/7, even at 2am in July.
+      Dominion AI's voice agent, <strong>LeadLock</strong>, answers every call, routes emergencies with priority dispatch, books service appointments, and <strong>automatically requests reviews</strong> after every completed job — 24/7, even at 2am in July.
     </p>
     <div class="hero-ctas">
       <a href="#contact" class="btn-primary">Get Started →</a>
@@ -468,7 +489,7 @@
         <li><span class="icon">✓</span><span>Every call answered instantly — emergencies escalated to you live, everything else booked on the spot</span></li>
         <li><span class="icon">✓</span><span>Maintenance and tune-up leads captured and scheduled without you lifting a finger</span></li>
         <li><span class="icon">✓</span><span>Review requests sent automatically after every job — reviews pour in on autopilot</span></li>
-        <li><span class="icon">✓</span><span>Alex books appointments directly into your calendar — no phone tag, no back-and-forth</span></li>
+        <li><span class="icon">✓</span><span>LeadLock books appointments directly into your calendar — no phone tag, no back-and-forth</span></li>
         <li><span class="icon">✓</span><span>Fully bilingual English and Spanish — open a market most competitors can't even talk to</span></li>
       </ul>
     </div>
@@ -486,7 +507,7 @@
     <div class="num-card reveal"><div class="num-value">67%</div><div class="num-label">HVAC Callers Who Hit Voicemail Never Call Back</div><div class="num-sub">They call the next contractor within 90 seconds</div></div>
     <div class="num-card reveal"><div class="num-value">91%</div><div class="num-label">Emergency Repair Jobs Go to the First Contractor Who Picks Up</div><div class="num-sub">No AC in summer = decision made instantly</div></div>
     <div class="num-card reveal"><div class="num-value">$74K</div><div class="num-label">Average Annual Revenue Lost to Missed Calls</div><div class="num-sub">Per small HVAC contractor — before peak season surges</div></div>
-    <div class="num-card reveal"><div class="num-value">12–20</div><div class="num-label">Additional Booked Service Calls Per Month</div><div class="num-sub">Captured by Alex from calls that would have gone unanswered</div></div>
+    <div class="num-card reveal"><div class="num-value">12–20</div><div class="num-label">Additional Booked Service Calls Per Month</div><div class="num-sub">Captured by LeadLock from calls that would have gone unanswered</div></div>
     <div class="num-card reveal"><div class="num-value">$156K</div><div class="num-label">Potential Annual Revenue Recovered</div><div class="num-sub">Based on 16 bookings/mo × 25% close rate × $3,900 avg job</div></div>
   </div>
 </section>
@@ -528,7 +549,7 @@
       <div class="calc-row"><span class="calc-row-label">Revenue lost per month</span><span class="calc-row-val val-loss" id="r-lost-mo">$31,200</span></div>
       <div class="calc-row"><span class="calc-row-label">Revenue lost per year</span><span class="calc-row-val val-loss" id="r-lost-yr">$374,400</span></div>
       <div class="calc-sep"></div>
-      <div class="calc-row"><span class="calc-row-label">Extra jobs Alex captures / month</span><span class="calc-row-val val-gain" id="r-cap-jobs">6 jobs</span></div>
+      <div class="calc-row"><span class="calc-row-label">Extra jobs LeadLock captures / month</span><span class="calc-row-val val-gain" id="r-cap-jobs">6 jobs</span></div>
       <div class="calc-row"><span class="calc-row-label">Revenue recovered / year</span><span class="calc-row-val val-gain" id="r-recovered">$280,800</span></div>
       <div class="calc-row"><span class="calc-row-label">Dominion AI annual investment</span><span class="calc-row-val val-neutral">$5,564</span></div>
       <div class="calc-net-box">
@@ -536,10 +557,10 @@
         <div class="calc-net-val" id="r-net">$275,236</div>
         <div class="calc-net-roi" id="r-roi">ROI — 4,946%</div>
       </div>
-      <button class="calc-action" id="calc-cta" onclick="openLeadForm()">Get Alex — Recover $280,800 This Year →</button>
+      <button class="calc-action" id="calc-cta" onclick="openLeadForm()">Get LeadLock — Recover $280,800 This Year →</button>
     </div>
   </div>
-  <p class="calc-disclaimer">* Alex captures approximately 80% of previously missed calls. Conversion rates and job values vary by market and business. Results not guaranteed.</p>
+  <p class="calc-disclaimer">* LeadLock captures approximately 80% of previously missed calls. Conversion rates and job values vary by market and business. Results not guaranteed.</p>
 </section>
 
 <!-- FEATURES -->
@@ -553,67 +574,67 @@
     <div class="feature-card reveal">
       <div class="feature-icon">🔥</div>
       <h3>Emergency Call Prioritization</h3>
-      <p>When a caller's AC is out in 100°F heat or their furnace failed overnight, Alex detects the urgency, collects key details, and immediately texts you for live dispatch. No homeowner suffers on hold.</p>
+      <p>When a caller's AC is out in 100°F heat or their furnace failed overnight, LeadLock detects the urgency, collects key details, and immediately texts you for live dispatch. No homeowner suffers on hold.</p>
       <span class="tag">Emergency Routing</span>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon">📅</div>
       <h3>Smart Appointment Booking</h3>
-      <p>Alex qualifies callers and books service or maintenance appointments directly into your Google Calendar — confirmation SMS sent to the customer instantly. No back-and-forth, no double-booking, ever.</p>
+      <p>LeadLock qualifies callers and books service or maintenance appointments directly into your Google Calendar — confirmation SMS sent to the customer instantly. No back-and-forth, no double-booking, ever.</p>
       <span class="tag">Calendar Sync</span>
     </div>
     <div class="feature-card star reveal">
       <div class="feature-icon">⭐</div>
       <h3>Automated Review Requests</h3>
-      <p>Once a job is completed, Alex automatically sends a warm, personalized SMS directing your customer straight to your Google page. Happy homeowners leave reviews while the relief is still fresh — while you move to the next call.</p>
+      <p>Once a job is completed, LeadLock automatically sends a warm, personalized SMS directing your customer straight to your Google page. Happy homeowners leave reviews while the relief is still fresh — while you move to the next call.</p>
       <span class="tag">Reputation Builder</span>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon">❄️</div>
       <h3>Seasonal Surge Mode</h3>
-      <p>Peak summer and winter bring 3–5× normal call volume. Alex handles unlimited simultaneous calls with zero busy signals. Every homeowner gets answered — no matter how many call at once.</p>
+      <p>Peak summer and winter bring 3–5× normal call volume. LeadLock handles unlimited simultaneous calls with zero busy signals. Every homeowner gets answered — no matter how many call at once.</p>
       <span class="tag">Peak Season Ready</span>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon">🌐</div>
       <h3>Fully Bilingual — English &amp; Spanish</h3>
-      <p>Alex detects the caller's preferred language and switches seamlessly. Your Spanish-speaking customers get the same professional, friendly service as everyone else — opening a market most competitors can't serve.</p>
+      <p>LeadLock detects the caller's preferred language and switches seamlessly. Your Spanish-speaking customers get the same professional, friendly service as everyone else — opening a market most competitors can't serve.</p>
       <span class="tag">Bilingual</span>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon">🔄</div>
       <h3>Maintenance Plan Enrollment</h3>
-      <p>Alex promotes your seasonal tune-up and maintenance membership during every appropriate call. Passive recurring revenue, enrolled automatically while you're running service calls.</p>
+      <p>LeadLock promotes your seasonal tune-up and maintenance membership during every appropriate call. Passive recurring revenue, enrolled automatically while you're running service calls.</p>
       <span class="tag">Revenue Upsell</span>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon">📋</div>
       <h3>Monthly Call Analytics Report</h3>
-      <p>Total calls handled, leads captured, appointments booked, emergency escalations, missed-call recovery rate, and peak call windows — delivered monthly so you know exactly what Alex is producing.</p>
+      <p>Total calls handled, leads captured, appointments booked, emergency escalations, missed-call recovery rate, and peak call windows — delivered monthly so you know exactly what LeadLock is producing.</p>
       <span class="tag">Full Visibility</span>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon">🔀</div>
       <h3>Smart Live Transfer</h3>
-      <p>When a caller needs a real person — urgent dispatch, a complex install quote, or a VIP customer — Alex transfers the call live to the right number. No dead ends, no frustrated homeowners.</p>
+      <p>When a caller needs a real person — urgent dispatch, a complex install quote, or a VIP customer — LeadLock transfers the call live to the right number. No dead ends, no frustrated homeowners.</p>
       <span class="tag">Live Handoff</span>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon">💬</div>
       <h3>After-Hours Coverage — Always On</h3>
-      <p>AC failures don't respect business hours. Alex answers at 11pm on a Friday just as professionally as Monday morning. Every after-hours call gets triaged, booked, or escalated — never lost to voicemail.</p>
+      <p>AC failures don't respect business hours. LeadLock answers at 11pm on a Friday just as professionally as Monday morning. Every after-hours call gets triaged, booked, or escalated — never lost to voicemail.</p>
       <span class="tag">24/7 Coverage</span>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon">🔗</div>
       <h3>CRM &amp; Tool Integrations</h3>
-      <p>Connects with ServiceTitan, Jobber, Google Business, Facebook, and more. Alex logs every call and interaction automatically — no manual data entry, no dropped leads in a spreadsheet.</p>
+      <p>Connects with ServiceTitan, Jobber, Google Business, Facebook, and more. LeadLock logs every call and interaction automatically — no manual data entry, no dropped leads in a spreadsheet.</p>
       <span class="tag">Plug &amp; Play</span>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon">💰</div>
       <h3>Estimate &amp; Quote Follow-Up</h3>
-      <p>Sent a quote for a new install and heard nothing? Alex follows up with polite, professional messages until they book or opt out — recovering jobs that would otherwise go cold.</p>
+      <p>Sent a quote for a new install and heard nothing? LeadLock follows up with polite, professional messages until they book or opt out — recovering jobs that would otherwise go cold.</p>
       <span class="tag">Revenue Recovery</span>
     </div>
     <div class="feature-card reveal">
@@ -645,9 +666,9 @@
     <div class="review-text reveal">
       <span class="section-label">Signature Feature</span>
       <h2 class="section-title">The Review Machine HVAC Pros Wish They Had Years Ago</h2>
-      <p class="section-sub">Happy customers rarely leave reviews on their own. Alex catches them at the perfect moment — right after their problem is solved — and makes it effortless.</p>
+      <p class="section-sub">Happy customers rarely leave reviews on their own. LeadLock catches them at the perfect moment — right after their problem is solved — and makes it effortless.</p>
       <div class="steps">
-        <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Job Marked Complete</h4><p>When the job is done, Alex triggers automatically — no manual action from you or your tech needed.</p></div></div>
+        <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Job Marked Complete</h4><p>When the job is done, LeadLock triggers automatically — no manual action from you or your tech needed.</p></div></div>
         <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Personalized Request Sent</h4><p>A warm SMS goes out thanking them and including a direct link to your Google review page — one tap for them.</p></div></div>
         <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Smart Follow-Up if No Response</h4><p>No reply in 48 hours? A gentle reminder goes out automatically. One tap for them — five stars for you.</p></div></div>
         <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Your Reputation Grows on Autopilot</h4><p>More reviews = higher Google Maps ranking = more inbound calls = more jobs. A compounding growth cycle that runs itself.</p></div></div>
@@ -664,9 +685,9 @@
     <p class="section-sub">No tech skills needed. We handle the entire setup — you handle the installs.</p>
   </div>
   <div class="how-grid">
-    <div class="how-card reveal"><div class="how-num">01</div><h3>Onboard in Minutes</h3><p>Tell us about your services, coverage area, business hours, and how you handle emergencies. We configure Alex to match your brand voice and call flow exactly.</p></div>
-    <div class="how-card reveal"><div class="how-num">02</div><h3>Connect Your Tools</h3><p>We integrate Alex with your Google Calendar, CRM (ServiceTitan, Jobber, or others), and your existing business phone number. No disruption to how you currently operate.</p></div>
-    <div class="how-card reveal"><div class="how-num">03</div><h3>Go Live</h3><p>Alex goes live on your phone line. Every call is answered, every emergency escalated, every appointment booked — from day one, around the clock.</p></div>
+    <div class="how-card reveal"><div class="how-num">01</div><h3>Onboard in Minutes</h3><p>Tell us about your services, coverage area, business hours, and how you handle emergencies. We configure LeadLock to match your brand voice and call flow exactly.</p></div>
+    <div class="how-card reveal"><div class="how-num">02</div><h3>Connect Your Tools</h3><p>We integrate LeadLock with your Google Calendar, CRM (ServiceTitan, Jobber, or others), and your existing business phone number. No disruption to how you currently operate.</p></div>
+    <div class="how-card reveal"><div class="how-num">03</div><h3>Go Live</h3><p>LeadLock goes live on your phone line. Every call is answered, every emergency escalated, every appointment booked — from day one, around the clock.</p></div>
     <div class="how-card reveal"><div class="how-num">04</div><h3>Watch Your Business Grow</h3><p>More service calls, more reviews, more referrals. Check your monthly analytics report and watch your ROI compound every season.</p></div>
   </div>
 </section>
@@ -681,7 +702,7 @@
   <div class="testimonials-grid">
     <div class="testimonial-card reveal">
       <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      <p class="testimonial-text">"Last July was our busiest month ever — and I didn't miss a single emergency call. Alex handled everything while my guys were in the field. We booked 23 extra service calls that month alone."</p>
+      <p class="testimonial-text">"Last July was our busiest month ever — and I didn't miss a single emergency call. LeadLock handled everything while my guys were in the field. We booked 23 extra service calls that month alone."</p>
       <div class="testimonial-author"><div class="author-avatar">RC</div><div><div class="author-name">Ray Castillo</div><div class="author-biz">Castillo HVAC Services — Houston, TX</div></div></div>
     </div>
     <div class="testimonial-card reveal">
@@ -691,7 +712,7 @@
     </div>
     <div class="testimonial-card reveal">
       <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      <p class="testimonial-text">"The bilingual feature alone was worth it. About 30% of our area speaks Spanish. Alex handles those calls perfectly — we're now booking jobs our competitors can't even communicate with."</p>
+      <p class="testimonial-text">"The bilingual feature alone was worth it. About 30% of our area speaks Spanish. LeadLock handles those calls perfectly — we're now booking jobs our competitors can't even communicate with."</p>
       <div class="testimonial-author"><div class="author-avatar">JR</div><div><div class="author-name">Jorge Reyes</div><div class="author-biz">Pro Air HVAC — Miami, FL</div></div></div>
     </div>
   </div>
@@ -718,7 +739,7 @@
       <div class="pricing-price"><span class="dollar">$</span>397<span class="period">/mo</span></div>
       <div class="pricing-desc">Perfect for solo HVAC operators. Includes $800 one-time setup fee.</div>
       <ul class="pricing-features">
-        <li><span class="chk">✓</span> Alex AI Voice Agent 24/7</li>
+        <li><span class="chk">✓</span> LeadLock AI Voice Agent 24/7</li>
         <li><span class="chk">✓</span> Emergency / Repair / Maintenance Call Routing</li>
         <li><span class="chk">✓</span> Appointment Booking — Google Calendar</li>
         <li><span class="chk">✓</span> Appointment Confirmation SMS</li>
@@ -733,7 +754,7 @@
       <div class="pricing-price"><span class="dollar">$</span>697<span class="period">/mo</span></div>
       <div class="pricing-desc">For growing HVAC businesses who want every edge. Includes $800 one-time setup.</div>
       <ul class="pricing-features">
-        <li><span class="chk">✓</span> Alex AI Voice Agent 24/7</li>
+        <li><span class="chk">✓</span> LeadLock AI Voice Agent 24/7</li>
         <li><span class="chk">✓</span> Emergency Priority Routing + Live Transfer</li>
         <li><span class="chk">✓</span> Unlimited Simultaneous Calls — Peak Season Ready</li>
         <li><span class="chk">✓</span> Appointment Booking + SMS Reminders</li>
@@ -777,12 +798,12 @@
     <h2 class="section-title">Privacy Policy</h2>
     <p style="font-size:13px; color:var(--muted); margin-bottom:48px;">Last updated: June 2025</p>
     <div style="display:flex; flex-direction:column; gap:36px;">
-      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">1. Who We Are</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Dominion AI provides an AI-powered voice receptionist and messaging automation platform built for HVAC contractors in the United States. Contact: <a href="mailto:hello@dominionai.com" style="color:var(--copper); text-decoration:none;">hello@dominionai.com</a>.</p></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">1. Who We Are</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Dominion AI provides an AI-powered voice receptionist and messaging automation platform built for HVAC contractors in the United States. Contact: <a href="mailto:louay@dominionai.site" style="color:var(--copper); text-decoration:none;">louay@dominionai.site</a>.</p></div>
       <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">2. Information We Collect</h3><ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px; margin-top:10px;"><li><strong style="color:var(--text);">From contractors:</strong> Business name, contact name, phone, email, service area, and Google Calendar access.</li><li><strong style="color:var(--text);">From end-users:</strong> Name, phone, address, nature of HVAC issue, and appointment details collected during AI-assisted calls.</li><li><strong style="color:var(--text);">Automatically:</strong> Call recordings, duration, logs, and appointment data.</li></ul></div>
-      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">3. How We Use Your Information</h3><ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px;"><li>To operate and deliver the Alex AI voice agent service</li><li>To book appointments and send confirmation messages</li><li>To send automated SMS follow-up and review request messages on behalf of contractors</li><li>To generate monthly analytics reports</li><li>To improve our AI models and service quality</li></ul></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">3. How We Use Your Information</h3><ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px;"><li>To operate and deliver the LeadLock AI voice agent service</li><li>To book appointments and send confirmation messages</li><li>To send automated SMS follow-up and review request messages on behalf of contractors</li><li>To generate monthly analytics reports</li><li>To improve our AI models and service quality</li></ul></div>
       <div style="background:rgba(200,120,58,0.08); border:1px solid rgba(200,120,58,0.25); border-radius:10px; padding:28px;"><h3 style="font-size:16px; font-weight:600; color:var(--copper); margin-bottom:16px;">4. SMS Messaging — Consent, Frequency &amp; Opt-Out</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:14px;"><strong style="color:var(--text);">How you consent:</strong> When a homeowner provides their phone number to an HVAC contractor using Dominion AI — verbally, on a service agreement, or through an online inquiry — they consent to receive service-related text messages.</p><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:14px;"><strong style="color:var(--text);">Message frequency:</strong> (1) one appointment confirmation per booking, (2) one missed-call follow-up per unanswered call, (3) one review request per completed job.</p><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:14px;"><strong style="color:var(--text);">Opt out:</strong> Reply <strong style="color:var(--white);">STOP</strong> at any time. You'll receive one final confirmation. Reply <strong style="color:var(--white);">HELP</strong> for assistance.</p><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;"><strong style="color:var(--text);">Rates:</strong> Message and data rates may apply.</p></div>
       <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">5. Third-Party Services</h3><ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px; margin-top:10px;"><li><strong style="color:var(--text);">Telnyx LLC.</strong> — US phone numbers and SMS/voice infrastructure.</li><li><strong style="color:var(--text);">Vapi AI</strong> — Powers the AI voice agent.</li><li><strong style="color:var(--text);">Google Calendar API</strong> — Appointment booking and management.</li><li><strong style="color:var(--text);">n8n / Make</strong> — Workflow automation.</li></ul><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-top:14px;">We do not sell, rent, or share personal data with third parties for marketing purposes.</p></div>
-      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">6. Contact Us</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;"><strong style="color:var(--text);">Dominion AI</strong><br>Email: <a href="mailto:hello@dominionai.com" style="color:var(--copper); text-decoration:none;">hello@dominionai.com</a></p></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">6. Contact Us</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;"><strong style="color:var(--text);">Dominion AI</strong><br>Email: <a href="mailto:louay@dominionai.site" style="color:var(--copper); text-decoration:none;">louay@dominionai.site</a></p></div>
     </div>
   </div>
 </section>
@@ -795,13 +816,13 @@
     <p style="font-size:13px; color:var(--muted); margin-bottom:48px;">Last updated: June 2025</p>
     <div style="display:flex; flex-direction:column; gap:32px;">
       <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">1. Acceptance of Terms</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">By engaging Dominion AI's service, you ("Client") agree to these Terms. If you do not agree, do not use the service.</p></div>
-      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">2. Services Provided</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Dominion AI provides Alex: an AI-powered voice receptionist that answers inbound calls, handles emergency prioritization, books service appointments, and sends automated SMS messages on behalf of the Client's HVAC business. Setup completed within 48 hours of agreement and payment of the setup fee.</p></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">2. Services Provided</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Dominion AI provides LeadLock, an AI-powered voice receptionist that answers inbound calls, handles emergency prioritization, books service appointments, and sends automated SMS messages on behalf of the Client's HVAC business. Setup completed within 48 hours of agreement and payment of the setup fee.</p></div>
       <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">3. Payment Terms</h3><ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px;"><li>One-time setup fee due before service activation.</li><li>Monthly retainer billed at the start of each month beginning month two.</li><li>All fees non-refundable except as stated in the 30-Day Performance Guarantee.</li><li>Payments via Stripe or agreed alternative. Late payments may result in service suspension.</li></ul></div>
-      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">4. 30-Day Performance Guarantee</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">If Alex fails to answer any incoming call within 3 rings during the first 30 days due to a technical failure attributable to Dominion AI, we will issue a full refund of the setup fee. Covers agent uptime and call answering performance only — not revenue outcomes or conversion rates.</p></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">4. 30-Day Performance Guarantee</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">If LeadLock fails to answer any incoming call within 3 rings during the first 30 days due to a technical failure attributable to Dominion AI, we will issue a full refund of the setup fee. Covers agent uptime and call answering performance only — not revenue outcomes or conversion rates.</p></div>
       <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">5. Client Responsibilities</h3><ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px;"><li>Configure call forwarding as instructed during onboarding.</li><li>Provide accurate business info, service hours, and Google Calendar access.</li><li>Ensure end-users have consented to receive SMS communications.</li><li>Comply with all US telecommunications laws including TCPA and CTIA guidelines.</li></ul></div>
       <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">6. Cancellation</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Either party may cancel with 14 days written notice. Upon cancellation, the dedicated phone number is released and all automations deactivated. Data exported upon request within 30 days.</p></div>
       <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">7. Limitation of Liability</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Total liability shall not exceed fees paid in the 3 months preceding any claim. Not liable for losses from third-party infrastructure failures (Telnyx, Vapi, Google).</p></div>
-      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">8. Governing Law</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Governed by applicable international commercial law. Disputes addressed through good-faith negotiation first. Contact: <a href="mailto:hello@dominionai.com" style="color:var(--copper); text-decoration:none;">hello@dominionai.com</a>.</p></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">8. Governing Law</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Governed by applicable international commercial law. Disputes addressed through good-faith negotiation first. Contact: <a href="mailto:louay@dominionai.site" style="color:var(--copper); text-decoration:none;">louay@dominionai.site</a>.</p></div>
     </div>
   </div>
 </section>
@@ -812,19 +833,12 @@
     <div class="footer-brand">
       <div class="nav-logo" style="margin-bottom:4px;">
         <div class="logo-icon">
-          <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="38" height="38" rx="9" fill="#C8783A"/>
-            <line x1="10" y1="19" x2="16" y2="19" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round"/>
-            <line x1="13" y1="16" x2="13" y2="22" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round"/>
-            <line x1="11.2" y1="17.2" x2="14.8" y2="20.8" stroke="#090A0C" stroke-width="1.2" stroke-linecap="round"/>
-            <line x1="14.8" y1="17.2" x2="11.2" y2="20.8" stroke="#090A0C" stroke-width="1.2" stroke-linecap="round"/>
-            <line x1="19" y1="11" x2="19" y2="27" stroke="#090A0C" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="2 2"/>
-            <path d="M22 14.5 C23.5 14.5 23.5 16 25 16 C26.5 16 26.5 14.5 28 14.5" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-            <path d="M22 19 C23.5 19 23.5 20.5 25 20.5 C26.5 20.5 26.5 19 28 19" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-            <path d="M22 23.5 C23.5 23.5 23.5 25 25 25 C26.5 25 26.5 23.5 28 23.5" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-          </svg>
+          <img src="favicon-64.png" alt="Dominion AI" width="40" height="40" style="border-radius:8px;display:block;">
         </div>
-        <div class="logo-text">Dominion <span>AI</span></div>
+        <div>
+          <div class="logo-text">Dominion <span>AI</span></div>
+          <span class="logo-tagline">LeadLock for HVAC</span>
+        </div>
       </div>
       <p>The AI voice agent built exclusively for HVAC contractors. More calls answered. More reviews. More revenue — on autopilot.</p>
       <a href="https://web.facebook.com/profile.php?id=61588234268290" target="_blank" rel="noopener noreferrer" class="fb-link">
@@ -862,7 +876,7 @@
   </div>
   <div class="footer-bottom">
     <span>© 2025 Dominion AI. All rights reserved.</span>
-    <span>Built for the HVAC industry. &nbsp;⬥&nbsp; <a href="mailto:hello@dominionai.com">hello@dominionai.com</a></span>
+    <span>Built for the HVAC industry. &nbsp;⬥&nbsp; <a href="mailto:louay@dominionai.site">louay@dominionai.site</a></span>
   </div>
 </footer>
 
@@ -872,7 +886,7 @@
     <div class="demo-modal-header">
       <div class="demo-modal-title">
         <div class="demo-live-dot"></div>
-        Alex — Live Demo Call &nbsp;·&nbsp; <span style="color:var(--muted);font-weight:400">AI Agent handling a real HVAC inquiry</span>
+        LeadLock — Live Demo Call &nbsp;·&nbsp; <span style="color:var(--muted);font-weight:400">AI Agent handling a real HVAC inquiry</span>
       </div>
       <button class="demo-close" onclick="closeDemo()" aria-label="Close">&times;</button>
     </div>
@@ -881,7 +895,7 @@
         <div class="video-play-circle">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="#0D0F14" style="margin-left:3px"><path d="M5 3 L19 12 L5 21 Z"/></svg>
         </div>
-        <span class="video-cover-label">Watch Alex handle a real AC emergency call</span>
+        <span class="video-cover-label">Watch LeadLock handle a real AC emergency call</span>
       </div>
       <div class="video-error-state" id="videoError">
         <p>Video unavailable — place <strong style="color:var(--text)">demo.mp4</strong> in the same folder as index.html</p>
@@ -1051,7 +1065,7 @@
     document.getElementById('r-recovered').textContent = '$' + recYr.toLocaleString();
     document.getElementById('r-net').textContent       = (net >= 0 ? '$' : '-$') + Math.abs(net).toLocaleString();
     document.getElementById('r-roi').textContent       = 'ROI — ' + roi.toLocaleString() + '%';
-    document.getElementById('calc-cta').textContent    = 'Get Alex — Recover $' + recYr.toLocaleString() + ' This Year →';
+    document.getElementById('calc-cta').textContent    = 'Get LeadLock — Recover $' + recYr.toLocaleString() + ' This Year →';
     ['s-calls','s-missed','s-conv','s-job'].forEach(function(id) {
       const el = document.getElementById(id);
       const pct = ((el.value - parseFloat(el.min)) / (parseFloat(el.max) - parseFloat(el.min))) * 100;
