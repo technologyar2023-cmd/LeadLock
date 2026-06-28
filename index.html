@@ -3,22 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dominion AI — The AI Agent Built for Roofing Contractors</title>
-<meta name="description" content="Dominion AI is the intelligent agent built for roofing contractors. Automate lead response, follow-ups, appointment booking, and review requests — 24/7.">
+<title>Dominion AI — The AI Agent Built for HVAC Contractors</title>
+<meta name="description" content="Dominion AI is the intelligent agent built for HVAC contractors. Automate lead response, emergency routing, appointment booking, and review requests — 24/7.">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="Dominion AI — Close More Roofs While You Sleep">
-<meta property="og:description" content="The AI agent that handles your leads, books appointments, and automatically requests reviews after every completed job.">
+<meta property="og:title" content="Dominion AI — Never Miss an HVAC Emergency Call Again">
+<meta property="og:description" content="The AI voice agent that handles your calls, routes emergencies, books service appointments, and automatically requests reviews after every job.">
 <meta property="og:type" content="website">
-<!-- Security headers via meta tags -->
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<!-- Favicons -->
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="theme-color" content="#C8783A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,915 +33,96 @@
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Outfit', sans-serif;
-    background: var(--black);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* ─── Scrollbar ─── */
+  body { font-family: 'Outfit', sans-serif; background: var(--black); color: var(--text); line-height: 1.6; overflow-x: hidden; }
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--dark); }
   ::-webkit-scrollbar-thumb { background: var(--copper-dk); border-radius: 2px; }
 
-  /* ─── Nav ─── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 0 5%;
-    height: 70px;
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(9,10,12,0.88);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    transition: background 0.3s;
-  }
-  .nav-logo {
-    display: flex; align-items: center; gap: 10px;
-    text-decoration: none;
-  }
-  .logo-icon {
-    width: 36px; height: 36px;
-    background: var(--copper);
-    clip-path: polygon(50% 0%, 100% 30%, 100% 100%, 0% 100%, 0% 30%);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 16px;
-    color: var(--black);
-    letter-spacing: 1px;
-  }
-  .logo-text {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 3px;
-    color: var(--white);
-  }
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 5%; height: 70px; display: flex; align-items: center; justify-content: space-between; background: rgba(9,10,12,0.88); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-icon { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 3px; color: var(--white); }
   .logo-text span { color: var(--copper); }
-  .nav-links {
-    display: flex; align-items: center; gap: 32px;
-    list-style: none;
-  }
-  .nav-links a {
-    text-decoration: none;
-    color: var(--muted);
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    transition: color 0.2s;
-  }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s; }
   .nav-links a:hover { color: var(--white); }
-  .btn-nav {
-    padding: 9px 22px;
-    background: var(--copper);
-    color: var(--black) !important;
-    border-radius: 4px;
-    font-weight: 600 !important;
-    font-size: 13px !important;
-    letter-spacing: 0.5px;
-    transition: background 0.2s, transform 0.1s !important;
-  }
+  .btn-nav { padding: 9px 22px; background: var(--copper); color: var(--black) !important; border-radius: 4px; font-weight: 600 !important; font-size: 13px !important; letter-spacing: 0.5px; transition: background 0.2s, transform 0.1s !important; }
   .btn-nav:hover { background: var(--copper-lt) !important; transform: translateY(-1px); }
 
-  /* ─── Hero ─── */
-  .hero {
-    min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-    overflow: hidden;
-    padding: 168px 5% 80px;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background: var(--black);
-    z-index: 0;
-  }
-  /* Roof geometry SVG background */
-  .hero-bg::before {
-    content: '';
-    position: absolute; inset: 0;
-    background-image:
-      repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 80px,
-        rgba(200,120,58,0.03) 80px,
-        rgba(200,120,58,0.03) 81px
-      ),
-      repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 80px,
-        rgba(200,120,58,0.03) 80px,
-        rgba(200,120,58,0.03) 81px
-      );
-  }
-  .hero-bg::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 300px;
-    background: linear-gradient(to top, var(--black), transparent);
-  }
-  .hero-glow {
-    position: absolute;
-    width: 600px; height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(200,120,58,0.12) 0%, transparent 70%);
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-  }
-  .hero-content {
-    position: relative; z-index: 1;
-    max-width: 900px;
-    text-align: center;
-  }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 16px;
-    border: 1px solid rgba(200,120,58,0.4);
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--copper);
-    margin-bottom: 32px;
-    animation: fadeInDown 0.6s ease both;
-  }
-  .badge-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--copper);
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%,100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.4); }
-  }
-  .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(52px, 8vw, 96px);
-    line-height: 0.95;
-    letter-spacing: 2px;
-    color: var(--white);
-    margin-bottom: 28px;
-    animation: fadeInUp 0.7s ease 0.1s both;
-  }
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 168px 5% 80px; }
+  .hero-bg { position: absolute; inset: 0; background: var(--black); z-index: 0; }
+  .hero-bg::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, transparent, transparent 48px, rgba(200,120,58,0.025) 48px, rgba(200,120,58,0.025) 49px), repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(91,184,212,0.015) 80px, rgba(91,184,212,0.015) 81px); }
+  .hero-bg::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 300px; background: linear-gradient(to top, var(--black), transparent); }
+  .hero-glow { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(200,120,58,0.10) 0%, rgba(91,184,212,0.04) 50%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+  .hero-content { position: relative; z-index: 1; max-width: 900px; text-align: center; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border: 1px solid rgba(200,120,58,0.4); border-radius: 100px; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--copper); margin-bottom: 32px; animation: fadeInDown 0.6s ease both; }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--copper); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:0.5; transform:scale(1.4); } }
+  .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(52px, 8vw, 96px); line-height: 0.95; letter-spacing: 2px; color: var(--white); margin-bottom: 28px; animation: fadeInUp 0.7s ease 0.1s both; }
   .hero h1 .accent { color: var(--copper); }
-  .hero h1 .line2 {
-    display: block;
-    -webkit-text-stroke: 1px rgba(200,120,58,0.5);
-    color: transparent;
-  }
-  .hero-sub {
-    font-size: clamp(16px, 2.2vw, 20px);
-    color: var(--muted);
-    max-width: 600px;
-    margin: 0 auto 44px;
-    font-weight: 300;
-    line-height: 1.7;
-    animation: fadeInUp 0.7s ease 0.2s both;
-  }
+  .hero h1 .line2 { display: block; -webkit-text-stroke: 1px rgba(200,120,58,0.5); color: transparent; }
+  .hero-sub { font-size: clamp(16px, 2.2vw, 20px); color: var(--muted); max-width: 620px; margin: 0 auto 44px; font-weight: 300; line-height: 1.7; animation: fadeInUp 0.7s ease 0.2s both; }
   .hero-sub strong { color: var(--text); font-weight: 500; }
-  .hero-ctas {
-    display: flex; align-items: center; justify-content: center; gap: 16px;
-    flex-wrap: wrap;
-    animation: fadeInUp 0.7s ease 0.3s both;
-  }
-  .btn-primary {
-    padding: 16px 36px;
-    background: var(--copper);
-    color: var(--black);
-    border: none; cursor: pointer;
-    font-family: 'Outfit', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-  }
+  .hero-ctas { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; animation: fadeInUp 0.7s ease 0.3s both; }
+  .btn-primary { padding: 16px 36px; background: var(--copper); color: var(--black); border: none; cursor: pointer; font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.5px; border-radius: 4px; text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
   .btn-primary:hover { background: var(--copper-lt); transform: translateY(-2px); }
-  .btn-ghost {
-    padding: 15px 36px;
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-    cursor: pointer;
-    font-family: 'Outfit', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: border-color 0.2s, color 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-  .btn-ghost:hover { border-color: rgba(200,120,58,0.5); color: var(--copper); transform: translateY(-2px); }
+  .hero-wave { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 1; opacity: 0.10; animation: fadeInUp 1s ease 0.5s both; }
+  .scroll-hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--muted); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; animation: fadeInUp 1s ease 0.8s both; }
+  .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--copper), transparent); animation: scrollDrop 2s ease-in-out infinite; }
+  @keyframes scrollDrop { 0%{ transform:scaleY(0); transform-origin:top; } 50%{ transform:scaleY(1); transform-origin:top; } 100%{ transform:scaleY(0); transform-origin:bottom; } }
+  .btn-demo { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: transparent; border: 1px solid rgba(200,120,58,.45); color: var(--copper); border-radius: 4px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'Outfit', sans-serif; letter-spacing: .3px; transition: border-color .2s, background .2s, color .2s; text-decoration: none; }
+  .btn-demo:hover { border-color: var(--copper); background: rgba(200,120,58,.08); color: var(--copper-lt); }
+  .btn-demo-icon { width: 26px; height: 26px; border-radius: 50%; background: var(--copper); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .btn-demo-icon svg { fill: var(--black); margin-left: 2px; }
 
-  /* Roof SVG decoration */
-  .hero-roof {
-    position: absolute;
-    bottom: 40px; left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    opacity: 0.12;
-    animation: fadeInUp 1s ease 0.5s both;
-  }
-
-  /* Scroll indicator */
-  .scroll-hint {
-    position: absolute;
-    bottom: 28px; left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    display: flex; flex-direction: column; align-items: center; gap: 6px;
-    color: var(--muted);
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    animation: fadeInUp 1s ease 0.8s both;
-  }
-  .scroll-line {
-    width: 1px; height: 40px;
-    background: linear-gradient(to bottom, var(--copper), transparent);
-    animation: scrollDrop 2s ease-in-out infinite;
-  }
-  @keyframes scrollDrop {
-    0% { transform: scaleY(0); transform-origin: top; }
-    50% { transform: scaleY(1); transform-origin: top; }
-    100% { transform: scaleY(0); transform-origin: bottom; }
-  }
-
-  /* ─── Section commons ─── */
-  section { padding: 100px 5%; }
-  .section-label {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--copper);
-    margin-bottom: 14px;
-  }
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(36px, 5vw, 60px);
-    letter-spacing: 1.5px;
-    line-height: 1;
-    color: var(--white);
-    margin-bottom: 18px;
-  }
-  .section-sub {
-    font-size: 17px;
-    color: var(--muted);
-    font-weight: 300;
-    line-height: 1.7;
-    max-width: 560px;
-  }
-  .centered { text-align: center; }
-  .centered .section-sub { margin: 0 auto; }
-
-  /* ─── Stats Bar ─── */
-  .stats-bar {
-    padding: 40px 5%;
-    background: var(--card);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 2px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .stat-item {
-    text-align: center;
-    padding: 20px;
-    border-right: 1px solid var(--border);
-  }
-  .stat-item:last-child { border-right: none; }
-  .stat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
-    color: var(--copper);
-    letter-spacing: 2px;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .stat-label {
-    font-size: 13px;
-    color: var(--muted);
-    font-weight: 400;
-    letter-spacing: 0.5px;
-  }
-
-  /* ─── Problem vs Solution ─── */
-  .compare-section { background: var(--dark); }
-  .compare-grid {
-    display: grid;
-    grid-template-columns: 1fr 60px 1fr;
-    gap: 0;
-    max-width: 1000px;
-    margin: 60px auto 0;
-    align-items: start;
-  }
-  .compare-col { padding: 40px; border-radius: 8px; }
-  .compare-col.bad {
-    background: rgba(162,45,45,0.08);
-    border: 1px solid rgba(162,45,45,0.2);
-  }
-  .compare-col.good {
-    background: rgba(200,120,58,0.08);
-    border: 1px solid rgba(200,120,58,0.3);
-  }
-  .compare-vs {
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    color: var(--muted);
-    letter-spacing: 2px;
-    padding-top: 60px;
-  }
-  .compare-col h3 {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-  .compare-col.bad h3 { color: #C04444; }
-  .compare-col.good h3 { color: var(--copper); }
-  .compare-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-  .compare-list li {
-    display: flex; align-items: flex-start; gap: 12px;
-    font-size: 15px;
-    color: var(--text);
-    line-height: 1.5;
-  }
-  .compare-list li .icon {
-    flex-shrink: 0;
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px;
-    font-weight: 700;
-    margin-top: 2px;
-  }
-  .bad .icon { background: rgba(192,68,68,0.2); color: #E06060; }
-  .good .icon { background: rgba(76,175,120,0.2); color: var(--success); }
-
-  /* ─── Features ─── */
-  .features-section { background: var(--black); }
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    max-width: 1100px;
-    margin: 60px auto 0;
-  }
-  .feature-card {
-    background: var(--card);
-    padding: 40px;
-    transition: background 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  .feature-card:hover { background: var(--card2); }
-  .feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(to right, var(--copper), transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .feature-card:hover::before { opacity: 1; }
-  .feature-icon {
-    width: 52px; height: 52px;
-    background: rgba(200,120,58,0.1);
-    border: 1px solid rgba(200,120,58,0.25);
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 24px;
-    font-size: 22px;
-  }
-  .feature-card h3 {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 12px;
-    letter-spacing: 0.3px;
-  }
-  .feature-card p {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
-    font-weight: 300;
-  }
-  .feature-card .tag {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 4px 12px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 3px;
-    background: rgba(200,120,58,0.12);
-    color: var(--copper);
-    border: 1px solid rgba(200,120,58,0.25);
-  }
-  /* Star feature - Review boost */
-  .feature-card.star {
-    background: linear-gradient(135deg, rgba(200,120,58,0.12), rgba(200,120,58,0.04));
-    border: none;
-    position: relative;
-  }
-  .feature-card.star::after {
-    content: '★ SIGNATURE FEATURE';
-    position: absolute;
-    top: 16px; right: 16px;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    padding: 3px 10px;
-    border-radius: 3px;
-    background: var(--copper);
-    color: var(--black);
-  }
-
-  /* ─── Review Boost Section ─── */
-  .review-section {
-    background: var(--dark);
-    position: relative;
-    overflow: hidden;
-  }
-  .review-section::before {
-    content: '';
-    position: absolute;
-    right: -200px; top: -200px;
-    width: 600px; height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(200,120,58,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .review-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .review-visual {
-    position: relative;
-  }
-  .phone-mockup {
-    background: var(--card2);
-    border: 1px solid var(--border);
-    border-radius: 28px;
-    padding: 24px 20px;
-    max-width: 320px;
-    margin: 0 auto;
-    position: relative;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.5);
-  }
-  .phone-notch {
-    width: 80px; height: 6px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 3px;
-    margin: 0 auto 20px;
-  }
-  .sms-bubble {
-    padding: 14px 18px;
-    border-radius: 18px;
-    margin-bottom: 12px;
-    font-size: 14px;
-    line-height: 1.5;
-    max-width: 90%;
-  }
-  .sms-bubble.ai {
-    background: var(--copper);
-    color: var(--black);
-    font-weight: 500;
-    border-bottom-left-radius: 4px;
-    margin-left: auto;
-    margin-right: 0;
-    text-align: right;
-  }
-  .sms-bubble.customer {
-    background: rgba(255,255,255,0.07);
-    color: var(--text);
-    border-bottom-right-radius: 4px;
-  }
-  .sms-time {
-    font-size: 10px;
-    color: var(--muted);
-    text-align: center;
-    margin: 8px 0;
-    letter-spacing: 0.5px;
-  }
-  .stars-row {
-    display: flex; gap: 4px; margin-top: 10px;
-    justify-content: flex-start;
-  }
-  .star-icon { color: #FFB800; font-size: 18px; }
-
-  .review-float {
-    position: absolute;
-    background: var(--card);
-    border: 1px solid rgba(200,120,58,0.3);
-    border-radius: 12px;
-    padding: 14px 20px;
-    font-size: 13px;
-    white-space: nowrap;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-  }
-  .review-float.f1 {
-    top: -20px; right: -30px;
-    animation: floatA 4s ease-in-out infinite;
-  }
-  .review-float.f2 {
-    bottom: -20px; left: -20px;
-    animation: floatB 4s ease-in-out 2s infinite;
-  }
-  @keyframes floatA {
-    0%,100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-  }
-  @keyframes floatB {
-    0%,100% { transform: translateY(0px); }
-    50% { transform: translateY(8px); }
-  }
-  .float-val { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--copper); letter-spacing: 1px; }
-  .float-lbl { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
-
-  /* Review text side */
-  .review-text .steps {
-    display: flex; flex-direction: column; gap: 0;
-    margin-top: 40px;
-  }
-  .step-item {
-    display: flex; gap: 20px;
-    padding-bottom: 36px;
-    position: relative;
-  }
-  .step-item:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    left: 19px; top: 44px;
-    width: 1px;
-    height: calc(100% - 44px);
-    background: var(--border);
-  }
-  .step-num {
-    flex-shrink: 0;
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: rgba(200,120,58,0.1);
-    border: 1px solid rgba(200,120,58,0.3);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
-    color: var(--copper);
-    letter-spacing: 1px;
-  }
-  .step-body h4 {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 6px;
-  }
-  .step-body p { font-size: 14px; color: var(--muted); line-height: 1.6; font-weight: 300; }
-
-  /* ─── How It Works ─── */
-  .how-section { background: var(--black); }
-  .how-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2px;
-    max-width: 1100px;
-    margin: 60px auto 0;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .how-card {
-    background: var(--dark);
-    padding: 48px 36px;
-    position: relative;
-  }
-  .how-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--copper);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-  }
-  .how-card:hover::before { transform: scaleX(1); }
-  .how-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 72px;
-    color: rgba(200,120,58,0.1);
-    line-height: 1;
-    margin-bottom: 20px;
-    letter-spacing: 3px;
-  }
-  .how-card h3 {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 14px;
-    letter-spacing: 0.3px;
-  }
-  .how-card p {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
-    font-weight: 300;
-  }
-
-  /* ─── Testimonials ─── */
-  .testimonials-section { background: var(--dark); }
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    max-width: 1100px;
-    margin: 60px auto 0;
-  }
-  .testimonial-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 36px;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-  .testimonial-card:hover {
-    border-color: rgba(200,120,58,0.3);
-    transform: translateY(-4px);
-  }
-  .testimonial-stars { display: flex; gap: 3px; margin-bottom: 20px; }
-  .testimonial-stars span { color: #FFB800; font-size: 16px; }
-  .testimonial-text {
-    font-size: 15px;
-    color: var(--text);
-    line-height: 1.7;
-    font-weight: 300;
-    margin-bottom: 24px;
-  }
-  .testimonial-author {
-    display: flex; align-items: center; gap: 14px;
-  }
-  .author-avatar {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: rgba(200,120,58,0.15);
-    border: 1px solid rgba(200,120,58,0.3);
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700;
-    font-size: 14px;
-    color: var(--copper);
-    letter-spacing: 1px;
-  }
-  .author-name { font-size: 15px; font-weight: 600; color: var(--white); }
-  .author-biz { font-size: 13px; color: var(--muted); }
-
-  /* ─── Pricing ─── */
-  .pricing-section { background: var(--black); }
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    max-width: 960px;
-    margin: 60px auto 0;
-  }
-  .pricing-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 40px;
-    text-align: center;
-    transition: transform 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  .pricing-card:hover { transform: translateY(-4px); }
-  .pricing-card.featured {
-    border-color: var(--copper);
-    background: linear-gradient(135deg, rgba(200,120,58,0.12), var(--card));
-  }
-  .pricing-card.featured::before {
-    content: 'MOST POPULAR';
-    position: absolute;
-    top: 16px; right: 16px;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    padding: 4px 10px;
-    background: var(--copper);
-    color: var(--black);
-    border-radius: 3px;
-  }
-  .pricing-name {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 12px;
-  }
-  .pricing-price {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 64px;
-    letter-spacing: 2px;
-    color: var(--white);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .pricing-price .dollar { font-size: 28px; vertical-align: top; margin-top: 12px; display: inline-block; color: var(--copper); }
-  .pricing-price .period { font-size: 18px; letter-spacing: 1px; color: var(--muted); }
-  .pricing-desc {
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 32px;
-    font-weight: 300;
-  }
-  .pricing-features {
-    list-style: none;
-    text-align: left;
-    display: flex; flex-direction: column; gap: 12px;
-    margin-bottom: 36px;
-  }
-  .pricing-features li {
-    display: flex; gap: 10px;
-    font-size: 14px;
-    color: var(--text);
-  }
-  .pricing-features li .chk { color: var(--success); font-size: 16px; flex-shrink: 0; }
-  .pricing-features li .x-icon { color: #C04444; font-size: 16px; flex-shrink: 0; }
-  .btn-plan {
-    display: block;
-    padding: 14px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.2s;
-    border: none;
-    font-family: 'Outfit', sans-serif;
-  }
-  .btn-plan.outline {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
-  .btn-plan.outline:hover { border-color: var(--copper); color: var(--copper); }
-  .btn-plan.filled {
-    background: var(--copper);
-    color: var(--black);
-  }
-  .btn-plan.filled:hover { background: var(--copper-lt); }
-
-  /* ─── CTA Banner ─── */
-  .cta-section {
-    background: var(--dark);
-    text-align: center;
-    padding: 100px 5%;
-    position: relative;
-    overflow: hidden;
-  }
-  .cta-section::before {
-    content: '';
-    position: absolute; inset: 0;
-    background-image: repeating-linear-gradient(
-      -45deg, transparent, transparent 60px,
-      rgba(200,120,58,0.03) 60px, rgba(200,120,58,0.03) 61px
-    );
-  }
-  .cta-section h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(42px, 6vw, 72px);
-    letter-spacing: 2px;
-    color: var(--white);
-    margin-bottom: 20px;
-    position: relative; z-index: 1;
-    line-height: 1;
-  }
-  .cta-section h2 span { color: var(--copper); }
-  .cta-section p {
-    font-size: 18px;
-    color: var(--muted);
-    max-width: 500px;
-    margin: 0 auto 40px;
-    font-weight: 300;
-    position: relative; z-index: 1;
-  }
-  .cta-section .btn-primary {
-    position: relative; z-index: 1;
-    font-size: 16px;
-    padding: 18px 48px;
-  }
-  .cta-note {
-    font-size: 13px;
-    color: var(--muted);
-    margin-top: 16px;
-    position: relative; z-index: 1;
-    opacity: 0.6;
-  }
-
-  /* ─── Footer ─── */
-  footer {
-    background: var(--black);
-    border-top: 1px solid var(--border);
-    padding: 60px 5% 40px;
-  }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 60px;
-    max-width: 1100px;
-    margin: 0 auto;
-    margin-bottom: 60px;
-  }
-  .footer-brand p {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 260px;
-    margin-top: 16px;
-    font-weight: 300;
-  }
-  .footer-col h4 {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 20px;
-  }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-  .footer-col ul a {
-    text-decoration: none;
-    color: var(--muted);
-    font-size: 14px;
-    transition: color 0.2s;
-  }
-  .footer-col ul a:hover { color: var(--copper); }
-  .footer-bottom {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    border-top: 1px solid var(--border);
-    padding-top: 28px;
-    font-size: 13px;
-    color: var(--muted);
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .footer-bottom a { color: var(--muted); text-decoration: none; }
-  .footer-bottom a:hover { color: var(--copper); }
-
-  /* ─── Storm Banner ─── */
-  .storm-banner {
-    position: fixed; top: 70px; left: 0; right: 0; z-index: 99;
-    background: linear-gradient(90deg,rgba(200,120,58,.18),rgba(200,120,58,.07) 50%,rgba(200,120,58,.18));
-    border-bottom: 1px solid rgba(200,120,58,.3);
-    padding: 9px 5%;
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    font-size: 13px; color: var(--text); flex-wrap: wrap;
-  }
-  .storm-banner strong { color: var(--copper); font-weight: 600; }
-  .storm-banner a { color: var(--copper); text-decoration: none; font-weight: 600; margin-left: 4px; border-bottom: 1px solid rgba(200,120,58,.4); white-space: nowrap; }
-  .storm-banner a:hover { border-bottom-color: var(--copper); }
+  /* SEASON BANNER */
+  .season-banner { position: fixed; top: 70px; left: 0; right: 0; z-index: 99; background: linear-gradient(90deg,rgba(200,120,58,.18),rgba(200,120,58,.07) 50%,rgba(200,120,58,.18)); border-bottom: 1px solid rgba(200,120,58,.3); padding: 9px 5%; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 13px; color: var(--text); flex-wrap: wrap; }
+  .season-banner strong { color: var(--copper); font-weight: 600; }
+  .season-banner a { color: var(--copper); text-decoration: none; font-weight: 600; margin-left: 4px; border-bottom: 1px solid rgba(200,120,58,.4); white-space: nowrap; }
+  .season-banner a:hover { border-bottom-color: var(--copper); }
   .s-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--copper); animation: pulse 2s infinite; flex-shrink: 0; }
-  @media(max-width:768px){ .storm-banner { font-size:11px; top:70px; } }
 
-  /* ─── Guarantee Bar ─── */
+  /* GUARANTEE */
   .guarantee-bar { background: var(--dark); border-bottom: 1px solid rgba(76,175,120,.12); padding: 16px 5%; }
   .guarantee-items { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 40px; }
   .g-item { font-size: 13px; color: var(--text); display: flex; align-items: center; gap: 7px; font-weight: 500; }
   .g-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); flex-shrink: 0; }
-  @media(max-width:480px){ .g-item { font-size:12px; } }
 
-  /* ─── Numbers Section ─── */
+  /* STATS */
+  .stats-bar { padding: 40px 5%; background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2px; max-width: 1100px; margin: 0 auto; }
+  .stat-item { text-align: center; padding: 20px; border-right: 1px solid var(--border); }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--copper); letter-spacing: 2px; line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 13px; color: var(--muted); font-weight: 400; letter-spacing: 0.5px; }
+
+  /* SECTIONS */
+  section { padding: 100px 5%; }
+  .section-label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--copper); margin-bottom: 14px; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 5vw, 60px); letter-spacing: 1.5px; line-height: 1; color: var(--white); margin-bottom: 18px; }
+  .section-sub { font-size: 17px; color: var(--muted); font-weight: 300; line-height: 1.7; max-width: 560px; }
+  .centered { text-align: center; }
+  .centered .section-sub { margin: 0 auto; }
+
+  /* COMPARE */
+  .compare-section { background: var(--dark); }
+  .compare-grid { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 0; max-width: 1000px; margin: 60px auto 0; align-items: start; }
+  .compare-col { padding: 40px; border-radius: 8px; }
+  .compare-col.bad { background: rgba(162,45,45,0.08); border: 1px solid rgba(162,45,45,0.2); }
+  .compare-col.good { background: rgba(200,120,58,0.08); border: 1px solid rgba(200,120,58,0.3); }
+  .compare-vs { display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--muted); letter-spacing: 2px; padding-top: 60px; }
+  .compare-col h3 { font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+  .compare-col.bad h3 { color: #C04444; }
+  .compare-col.good h3 { color: var(--copper); }
+  .compare-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .compare-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--text); line-height: 1.5; }
+  .compare-list li .icon { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; margin-top: 2px; }
+  .bad .icon { background: rgba(192,68,68,0.2); color: #E06060; }
+  .good .icon { background: rgba(76,175,120,0.2); color: var(--success); }
+
+  /* NUMBERS */
   .numbers-section { background: var(--black); padding: 100px 5%; text-align: center; }
   .numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0; max-width: 1000px; margin: 52px auto 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
   .num-card { background: var(--card); padding: 40px 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; border-right: 1px solid var(--border); transition: background .3s; }
@@ -957,20 +131,8 @@
   .num-value { font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 1; color: var(--copper); letter-spacing: 1px; }
   .num-label { font-size: 13px; color: var(--text); line-height: 1.5; text-align: center; max-width: 140px; font-weight: 500; }
   .num-sub { font-size: 11px; color: var(--muted); text-align: center; line-height: 1.5; max-width: 150px; }
-  @media(max-width:640px){ .num-card { border-right: none; border-bottom: 1px solid var(--border); } .num-card:last-child { border-bottom: none; } }
 
-  /* ─── Pricing Comparison Strip ─── */
-  .pricing-compare { max-width: 720px; margin: 0 auto 48px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 22px 32px; display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 12px 24px; }
-  .pc-item { display: flex; flex-direction: column; align-items: center; gap: 5px; }
-  .pc-label { font-size: 11px; color: var(--muted); letter-spacing: .5px; text-transform: uppercase; }
-  .pc-value { font-size: 22px; font-weight: 600; }
-  .pc-value.bad { color: #E57373; text-decoration: line-through; opacity: .75; }
-  .pc-value.mid { color: var(--muted); text-decoration: line-through; opacity: .75; font-size: 18px; }
-  .pc-value.best { color: var(--success); }
-  .pc-divider { color: var(--border); font-size: 24px; align-self: center; }
-  .pc-note { font-size: 12px; color: var(--muted); text-align: center; width: 100%; padding-top: 4px; border-top: 1px solid var(--border); margin-top: 6px; }
-
-  /* ─── ROI Calculator ─── */
+  /* ROI CALC */
   .calc-section { background: var(--dark); padding: 100px 5%; }
   .calc-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 1040px; margin: 60px auto 0; }
   .calc-inputs { display: flex; flex-direction: column; gap: 30px; }
@@ -978,30 +140,12 @@
   .calc-group-hd { display: flex; justify-content: space-between; align-items: baseline; }
   .calc-group-label { font-size: 13px; color: var(--text); font-weight: 500; }
   .calc-group-val { font-size: 22px; font-weight: 700; color: var(--copper); font-family: 'Bebas Neue', sans-serif; letter-spacing: .5px; }
-  .calc-range {
-    -webkit-appearance: none; appearance: none;
-    width: 100%; height: 4px; border-radius: 2px;
-    background: var(--border); outline: none; cursor: pointer;
-  }
-  .calc-range::-webkit-slider-thumb {
-    -webkit-appearance: none; appearance: none;
-    width: 20px; height: 20px; border-radius: 50%;
-    background: var(--copper); cursor: pointer;
-    border: 2px solid var(--dark);
-    box-shadow: 0 0 0 4px rgba(200,120,58,.18);
-    transition: box-shadow .2s;
-  }
+  .calc-range { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 2px; background: var(--border); outline: none; cursor: pointer; }
+  .calc-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--copper); cursor: pointer; border: 2px solid var(--dark); box-shadow: 0 0 0 4px rgba(200,120,58,.18); transition: box-shadow .2s; }
   .calc-range::-webkit-slider-thumb:hover { box-shadow: 0 0 0 6px rgba(200,120,58,.25); }
-  .calc-range::-moz-range-thumb {
-    width: 20px; height: 20px; border-radius: 50%;
-    background: var(--copper); cursor: pointer;
-    border: 2px solid var(--dark);
-  }
+  .calc-range::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--copper); cursor: pointer; border: 2px solid var(--dark); }
   .calc-range-limits { display: flex; justify-content: space-between; font-size: 11px; color: rgba(138,136,130,.55); margin-top: 2px; }
-  .calc-results {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 14px; padding: 28px; display: flex; flex-direction: column;
-  }
+  .calc-results { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; }
   .calc-results-title { font-size: 11px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; margin-bottom: 18px; }
   .calc-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: .5px solid var(--border); }
   .calc-row:last-of-type { border-bottom: none; }
@@ -1011,273 +155,222 @@
   .val-gain { color: #A5D6A7; }
   .val-neutral { color: var(--text); }
   .calc-sep { height: .5px; background: var(--border); margin: 8px 0; }
-  .calc-net-box {
-    background: linear-gradient(135deg, rgba(76,175,120,.1), rgba(76,175,120,.04));
-    border: 1px solid rgba(76,175,120,.2); border-radius: 10px;
-    padding: 22px 18px; text-align: center; margin-top: 18px;
-  }
+  .calc-net-box { background: linear-gradient(135deg, rgba(76,175,120,.1), rgba(76,175,120,.04)); border: 1px solid rgba(76,175,120,.2); border-radius: 10px; padding: 22px 18px; text-align: center; margin-top: 18px; }
   .calc-net-label { font-size: 11px; color: #A5D6A7; text-transform: uppercase; letter-spacing: .6px; margin-bottom: 6px; }
   .calc-net-val { font-size: 48px; font-weight: 700; color: #A5D6A7; font-family: 'Bebas Neue', sans-serif; line-height: 1; }
   .calc-net-roi { font-size: 12px; color: rgba(165,214,167,.65); margin-top: 4px; }
-  .calc-action {
-    display: block; width: 100%; padding: 14px; background: var(--copper);
-    color: var(--black); border: none; border-radius: 6px;
-    font-size: 13px; font-weight: 700; cursor: pointer;
-    font-family: 'Outfit', sans-serif; letter-spacing: .2px;
-    transition: background .2s; text-align: center; text-decoration: none;
-    margin-top: 16px;
-  }
+  .calc-action { display: block; width: 100%; padding: 14px; background: var(--copper); color: var(--black); border: none; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: 'Outfit', sans-serif; transition: background .2s; text-align: center; text-decoration: none; margin-top: 16px; }
   .calc-action:hover { background: var(--copper-lt); }
   .calc-disclaimer { font-size: 11px; color: rgba(138,136,130,.5); text-align: center; margin-top: 14px; max-width: 1040px; margin-left: auto; margin-right: auto; }
-  @media(max-width:768px) { .calc-wrap { grid-template-columns: 1fr; } }
 
+  /* FEATURES */
+  .features-section { background: var(--black); }
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; max-width: 1100px; margin: 60px auto 0; }
+  .feature-card { background: var(--card); padding: 40px; transition: background 0.3s; position: relative; overflow: hidden; }
+  .feature-card:hover { background: var(--card2); }
+  .feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--copper), transparent); opacity: 0; transition: opacity 0.3s; }
+  .feature-card:hover::before { opacity: 1; }
+  .feature-icon { width: 52px; height: 52px; background: rgba(200,120,58,0.1); border: 1px solid rgba(200,120,58,0.25); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; font-size: 22px; }
+  .feature-card h3 { font-size: 18px; font-weight: 600; color: var(--white); margin-bottom: 12px; letter-spacing: 0.3px; }
+  .feature-card p { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+  .feature-card .tag { display: inline-block; margin-top: 20px; padding: 4px 12px; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; border-radius: 3px; background: rgba(200,120,58,0.12); color: var(--copper); border: 1px solid rgba(200,120,58,0.25); }
+  .feature-card.star { background: linear-gradient(135deg, rgba(200,120,58,0.12), rgba(200,120,58,0.04)); border: none; }
+  .feature-card.star::after { content: '★ SIGNATURE FEATURE'; position: absolute; top: 16px; right: 16px; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; padding: 3px 10px; border-radius: 3px; background: var(--copper); color: var(--black); }
 
-  .lead-overlay {
-    display: none; position: fixed; inset: 0; z-index: 999;
-    background: rgba(0,0,0,.85); backdrop-filter: blur(8px);
-    align-items: center; justify-content: center; padding: 24px;
-    animation: fadeOverlay .25s ease;
-  }
+  /* REVIEW */
+  .review-section { background: var(--dark); position: relative; overflow: hidden; }
+  .review-section::before { content: ''; position: absolute; right: -200px; top: -200px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(200,120,58,0.08) 0%, transparent 70%); pointer-events: none; }
+  .review-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1100px; margin: 0 auto; }
+  .review-visual { position: relative; }
+  .phone-mockup { background: var(--card2); border: 1px solid var(--border); border-radius: 28px; padding: 24px 20px; max-width: 320px; margin: 0 auto; position: relative; box-shadow: 0 40px 80px rgba(0,0,0,0.5); }
+  .phone-notch { width: 80px; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; margin: 0 auto 20px; }
+  .sms-bubble { padding: 14px 18px; border-radius: 18px; margin-bottom: 12px; font-size: 14px; line-height: 1.5; max-width: 90%; }
+  .sms-bubble.ai { background: var(--copper); color: var(--black); font-weight: 500; border-bottom-left-radius: 4px; margin-left: auto; margin-right: 0; text-align: right; }
+  .sms-bubble.customer { background: rgba(255,255,255,0.07); color: var(--text); border-bottom-right-radius: 4px; }
+  .sms-time { font-size: 10px; color: var(--muted); text-align: center; margin: 8px 0; letter-spacing: 0.5px; }
+  .stars-row { display: flex; gap: 4px; margin-top: 10px; }
+  .star-icon { color: #FFB800; font-size: 18px; }
+  .review-float { position: absolute; background: var(--card); border: 1px solid rgba(200,120,58,0.3); border-radius: 12px; padding: 14px 20px; font-size: 13px; white-space: nowrap; box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+  .review-float.f1 { top: -20px; right: -30px; animation: floatA 4s ease-in-out infinite; }
+  .review-float.f2 { bottom: -20px; left: -20px; animation: floatB 4s ease-in-out 2s infinite; }
+  @keyframes floatA { 0%,100%{ transform:translateY(0px); } 50%{ transform:translateY(-10px); } }
+  @keyframes floatB { 0%,100%{ transform:translateY(0px); } 50%{ transform:translateY(8px); } }
+  .float-val { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--copper); letter-spacing: 1px; }
+  .float-lbl { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
+  .review-text .steps { display: flex; flex-direction: column; gap: 0; margin-top: 40px; }
+  .step-item { display: flex; gap: 20px; padding-bottom: 36px; position: relative; }
+  .step-item:not(:last-child)::after { content: ''; position: absolute; left: 19px; top: 44px; width: 1px; height: calc(100% - 44px); background: var(--border); }
+  .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: rgba(200,120,58,0.1); border: 1px solid rgba(200,120,58,0.3); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--copper); }
+  .step-body h4 { font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+  .step-body p { font-size: 14px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+  /* HOW */
+  .how-section { background: var(--black); }
+  .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2px; max-width: 1100px; margin: 60px auto 0; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .how-card { background: var(--dark); padding: 48px 36px; position: relative; }
+  .how-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--copper); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+  .how-card:hover::before { transform: scaleX(1); }
+  .how-num { font-family: 'Bebas Neue', sans-serif; font-size: 72px; color: rgba(200,120,58,0.1); line-height: 1; margin-bottom: 20px; letter-spacing: 3px; }
+  .how-card h3 { font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 14px; }
+  .how-card p { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+  /* TESTIMONIALS */
+  .testimonials-section { background: var(--dark); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1100px; margin: 60px auto 0; }
+  .testimonial-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 36px; transition: border-color 0.3s, transform 0.3s; }
+  .testimonial-card:hover { border-color: rgba(200,120,58,0.3); transform: translateY(-4px); }
+  .testimonial-stars { display: flex; gap: 3px; margin-bottom: 20px; }
+  .testimonial-stars span { color: #FFB800; font-size: 16px; }
+  .testimonial-text { font-size: 15px; color: var(--text); line-height: 1.7; font-weight: 300; margin-bottom: 24px; }
+  .testimonial-author { display: flex; align-items: center; gap: 14px; }
+  .author-avatar { width: 44px; height: 44px; border-radius: 50%; background: rgba(200,120,58,0.15); border: 1px solid rgba(200,120,58,0.3); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: var(--copper); letter-spacing: 1px; }
+  .author-name { font-size: 15px; font-weight: 600; color: var(--white); }
+  .author-biz { font-size: 13px; color: var(--muted); }
+
+  /* PRICING */
+  .pricing-section { background: var(--black); }
+  .pricing-compare { max-width: 720px; margin: 0 auto 48px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 22px 32px; display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 12px 24px; }
+  .pc-item { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .pc-label { font-size: 11px; color: var(--muted); letter-spacing: .5px; text-transform: uppercase; }
+  .pc-value { font-size: 22px; font-weight: 600; }
+  .pc-value.bad { color: #E57373; text-decoration: line-through; opacity: .75; }
+  .pc-value.mid { color: var(--muted); text-decoration: line-through; opacity: .75; font-size: 18px; }
+  .pc-value.best { color: var(--success); }
+  .pc-divider { color: var(--border); font-size: 24px; align-self: center; }
+  .pc-note { font-size: 12px; color: var(--muted); text-align: center; width: 100%; padding-top: 4px; border-top: 1px solid var(--border); margin-top: 6px; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 960px; margin: 0 auto; }
+  .pricing-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 40px; text-align: center; transition: transform 0.3s; position: relative; overflow: hidden; }
+  .pricing-card:hover { transform: translateY(-4px); }
+  .pricing-card.featured { border-color: var(--copper); background: linear-gradient(135deg, rgba(200,120,58,0.12), var(--card)); }
+  .pricing-card.featured::before { content: 'MOST POPULAR'; position: absolute; top: 16px; right: 16px; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; padding: 4px 10px; background: var(--copper); color: var(--black); border-radius: 3px; }
+  .pricing-name { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .pricing-price { font-family: 'Bebas Neue', sans-serif; font-size: 64px; letter-spacing: 2px; color: var(--white); line-height: 1; margin-bottom: 6px; }
+  .pricing-price .dollar { font-size: 28px; vertical-align: top; margin-top: 12px; display: inline-block; color: var(--copper); }
+  .pricing-price .period { font-size: 18px; letter-spacing: 1px; color: var(--muted); }
+  .pricing-desc { font-size: 14px; color: var(--muted); margin-bottom: 32px; font-weight: 300; }
+  .pricing-features { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+  .pricing-features li { display: flex; gap: 10px; font-size: 14px; color: var(--text); }
+  .pricing-features li .chk { color: var(--success); font-size: 16px; flex-shrink: 0; }
+  .pricing-features li .x-icon { color: #C04444; font-size: 16px; flex-shrink: 0; }
+  .btn-plan { display: block; padding: 14px; border-radius: 6px; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; text-decoration: none; cursor: pointer; text-align: center; transition: all 0.2s; border: none; font-family: 'Outfit', sans-serif; }
+  .btn-plan.outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-plan.outline:hover { border-color: var(--copper); color: var(--copper); }
+  .btn-plan.filled { background: var(--copper); color: var(--black); }
+  .btn-plan.filled:hover { background: var(--copper-lt); }
+
+  /* CTA */
+  .cta-section { background: var(--dark); text-align: center; padding: 100px 5%; position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(200,120,58,0.03) 60px, rgba(200,120,58,0.03) 61px); }
+  .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(42px, 6vw, 72px); letter-spacing: 2px; color: var(--white); margin-bottom: 20px; position: relative; z-index: 1; line-height: 1; }
+  .cta-section h2 span { color: var(--copper); }
+  .cta-section > p { font-size: 18px; color: var(--muted); max-width: 520px; margin: 0 auto 40px; font-weight: 300; position: relative; z-index: 1; }
+  .cta-section .btn-primary { position: relative; z-index: 1; font-size: 16px; padding: 18px 48px; }
+  .cta-note { font-size: 13px; color: var(--muted); margin-top: 16px; position: relative; z-index: 1; opacity: 0.6; }
+
+  /* FOOTER */
+  footer { background: var(--black); border-top: 1px solid var(--border); padding: 60px 5% 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; max-width: 1100px; margin: 0 auto 60px; }
+  .footer-brand p { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 260px; margin-top: 16px; font-weight: 300; }
+  .footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul a { text-decoration: none; color: var(--muted); font-size: 14px; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--copper); }
+  .footer-bottom { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 28px; font-size: 13px; color: var(--muted); flex-wrap: wrap; gap: 12px; }
+  .footer-bottom a { color: var(--muted); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--copper); }
+  .fb-link { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 13px; border: 1px solid var(--border); border-radius: 6px; padding: 7px 14px; margin-top: 18px; transition: border-color 0.2s, color 0.2s; }
+  .fb-link:hover { border-color: rgba(24,119,242,0.5); color: #5898d4; }
+  .fb-icon-wrap { width: 20px; height: 20px; border-radius: 4px; background: #1877F2; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px; color: #fff; font-family: Georgia, serif; flex-shrink: 0; }
+
+  /* MODALS */
+  .lead-overlay { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 24px; }
   .lead-overlay.open { display: flex; }
-  .lead-modal {
-    background: var(--card); border: 1px solid rgba(200,120,58,.3);
-    border-radius: 14px; width: 100%; max-width: 460px;
-    overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,.6);
-    animation: slideUp .3s ease;
-  }
-  .lead-modal-hd {
-    padding: 24px 28px 0;
-    display: flex; justify-content: space-between; align-items: flex-start;
-  }
+  .lead-modal { background: var(--card); border: 1px solid rgba(200,120,58,.3); border-radius: 14px; width: 100%; max-width: 460px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,.6); animation: slideUp .3s ease; }
+  .lead-modal-hd { padding: 24px 28px 0; display: flex; justify-content: space-between; align-items: flex-start; }
   .lead-modal-title { font-size: 20px; font-weight: 600; color: var(--white); line-height: 1.3; }
   .lead-modal-sub { font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
-  .lead-close {
-    background: none; border: none; cursor: pointer; color: var(--muted);
-    font-size: 22px; line-height: 1; padding: 0 0 0 12px; flex-shrink: 0;
-    transition: color .2s;
-  }
+  .lead-close { background: none; border: none; cursor: pointer; color: var(--muted); font-size: 22px; line-height: 1; padding: 0 0 0 12px; flex-shrink: 0; transition: color .2s; }
   .lead-close:hover { color: var(--white); }
   .lead-form { padding: 24px 28px 28px; }
   .lead-field { margin-bottom: 16px; }
-  .lead-label {
-    display: block; font-size: 12px; font-weight: 500;
-    color: var(--muted); margin-bottom: 7px; letter-spacing: .4px; text-transform: uppercase;
-  }
-  .lead-input {
-    width: 100%; background: var(--card2); border: 1px solid var(--border);
-    border-radius: 6px; padding: 13px 16px; font-size: 14px;
-    color: var(--white); font-family: 'Outfit', sans-serif;
-    outline: none; transition: border-color .2s;
-  }
+  .lead-label { display: block; font-size: 12px; font-weight: 500; color: var(--muted); margin-bottom: 7px; letter-spacing: .4px; text-transform: uppercase; }
+  .lead-input { width: 100%; background: var(--card2); border: 1px solid var(--border); border-radius: 6px; padding: 13px 16px; font-size: 14px; color: var(--white); font-family: 'Outfit', sans-serif; outline: none; transition: border-color .2s; }
   .lead-input::placeholder { color: var(--muted); }
   .lead-input:focus { border-color: rgba(200,120,58,.6); }
-  .lead-submit {
-    width: 100%; padding: 15px; background: var(--copper);
-    color: var(--black); border: none; border-radius: 6px;
-    font-size: 15px; font-weight: 700; cursor: pointer;
-    font-family: 'Outfit', sans-serif; letter-spacing: .3px;
-    transition: background .2s, transform .15s; margin-top: 8px;
-  }
+  .lead-submit { width: 100%; padding: 15px; background: var(--copper); color: var(--black); border: none; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'Outfit', sans-serif; transition: background .2s, transform .15s; margin-top: 8px; }
   .lead-submit:hover { background: var(--copper-lt); transform: translateY(-1px); }
   .lead-submit:disabled { background: var(--muted); cursor: not-allowed; transform: none; }
-  .lead-guarantee {
-    display: flex; align-items: center; gap: 7px;
-    font-size: 12px; color: var(--muted); margin-top: 12px; justify-content: center;
-  }
+  .lead-guarantee { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--muted); margin-top: 12px; justify-content: center; }
   .lead-guarantee-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--success); flex-shrink: 0; }
-  .lead-success-state {
-    display: none; padding: 40px 28px; text-align: center;
-  }
+  .lead-success-state { display: none; padding: 40px 28px; text-align: center; }
   .lead-success-icon { font-size: 44px; margin-bottom: 16px; }
   .lead-success-title { font-size: 18px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
   .lead-success-msg { font-size: 14px; color: var(--muted); line-height: 1.6; }
-
-  /* ─── Video Cover Overlay ─── */
-  .video-cover {
-    position: absolute; inset: 0; z-index: 3;
-    background: linear-gradient(135deg, #0D0F14 0%, #161820 100%);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 16px;
-    cursor: pointer; transition: opacity .3s;
-  }
+  .demo-modal-overlay { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,.88); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 24px; }
+  .demo-modal-overlay.open { display: flex; }
+  .demo-modal { background: var(--card); border: 1px solid rgba(200,120,58,.25); border-radius: 14px; overflow: hidden; width: 100%; max-width: 820px; box-shadow: 0 40px 80px rgba(0,0,0,.6); animation: slideUp .3s ease; position: relative; }
+  @keyframes slideUp { from{ opacity:0; transform:translateY(30px) scale(.97); } to{ opacity:1; transform:translateY(0) scale(1); } }
+  .demo-modal-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 22px; border-bottom: 1px solid var(--border); background: var(--card2); }
+  .demo-modal-title { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--white); }
+  .demo-live-dot { width: 8px; height: 8px; border-radius: 50%; background: #E57373; animation: pulse 1.5s infinite; }
+  .demo-close { background: none; border: none; cursor: pointer; color: var(--muted); font-size: 22px; line-height: 1; padding: 2px 6px; border-radius: 4px; transition: color .2s, background .2s; }
+  .demo-close:hover { color: var(--white); background: rgba(255,255,255,.06); }
+  .demo-video-wrap { position: relative; background: #000; aspect-ratio: 16/9; }
+  .demo-video-wrap video { width: 100%; height: 100%; display: block; outline: none; position: relative; z-index: 1; }
+  .demo-modal-footer { padding: 14px 22px; background: var(--card2); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  .demo-footer-note { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 7px; }
+  .demo-footer-cta { padding: 8px 20px; background: var(--copper); color: var(--black); border-radius: 4px; font-size: 13px; font-weight: 600; text-decoration: none; transition: background .2s; }
+  .demo-footer-cta:hover { background: var(--copper-lt); }
+  .video-cover { position: absolute; inset: 0; z-index: 3; background: linear-gradient(135deg, #0D0F14 0%, #161820 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; cursor: pointer; transition: opacity .3s; }
   .video-cover.hidden { opacity: 0; pointer-events: none; }
-  .video-play-circle {
-    width: 70px; height: 70px; border-radius: 50%;
-    background: var(--copper); display: flex; align-items: center; justify-content: center;
-    transition: transform .2s, background .2s;
-    box-shadow: 0 0 0 12px rgba(200,120,58,.15);
-  }
+  .video-play-circle { width: 70px; height: 70px; border-radius: 50%; background: var(--copper); display: flex; align-items: center; justify-content: center; transition: transform .2s, background .2s; box-shadow: 0 0 0 12px rgba(200,120,58,.15); }
   .video-cover:hover .video-play-circle { transform: scale(1.08); background: var(--copper-lt); }
   .video-cover-label { font-size: 13px; color: var(--muted); letter-spacing: .5px; }
-  .video-error-state {
-    display: none; position: absolute; inset: 0; z-index: 2;
-    flex-direction: column; align-items: center; justify-content: center;
-    gap: 10px; background: #0D0F14; padding: 24px; text-align: center;
-  }
+  .video-error-state { display: none; position: absolute; inset: 0; z-index: 2; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: #0D0F14; padding: 24px; text-align: center; }
   .video-error-state p { font-size: 14px; color: var(--muted); }
-  .video-error-state a {
-    font-size: 13px; color: var(--copper); text-decoration: none;
-    border-bottom: 1px solid rgba(200,120,58,.4); padding-bottom: 2px;
-  }
+  .video-error-state a { font-size: 13px; color: var(--copper); text-decoration: none; border-bottom: 1px solid rgba(200,120,58,.4); padding-bottom: 2px; }
 
+  /* ANIMATIONS */
+  @keyframes fadeInDown { from{ opacity:0; transform:translateY(-20px); } to{ opacity:1; transform:translateY(0); } }
+  @keyframes fadeInUp { from{ opacity:0; transform:translateY(30px); } to{ opacity:1; transform:translateY(0); } }
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  .demo-modal-overlay {
-    display: none;
-    position: fixed; inset: 0; z-index: 999;
-    background: rgba(0,0,0,.88);
-    backdrop-filter: blur(8px);
-    align-items: center; justify-content: center;
-    padding: 24px;
-    animation: fadeOverlay .25s ease;
-  }
-  .demo-modal-overlay.open { display: flex; }
-  @keyframes fadeOverlay { from { opacity:0; } to { opacity:1; } }
-
-  .demo-modal {
-    background: var(--card);
-    border: 1px solid rgba(200,120,58,.25);
-    border-radius: 14px;
-    overflow: hidden;
-    width: 100%;
-    max-width: 820px;
-    box-shadow: 0 40px 80px rgba(0,0,0,.6);
-    animation: slideUp .3s ease;
-    position: relative;
-  }
-  @keyframes slideUp {
-    from { opacity:0; transform: translateY(30px) scale(.97); }
-    to   { opacity:1; transform: translateY(0)   scale(1);    }
-  }
-  .demo-modal-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 22px;
-    border-bottom: 1px solid var(--border);
-    background: var(--card2);
-  }
-  .demo-modal-title {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 14px; font-weight: 600; color: var(--white);
-  }
-  .demo-live-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: #E57373; animation: pulse 1.5s infinite;
-  }
-  .demo-close {
-    background: none; border: none; cursor: pointer;
-    color: var(--muted); font-size: 22px; line-height: 1;
-    padding: 2px 6px; border-radius: 4px;
-    transition: color .2s, background .2s;
-  }
-  .demo-close:hover { color: var(--white); background: rgba(255,255,255,.06); }
-  .demo-video-wrap {
-    position: relative;
-    background: #000;
-    aspect-ratio: 16/9;
-  }
-  .demo-video-wrap video {
-    width: 100%; height: 100%;
-    display: block;
-    outline: none;
-  }
-  .demo-modal-footer {
-    padding: 14px 22px;
-    background: var(--card2);
-    border-top: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 10px;
-  }
-  .demo-footer-note {
-    font-size: 12px; color: var(--muted);
-    display: flex; align-items: center; gap: 7px;
-  }
-  .demo-footer-cta {
-    padding: 8px 20px;
-    background: var(--copper);
-    color: var(--black);
-    border-radius: 4px;
-    font-size: 13px; font-weight: 600;
-    text-decoration: none;
-    transition: background .2s;
-    white-space: nowrap;
-  }
-  .demo-footer-cta:hover { background: var(--copper-lt); }
-
-  /* ─── Demo trigger button ─── */
-  .btn-demo {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 28px;
-    background: transparent;
-    border: 1px solid rgba(200,120,58,.45);
-    color: var(--copper);
-    border-radius: 4px;
-    font-size: 15px; font-weight: 600;
-    cursor: pointer;
-    font-family: 'Outfit', sans-serif;
-    letter-spacing: .3px;
-    transition: border-color .2s, background .2s, color .2s;
-    text-decoration: none;
-  }
-  .btn-demo:hover {
-    border-color: var(--copper);
-    background: rgba(200,120,58,.08);
-    color: var(--copper-lt);
-  }
-  .btn-demo-icon {
-    width: 26px; height: 26px; border-radius: 50%;
-    background: var(--copper);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .btn-demo-icon svg { fill: var(--black); margin-left: 2px; }
-
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ─── Mobile ─── */
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .compare-grid { grid-template-columns: 1fr; }
-    .compare-vs { display: none; }
-    .review-layout { grid-template-columns: 1fr; }
-    .review-float { display: none; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .hero h1 .line2 { -webkit-text-stroke: 1px rgba(200,120,58,0.4); }
-  }
-  @media (max-width: 480px) {
-    .footer-grid { grid-template-columns: 1fr; }
-    .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
-    section { padding: 70px 5%; }
-  }
+  /* RESPONSIVE */
+  @media(max-width:768px){ .nav-links{ display:none; } .compare-grid{ grid-template-columns:1fr; } .compare-vs{ display:none; } .review-layout{ grid-template-columns:1fr; } .review-float{ display:none; } .footer-grid{ grid-template-columns:1fr 1fr; } .calc-wrap{ grid-template-columns:1fr; } }
+  @media(max-width:480px){ .footer-grid{ grid-template-columns:1fr; } .stat-item{ border-right:none; border-bottom:1px solid var(--border); } section{ padding:70px 5%; } .num-card{ border-right:none; border-bottom:1px solid var(--border); } .num-card:last-child{ border-bottom:none; } }
 </style>
 </head>
 <body>
 
-<!-- ─── Storm Season Banner ─── -->
-<div class="storm-banner">
+<!-- SEASON BANNER -->
+<div class="season-banner">
   <div class="s-dot"></div>
-  Storm season is live — May through September.&nbsp;
-  <strong>The first contractor to answer after a storm gets 85% of the jobs.</strong>
+  Peak HVAC season is here — June through August.&nbsp;
+  <strong>When an AC fails on a 100°F day, the first contractor to answer gets the job.</strong>
   <a href="#contact">Get live in 48 hrs →</a>
 </div>
 
-<!-- ─── Navigation ─── -->
+<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <div class="logo-icon">D</div>
+    <div class="logo-icon">
+      <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer rounded square background -->
+        <rect width="38" height="38" rx="9" fill="#C8783A"/>
+        <!-- Snowflake / cold side (left) -->
+        <line x1="10" y1="19" x2="16" y2="19" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="13" y1="16" x2="13" y2="22" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="11.2" y1="17.2" x2="14.8" y2="20.8" stroke="#090A0C" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="14.8" y1="17.2" x2="11.2" y2="20.8" stroke="#090A0C" stroke-width="1.2" stroke-linecap="round"/>
+        <!-- Center divider line -->
+        <line x1="19" y1="11" x2="19" y2="27" stroke="#090A0C" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="2 2"/>
+        <!-- Air wave / heat side (right) -->
+        <path d="M22 14.5 C23.5 14.5 23.5 16 25 16 C26.5 16 26.5 14.5 28 14.5" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        <path d="M22 19 C23.5 19 23.5 20.5 25 20.5 C26.5 20.5 26.5 19 28 19" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        <path d="M22 23.5 C23.5 23.5 23.5 25 25 25 C26.5 25 26.5 23.5 28 23.5" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
     <div class="logo-text">Dominion <span>AI</span></div>
   </a>
   <ul class="nav-links">
@@ -1289,22 +382,22 @@
   </ul>
 </nav>
 
-<!-- ─── Hero ─── -->
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-glow"></div>
-
   <div class="hero-content">
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      LeadLock — AI Agent for Roofing Contractors
+      AI Receptionist Built for HVAC Contractors
     </div>
     <h1>
-      Close More Roofs<br>
-      <span class="line2">While You Sleep</span>
+      Never Miss an<br>
+      <span class="accent">Emergency Call</span><br>
+      <span class="line2">Again</span>
     </h1>
     <p class="hero-sub">
-      Dominion AI's AI agent, <strong>LeadLock</strong>, handles your calls, books appointments, follows up with customers, and <strong>automatically requests reviews</strong> after every completed job — so you can focus on the work.
+      Dominion AI's voice agent, <strong>Alex</strong>, answers every call, routes emergencies with priority dispatch, books service appointments, and <strong>automatically requests reviews</strong> after every completed job — 24/7, even at 2am in July.
     </p>
     <div class="hero-ctas">
       <a href="#contact" class="btn-primary">Get Started →</a>
@@ -1316,591 +409,352 @@
       </button>
     </div>
   </div>
-
-  <!-- Roof SVG bg decoration -->
-  <svg class="hero-roof" width="800" height="120" viewBox="0 0 800 120">
-    <polyline points="0,120 200,20 400,80 600,10 800,120" fill="none" stroke="rgba(200,120,58,0.6)" stroke-width="1.5"/>
-    <polyline points="0,120 200,40 400,100 600,30 800,120" fill="none" stroke="rgba(200,120,58,0.3)" stroke-width="1"/>
-    <polyline points="0,120 200,60 400,110 600,50 800,120" fill="none" stroke="rgba(200,120,58,0.15)" stroke-width="0.5"/>
+  <!-- HVAC sine wave decoration - heat waves -->
+  <svg class="hero-wave" width="900" height="140" viewBox="0 0 900 140">
+    <path d="M0,70 C75,20 150,120 225,70 C300,20 375,120 450,70 C525,20 600,120 675,70 C750,20 825,120 900,70" fill="none" stroke="rgba(200,120,58,0.8)" stroke-width="1.5"/>
+    <path d="M0,85 C75,35 150,135 225,85 C300,35 375,135 450,85 C525,35 600,135 675,85 C750,35 825,135 900,85" fill="none" stroke="rgba(200,120,58,0.4)" stroke-width="1"/>
+    <path d="M0,100 C75,50 150,140 225,100 C300,50 375,140 450,100 C525,50 600,140 675,100 C750,50 825,140 900,100" fill="none" stroke="rgba(91,184,212,0.3)" stroke-width="1"/>
   </svg>
-
   <div class="scroll-hint">
     <div class="scroll-line"></div>
     Scroll
   </div>
 </section>
 
-<!-- ─── Guarantee Bar ─── -->
+<!-- GUARANTEE -->
 <div class="guarantee-bar">
   <div class="guarantee-items">
     <div class="g-item"><div class="g-dot"></div> 30-Day Money-Back Guarantee</div>
     <div class="g-item"><div class="g-dot"></div> Live in 48 Hours</div>
-    <div class="g-item"><div class="g-dot"></div> Unlimited Calls Handled</div>
+    <div class="g-item"><div class="g-dot"></div> Emergency Calls Prioritized</div>
     <div class="g-item"><div class="g-dot"></div> No Long-Term Contracts</div>
-    <div class="g-item"><div class="g-dot"></div> Full Refund if Agent Misses a Call</div>
+    <div class="g-item"><div class="g-dot"></div> Bilingual — English &amp; Spanish</div>
   </div>
 </div>
 
-<!-- ─── Stats Bar ─── -->
+<!-- STATS -->
 <div class="stats-bar">
   <div class="stats-grid">
-    <div class="stat-item reveal">
-      <div class="stat-num">3×</div>
-      <div class="stat-label">More Reviews Generated</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-num">85%</div>
-      <div class="stat-label">Lead Response Rate</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-num">24/7</div>
-      <div class="stat-label">Always-On Agent</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-num">&lt;2min</div>
-      <div class="stat-label">Average Response Time</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-num">40%</div>
-      <div class="stat-label">More Closed Jobs</div>
-    </div>
+    <div class="stat-item reveal"><div class="stat-num">3×</div><div class="stat-label">More Reviews Generated</div></div>
+    <div class="stat-item reveal"><div class="stat-num">78%</div><div class="stat-label">Emergency Calls Converted</div></div>
+    <div class="stat-item reveal"><div class="stat-num">24/7</div><div class="stat-label">Always-On Agent</div></div>
+    <div class="stat-item reveal"><div class="stat-num">&lt;2min</div><div class="stat-label">Average Response Time</div></div>
+    <div class="stat-item reveal"><div class="stat-num">45%</div><div class="stat-label">More Booked Service Calls</div></div>
   </div>
 </div>
 
-<!-- ─── Problem vs Solution ─── -->
+<!-- COMPARE -->
 <section class="compare-section" id="why">
   <div class="centered reveal">
     <span class="section-label">The Difference</span>
     <h2 class="section-title">The Old Way Is Costing You Jobs</h2>
-    <p class="section-sub">Every missed call, delayed follow-up, and forgotten review request is revenue walking out the door.</p>
+    <p class="section-sub">Every missed call, delayed dispatch, and forgotten review request is revenue walking out the door — especially during peak season.</p>
   </div>
-
   <div class="compare-grid reveal">
     <div class="compare-col bad">
       <h3>❌ Without Dominion AI</h3>
       <ul class="compare-list">
-        <li>
-          <span class="icon">✕</span>
-          <span>Leads call while you're on the roof — they move on to the next contractor</span>
-        </li>
-        <li>
-          <span class="icon">✕</span>
-          <span>Follow-ups fall through the cracks when you're busy with jobs</span>
-        </li>
-        <li>
-          <span class="icon">✕</span>
-          <span>Customers forget to leave reviews — your Google rating stagnates</span>
-        </li>
-        <li>
-          <span class="icon">✕</span>
-          <span>Scheduling back-and-forth wastes hours every week</span>
-        </li>
-        <li>
-          <span class="icon">✕</span>
-          <span>No system to track where each lead stands in the process</span>
-        </li>
+        <li><span class="icon">✕</span><span>Emergency AC calls go unanswered while you're under a unit — homeowner calls the next contractor immediately</span></li>
+        <li><span class="icon">✕</span><span>Maintenance tune-up leads slip through the cracks during your busiest weeks</span></li>
+        <li><span class="icon">✕</span><span>Customers never leave reviews — your Google rating stagnates while competitors climb</span></li>
+        <li><span class="icon">✕</span><span>Scheduling back-and-forth wastes hours every week you could spend on jobs</span></li>
+        <li><span class="icon">✕</span><span>Spanish-speaking callers feel underserved — you lose jobs to bilingual competitors</span></li>
       </ul>
     </div>
-
     <div class="compare-vs">VS</div>
-
     <div class="compare-col good">
       <h3>✓ With Dominion AI</h3>
       <ul class="compare-list">
-        <li>
-          <span class="icon">✓</span>
-          <span>Every lead gets an instant response — day or night, automatically</span>
-        </li>
-        <li>
-          <span class="icon">✓</span>
-          <span>Smart follow-up sequences run on autopilot until they book or opt out</span>
-        </li>
-        <li>
-          <span class="icon">✓</span>
-          <span>Review requests sent automatically after job completion — reviews pour in</span>
-        </li>
-        <li>
-          <span class="icon">✓</span>
-          <span>AI books appointments directly into your calendar without the back-and-forth</span>
-        </li>
-        <li>
-          <span class="icon">✓</span>
-          <span>Full visibility into every lead, job status, and customer conversation</span>
-        </li>
+        <li><span class="icon">✓</span><span>Every call answered instantly — emergencies escalated to you live, everything else booked on the spot</span></li>
+        <li><span class="icon">✓</span><span>Maintenance and tune-up leads captured and scheduled without you lifting a finger</span></li>
+        <li><span class="icon">✓</span><span>Review requests sent automatically after every job — reviews pour in on autopilot</span></li>
+        <li><span class="icon">✓</span><span>Alex books appointments directly into your calendar — no phone tag, no back-and-forth</span></li>
+        <li><span class="icon">✓</span><span>Fully bilingual English and Spanish — open a market most competitors can't even talk to</span></li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- ─── Numbers Section ─── -->
+<!-- NUMBERS -->
 <section class="numbers-section" id="impact">
   <div class="centered reveal">
     <span class="section-label">The Real Numbers</span>
-    <h2 class="section-title">What a Missed Call Actually Costs You</h2>
-    <p class="section-sub">These aren't estimates. This is what happens every week in roofing businesses across the country.</p>
+    <h2 class="section-title">What a Missed Call Actually Costs an HVAC Business</h2>
+    <p class="section-sub">These aren't estimates. This is what happens every week in HVAC businesses across the country — especially in peak season.</p>
   </div>
-
   <div class="numbers-grid">
-    <div class="num-card reveal">
-      <div class="num-value">62%</div>
-      <div class="num-label">Callers Who Hit Voicemail Never Call Back</div>
-      <div class="num-sub">They call your competitor instead — immediately</div>
-    </div>
-    <div class="num-card reveal">
-      <div class="num-value">85%</div>
-      <div class="num-label">Storm Jobs Go to the First Contractor Who Answers</div>
-      <div class="num-sub">Speed wins. Every time.</div>
-    </div>
-    <div class="num-card reveal">
-      <div class="num-value">$87K</div>
-      <div class="num-label">Average Annual Revenue Lost to Missed Calls</div>
-      <div class="num-sub">Per small contractor — not including storm surges</div>
-    </div>
-    <div class="num-card reveal">
-      <div class="num-value">15–18</div>
-      <div class="num-label">Additional Booked Inspections Per Month</div>
-      <div class="num-sub">Captured by LeadLock from calls that would have gone unanswered</div>
-    </div>
-    <div class="num-card reveal">
-      <div class="num-value">$180K</div>
-      <div class="num-label">Potential Annual Revenue Recovered</div>
-      <div class="num-sub">Based on 18 bookings/mo × 20% close rate × $10K avg job</div>
-    </div>
+    <div class="num-card reveal"><div class="num-value">67%</div><div class="num-label">HVAC Callers Who Hit Voicemail Never Call Back</div><div class="num-sub">They call the next contractor within 90 seconds</div></div>
+    <div class="num-card reveal"><div class="num-value">91%</div><div class="num-label">Emergency Repair Jobs Go to the First Contractor Who Picks Up</div><div class="num-sub">No AC in summer = decision made instantly</div></div>
+    <div class="num-card reveal"><div class="num-value">$74K</div><div class="num-label">Average Annual Revenue Lost to Missed Calls</div><div class="num-sub">Per small HVAC contractor — before peak season surges</div></div>
+    <div class="num-card reveal"><div class="num-value">12–20</div><div class="num-label">Additional Booked Service Calls Per Month</div><div class="num-sub">Captured by Alex from calls that would have gone unanswered</div></div>
+    <div class="num-card reveal"><div class="num-value">$156K</div><div class="num-label">Potential Annual Revenue Recovered</div><div class="num-sub">Based on 16 bookings/mo × 25% close rate × $3,900 avg job</div></div>
   </div>
 </section>
 
-<!-- ─── ROI Calculator ─── -->
+<!-- ROI CALCULATOR -->
 <section class="calc-section" id="calculator">
   <div class="centered reveal">
     <span class="section-label">ROI Calculator</span>
     <h2 class="section-title">How Much Are You Losing Right Now?</h2>
-    <p class="section-sub">Adjust the sliders to match your business — see your real numbers instantly.</p>
+    <p class="section-sub">Adjust the sliders to match your HVAC business — see your real numbers instantly.</p>
   </div>
-
   <div class="calc-wrap">
-
-    <!-- Inputs -->
     <div class="calc-inputs">
-
       <div class="calc-group">
-        <div class="calc-group-hd">
-          <span class="calc-group-label">Monthly incoming calls</span>
-          <span class="calc-group-val" id="v-calls">120 calls</span>
-        </div>
-        <input class="calc-range" type="range" min="30" max="500" value="120" id="s-calls" oninput="updateCalc()">
-        <div class="calc-range-limits"><span>30</span><span>500</span></div>
+        <div class="calc-group-hd"><span class="calc-group-label">Monthly incoming calls</span><span class="calc-group-val" id="v-calls">100 calls</span></div>
+        <input class="calc-range" type="range" min="20" max="400" value="100" id="s-calls" oninput="updateCalc()">
+        <div class="calc-range-limits"><span>20</span><span>400</span></div>
       </div>
-
       <div class="calc-group">
-        <div class="calc-group-hd">
-          <span class="calc-group-label">Calls missed while on the job</span>
-          <span class="calc-group-val" id="v-missed">35%</span>
-        </div>
-        <input class="calc-range" type="range" min="10" max="70" value="35" id="s-missed" oninput="updateCalc()">
+        <div class="calc-group-hd"><span class="calc-group-label">Calls missed while on a job</span><span class="calc-group-val" id="v-missed">40%</span></div>
+        <input class="calc-range" type="range" min="10" max="70" value="40" id="s-missed" oninput="updateCalc()">
         <div class="calc-range-limits"><span>10%</span><span>70%</span></div>
       </div>
-
       <div class="calc-group">
-        <div class="calc-group-hd">
-          <span class="calc-group-label">Calls that convert to a signed job</span>
-          <span class="calc-group-val" id="v-conv">15%</span>
-        </div>
-        <input class="calc-range" type="range" min="5" max="40" value="15" id="s-conv" oninput="updateCalc()">
-        <div class="calc-range-limits"><span>5%</span><span>40%</span></div>
+        <div class="calc-group-hd"><span class="calc-group-label">Calls that convert to a booked job</span><span class="calc-group-val" id="v-conv">20%</span></div>
+        <input class="calc-range" type="range" min="5" max="50" value="20" id="s-conv" oninput="updateCalc()">
+        <div class="calc-range-limits"><span>5%</span><span>50%</span></div>
       </div>
-
       <div class="calc-group">
-        <div class="calc-group-hd">
-          <span class="calc-group-label">Average job value</span>
-          <span class="calc-group-val" id="v-job">$9,000</span>
-        </div>
-        <input class="calc-range" type="range" min="2000" max="30000" value="9000" step="500" id="s-job" oninput="updateCalc()">
-        <div class="calc-range-limits"><span>$2K</span><span>$30K</span></div>
+        <div class="calc-group-hd"><span class="calc-group-label">Average job value (service / repair / install)</span><span class="calc-group-val" id="v-job">$3,900</span></div>
+        <input class="calc-range" type="range" min="300" max="15000" value="3900" step="100" id="s-job" oninput="updateCalc()">
+        <div class="calc-range-limits"><span>$300</span><span>$15K</span></div>
       </div>
-
     </div>
-
-    <!-- Results -->
     <div class="calc-results">
       <div class="calc-results-title">Your numbers</div>
-
-      <div class="calc-row">
-        <span class="calc-row-label">Calls missed per month</span>
-        <span class="calc-row-val val-neutral" id="r-missed-n">42 calls</span>
-      </div>
-      <div class="calc-row">
-        <span class="calc-row-label">Jobs lost per month</span>
-        <span class="calc-row-val val-loss" id="r-lost-jobs">6 jobs</span>
-      </div>
-      <div class="calc-row">
-        <span class="calc-row-label">Revenue lost per month</span>
-        <span class="calc-row-val val-loss" id="r-lost-mo">$56,700</span>
-      </div>
-      <div class="calc-row">
-        <span class="calc-row-label">Revenue lost per year</span>
-        <span class="calc-row-val val-loss" id="r-lost-yr">$680,400</span>
-      </div>
-
+      <div class="calc-row"><span class="calc-row-label">Calls missed per month</span><span class="calc-row-val val-neutral" id="r-missed-n">40 calls</span></div>
+      <div class="calc-row"><span class="calc-row-label">Jobs lost per month</span><span class="calc-row-val val-loss" id="r-lost-jobs">8 jobs</span></div>
+      <div class="calc-row"><span class="calc-row-label">Revenue lost per month</span><span class="calc-row-val val-loss" id="r-lost-mo">$31,200</span></div>
+      <div class="calc-row"><span class="calc-row-label">Revenue lost per year</span><span class="calc-row-val val-loss" id="r-lost-yr">$374,400</span></div>
       <div class="calc-sep"></div>
-
-      <div class="calc-row">
-        <span class="calc-row-label">Extra jobs LeadLock captures / month</span>
-        <span class="calc-row-val val-gain" id="r-cap-jobs">5 jobs</span>
-      </div>
-      <div class="calc-row">
-        <span class="calc-row-label">Revenue recovered / year</span>
-        <span class="calc-row-val val-gain" id="r-recovered">$544,320</span>
-      </div>
-      <div class="calc-row">
-        <span class="calc-row-label">LeadLock annual investment</span>
-        <span class="calc-row-val val-neutral">$5,564</span>
-      </div>
-
+      <div class="calc-row"><span class="calc-row-label">Extra jobs Alex captures / month</span><span class="calc-row-val val-gain" id="r-cap-jobs">6 jobs</span></div>
+      <div class="calc-row"><span class="calc-row-label">Revenue recovered / year</span><span class="calc-row-val val-gain" id="r-recovered">$280,800</span></div>
+      <div class="calc-row"><span class="calc-row-label">Dominion AI annual investment</span><span class="calc-row-val val-neutral">$5,564</span></div>
       <div class="calc-net-box">
-        <div class="calc-net-label">Net annual profit with LeadLock</div>
-        <div class="calc-net-val" id="r-net">$538,756</div>
-        <div class="calc-net-roi" id="r-roi">ROI — 9,683%</div>
+        <div class="calc-net-label">Net annual profit with Dominion AI</div>
+        <div class="calc-net-val" id="r-net">$275,236</div>
+        <div class="calc-net-roi" id="r-roi">ROI — 4,946%</div>
       </div>
-
-      <button class="calc-action" id="calc-cta" onclick="openLeadForm()">
-        Get LeadLock — Recover $544,320 This Year →
-      </button>
-
+      <button class="calc-action" id="calc-cta" onclick="openLeadForm()">Get Alex — Recover $280,800 This Year →</button>
     </div>
   </div>
-
-  <p class="calc-disclaimer">* LeadLock captures approximately 80% of previously missed calls. Conversion rates and job values vary by market and contractor. Results not guaranteed.</p>
-
+  <p class="calc-disclaimer">* Alex captures approximately 80% of previously missed calls. Conversion rates and job values vary by market and business. Results not guaranteed.</p>
 </section>
 
-<!-- ─── Features ─── -->
+<!-- FEATURES -->
 <section class="features-section" id="features">
   <div class="centered reveal">
     <span class="section-label">What Dominion Does</span>
     <h2 class="section-title">Every Tool You Need. One Agent.</h2>
-    <p class="section-sub">Built specifically for roofing contractors — not a generic chatbot, but a purpose-built AI that understands your business.</p>
+    <p class="section-sub">Built specifically for HVAC contractors — not a generic chatbot, but a purpose-built AI that understands your three core call types: emergencies, service repairs, and maintenance installs.</p>
   </div>
-
   <div class="features-grid">
-
     <div class="feature-card reveal">
-      <div class="feature-icon">⚡</div>
-      <h3>Instant Lead Response</h3>
-      <p>The moment a lead submits a form, calls, or texts — Dominion AI responds in under 2 minutes. No more losing jobs to faster competitors.</p>
-      <span class="tag">24/7 Automation</span>
+      <div class="feature-icon">🔥</div>
+      <h3>Emergency Call Prioritization</h3>
+      <p>When a caller's AC is out in 100°F heat or their furnace failed overnight, Alex detects the urgency, collects key details, and immediately texts you for live dispatch. No homeowner suffers on hold.</p>
+      <span class="tag">Emergency Routing</span>
     </div>
-
-    <div class="feature-card reveal">
-      <div class="feature-icon">🔄</div>
-      <h3>Automated Follow-Up Sequences</h3>
-      <p>Multi-step follow-up campaigns via SMS and email. Dominion keeps nurturing cold leads until they're ready to book — without you lifting a finger.</p>
-      <span class="tag">Lead Nurturing</span>
-    </div>
-
     <div class="feature-card reveal">
       <div class="feature-icon">📅</div>
       <h3>Smart Appointment Booking</h3>
-      <p>Your AI agent qualifies leads and books inspection appointments directly into your calendar. Syncs with Google Calendar and iCal in real time.</p>
+      <p>Alex qualifies callers and books service or maintenance appointments directly into your Google Calendar — confirmation SMS sent to the customer instantly. No back-and-forth, no double-booking, ever.</p>
       <span class="tag">Calendar Sync</span>
     </div>
-
     <div class="feature-card star reveal">
       <div class="feature-icon">⭐</div>
       <h3>Automated Review Requests</h3>
-      <p>Once a job is marked complete, Dominion AI automatically sends a personalized review request to your customer via SMS — directing them straight to your Google or Facebook page to leave a 5-star review.</p>
+      <p>Once a job is completed, Alex automatically sends a warm, personalized SMS directing your customer straight to your Google page. Happy homeowners leave reviews while the relief is still fresh — while you move to the next call.</p>
       <span class="tag">Reputation Builder</span>
     </div>
-
     <div class="feature-card reveal">
-      <div class="feature-icon">⚡</div>
-      <h3>Unlimited Simultaneous Calls — Storm Ready</h3>
-      <p>LeadLock handles unlimited calls at the same time — no busy signals, no missed leads. When a storm hits and 60 homeowners call in one night, every single one gets answered and booked. A human receptionist handles one call at a time. LeadLock handles all of them.</p>
-      <span class="tag">Storm Surge Mode</span>
+      <div class="feature-icon">❄️</div>
+      <h3>Seasonal Surge Mode</h3>
+      <p>Peak summer and winter bring 3–5× normal call volume. Alex handles unlimited simultaneous calls with zero busy signals. Every homeowner gets answered — no matter how many call at once.</p>
+      <span class="tag">Peak Season Ready</span>
     </div>
-
     <div class="feature-card reveal">
-      <div class="feature-icon">📊</div>
-      <h3>Pipeline & Job Tracking</h3>
-      <p>See every lead, estimate, and job in one visual pipeline. Know exactly where each opportunity stands and what needs your attention.</p>
-      <span class="tag">Full Visibility</span>
+      <div class="feature-icon">🌐</div>
+      <h3>Fully Bilingual — English &amp; Spanish</h3>
+      <p>Alex detects the caller's preferred language and switches seamlessly. Your Spanish-speaking customers get the same professional, friendly service as everyone else — opening a market most competitors can't serve.</p>
+      <span class="tag">Bilingual</span>
     </div>
-
     <div class="feature-card reveal">
-      <div class="feature-icon">💰</div>
-      <h3>Quote & Estimate Follow-Up</h3>
-      <p>Sent a quote and heard nothing? Dominion automatically follows up on unseen or unaccepted estimates with polite, professional messages.</p>
-      <span class="tag">Revenue Recovery</span>
+      <div class="feature-icon">🔄</div>
+      <h3>Maintenance Plan Enrollment</h3>
+      <p>Alex promotes your seasonal tune-up and maintenance membership during every appropriate call. Passive recurring revenue, enrolled automatically while you're running service calls.</p>
+      <span class="tag">Revenue Upsell</span>
     </div>
-
-    <div class="feature-card reveal">
-      <div class="feature-icon">🔗</div>
-      <h3>CRM & Tool Integrations</h3>
-      <p>Connects with the tools you already use — JobNimbus, AccuLynx, Google Business, Facebook, Zapier, and more. No disruption to your workflow.</p>
-      <span class="tag">Plug & Play</span>
-    </div>
-
-    <div class="feature-card reveal">
-      <div class="feature-icon">📍</div>
-      <h3>Local Area Domination</h3>
-      <p>Rank higher on Google Maps. More reviews, faster responses, and a professional online presence all drive your local search rankings up.</p>
-      <span class="tag">SEO Boost</span>
-    </div>
-
-    <div class="feature-card reveal">
-      <div class="feature-icon">💬</div>
-      <h3>General Questions — Answered Instantly</h3>
-      <p>LeadLock answers common questions about your business — service area, working hours, process, pricing ranges — so callers get real answers at 2am without waiting for a callback.</p>
-      <span class="tag">Always Informed</span>
-    </div>
-
-    <div class="feature-card reveal">
-      <div class="feature-icon">🔀</div>
-      <h3>Smart Call Transfer</h3>
-      <p>When a caller needs to speak with a specific person — an estimator, project manager, or yourself — LeadLock transfers the call live to the right number. No dead ends, no lost callers.</p>
-      <span class="tag">Live Handoff</span>
-    </div>
-
     <div class="feature-card reveal">
       <div class="feature-icon">📋</div>
       <h3>Monthly Call Analytics Report</h3>
-      <p>Every month, you receive a detailed report: total calls handled, leads captured, appointments booked, missed-call recovery rate, and peak call times — so you know exactly what LeadLock is doing for your business.</p>
+      <p>Total calls handled, leads captured, appointments booked, emergency escalations, missed-call recovery rate, and peak call windows — delivered monthly so you know exactly what Alex is producing.</p>
       <span class="tag">Full Visibility</span>
     </div>
-
+    <div class="feature-card reveal">
+      <div class="feature-icon">🔀</div>
+      <h3>Smart Live Transfer</h3>
+      <p>When a caller needs a real person — urgent dispatch, a complex install quote, or a VIP customer — Alex transfers the call live to the right number. No dead ends, no frustrated homeowners.</p>
+      <span class="tag">Live Handoff</span>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">💬</div>
+      <h3>After-Hours Coverage — Always On</h3>
+      <p>AC failures don't respect business hours. Alex answers at 11pm on a Friday just as professionally as Monday morning. Every after-hours call gets triaged, booked, or escalated — never lost to voicemail.</p>
+      <span class="tag">24/7 Coverage</span>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">🔗</div>
+      <h3>CRM &amp; Tool Integrations</h3>
+      <p>Connects with ServiceTitan, Jobber, Google Business, Facebook, and more. Alex logs every call and interaction automatically — no manual data entry, no dropped leads in a spreadsheet.</p>
+      <span class="tag">Plug &amp; Play</span>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">💰</div>
+      <h3>Estimate &amp; Quote Follow-Up</h3>
+      <p>Sent a quote for a new install and heard nothing? Alex follows up with polite, professional messages until they book or opt out — recovering jobs that would otherwise go cold.</p>
+      <span class="tag">Revenue Recovery</span>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">📍</div>
+      <h3>Local Dominance Through Reviews</h3>
+      <p>More reviews, faster responses, and consistent professionalism push your Google Maps ranking up. Be the #1 HVAC contractor in your zip code — without spending more on ads.</p>
+      <span class="tag">Local SEO</span>
+    </div>
   </div>
 </section>
+
+<!-- REVIEW -->
 <section class="review-section" id="reviews">
   <div class="review-layout">
-
-    <!-- Phone mockup visual -->
     <div class="review-visual reveal">
       <div class="phone-mockup">
         <div class="phone-notch"></div>
         <div class="sms-time">Job Completed — Auto Triggered</div>
-        <div class="sms-bubble ai">
-          Hi Marcus! 👋 It was a pleasure working on your roof today. If you're happy with the job, would you mind leaving us a quick Google review? It only takes 30 seconds and means the world to us: [link]
-        </div>
-        <div class="sms-time">2 min later</div>
-        <div class="sms-bubble customer">
-          Of course! You guys were amazing, left the place spotless too. Done! 🙌
-        </div>
+        <div class="sms-bubble ai">Hi David! 👋 Glad we could get your AC back up today. If you were happy with our service, would you mind leaving us a quick Google review? It takes 30 seconds and means everything to a small business: [link]</div>
+        <div class="sms-time">4 min later</div>
+        <div class="sms-bubble customer">Done! The tech was there in 2 hours on a Saturday — I couldn't believe it. You guys are the best 🙌</div>
         <div class="stars-row">
-          <span class="star-icon">★</span>
-          <span class="star-icon">★</span>
-          <span class="star-icon">★</span>
-          <span class="star-icon">★</span>
-          <span class="star-icon">★</span>
+          <span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span>
         </div>
       </div>
-      <div class="review-float f1">
-        <div class="float-val">+247</div>
-        <div class="float-lbl">Reviews this year</div>
-      </div>
-      <div class="review-float f2">
-        <div class="float-val">4.9 ★</div>
-        <div class="float-lbl">Average Google rating</div>
-      </div>
+      <div class="review-float f1"><div class="float-val">+312</div><div class="float-lbl">Reviews this year</div></div>
+      <div class="review-float f2"><div class="float-val">4.9 ★</div><div class="float-lbl">Average Google rating</div></div>
     </div>
-
-    <!-- Text side -->
     <div class="review-text reveal">
       <span class="section-label">Signature Feature</span>
-      <h2 class="section-title">The Review Machine Contractors Wish They Had Years Ago</h2>
-      <p class="section-sub">
-        Happy customers rarely leave reviews on their own. Dominion AI catches them at the perfect moment — right after a successful job — and makes it effortless.
-      </p>
-
+      <h2 class="section-title">The Review Machine HVAC Pros Wish They Had Years Ago</h2>
+      <p class="section-sub">Happy customers rarely leave reviews on their own. Alex catches them at the perfect moment — right after their problem is solved — and makes it effortless.</p>
       <div class="steps">
-        <div class="step-item">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <h4>Job Marked Complete</h4>
-            <p>When you mark a job as done in your system, Dominion AI triggers automatically — no manual action needed.</p>
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <h4>Personalized Request Sent</h4>
-            <p>A warm, personal SMS is sent to the customer thanking them and including a direct link to your Google review page.</p>
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <h4>Smart Follow-Up if No Response</h4>
-            <p>If they don't respond within 48 hours, a gentle reminder goes out automatically. One click for them — 5 stars for you.</p>
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">4</div>
-          <div class="step-body">
-            <h4>Your Reputation Grows on Autopilot</h4>
-            <p>More reviews mean higher Google ranking, more trust, and more inbound leads — a compounding cycle of growth.</p>
-          </div>
-        </div>
+        <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Job Marked Complete</h4><p>When the job is done, Alex triggers automatically — no manual action from you or your tech needed.</p></div></div>
+        <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Personalized Request Sent</h4><p>A warm SMS goes out thanking them and including a direct link to your Google review page — one tap for them.</p></div></div>
+        <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Smart Follow-Up if No Response</h4><p>No reply in 48 hours? A gentle reminder goes out automatically. One tap for them — five stars for you.</p></div></div>
+        <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Your Reputation Grows on Autopilot</h4><p>More reviews = higher Google Maps ranking = more inbound calls = more jobs. A compounding growth cycle that runs itself.</p></div></div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ─── How It Works ─── -->
+<!-- HOW IT WORKS -->
 <section class="how-section" id="how">
   <div class="centered reveal">
     <span class="section-label">Getting Started</span>
     <h2 class="section-title">Up and Running in 48 Hours</h2>
-    <p class="section-sub">No tech skills needed. We handle the setup, you handle the roofs.</p>
+    <p class="section-sub">No tech skills needed. We handle the entire setup — you handle the installs.</p>
   </div>
-
   <div class="how-grid">
-    <div class="how-card reveal">
-      <div class="how-num">01</div>
-      <h3>Onboard in Minutes</h3>
-      <p>Tell us about your business, service areas, and how you work. We configure your AI agent to match your brand voice and workflows exactly.</p>
-    </div>
-    <div class="how-card reveal">
-      <div class="how-num">02</div>
-      <h3>Connect Your Tools</h3>
-      <p>We integrate Dominion AI with your existing CRM, calendar, and communication tools. Plug-and-play with the platforms you already use.</p>
-    </div>
-    <div class="how-card reveal">
-      <div class="how-num">03</div>
-      <h3>Go Live</h3>
-      <p>Your AI agent goes live across all channels — website chat, SMS, email, and phone. Every lead is captured and responded to instantly.</p>
-    </div>
-    <div class="how-card reveal">
-      <div class="how-num">04</div>
-      <h3>Watch Your Business Grow</h3>
-      <p>More bookings, more reviews, more revenue. Track everything in your Dominion dashboard and see your ROI in real time.</p>
-    </div>
+    <div class="how-card reveal"><div class="how-num">01</div><h3>Onboard in Minutes</h3><p>Tell us about your services, coverage area, business hours, and how you handle emergencies. We configure Alex to match your brand voice and call flow exactly.</p></div>
+    <div class="how-card reveal"><div class="how-num">02</div><h3>Connect Your Tools</h3><p>We integrate Alex with your Google Calendar, CRM (ServiceTitan, Jobber, or others), and your existing business phone number. No disruption to how you currently operate.</p></div>
+    <div class="how-card reveal"><div class="how-num">03</div><h3>Go Live</h3><p>Alex goes live on your phone line. Every call is answered, every emergency escalated, every appointment booked — from day one, around the clock.</p></div>
+    <div class="how-card reveal"><div class="how-num">04</div><h3>Watch Your Business Grow</h3><p>More service calls, more reviews, more referrals. Check your monthly analytics report and watch your ROI compound every season.</p></div>
   </div>
 </section>
 
-<!-- ─── Testimonials ─── -->
+<!-- TESTIMONIALS -->
 <section class="testimonials-section" id="testimonials">
   <div class="centered reveal">
     <span class="section-label">Real Results</span>
-    <h2 class="section-title">Roofing Contractors Love It</h2>
-    <p class="section-sub">Don't take our word for it — hear from contractors who are closing more jobs and collecting more reviews every week.</p>
+    <h2 class="section-title">HVAC Contractors Love It</h2>
+    <p class="section-sub">Hear from contractors who stopped missing calls, stopped chasing reviews, and started closing more jobs every single week.</p>
   </div>
-
   <div class="testimonials-grid">
     <div class="testimonial-card reveal">
-      <div class="testimonial-stars">
-        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-      </div>
-      <p class="testimonial-text">"We went from 12 Google reviews to over 180 in six months. The automatic review requests after every job are pure gold. Customers actually respond because the timing is perfect."</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">JT</div>
-        <div>
-          <div class="author-name">James Thornton</div>
-          <div class="author-biz">Thornton Roofing — Dallas, TX</div>
-        </div>
-      </div>
+      <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testimonial-text">"Last July was our busiest month ever — and I didn't miss a single emergency call. Alex handled everything while my guys were in the field. We booked 23 extra service calls that month alone."</p>
+      <div class="testimonial-author"><div class="author-avatar">RC</div><div><div class="author-name">Ray Castillo</div><div class="author-biz">Castillo HVAC Services — Houston, TX</div></div></div>
     </div>
-
     <div class="testimonial-card reveal">
-      <div class="testimonial-stars">
-        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-      </div>
-      <p class="testimonial-text">"I used to lose leads constantly because I couldn't answer the phone on the job. Now LeadLock picks up immediately, qualifies them, and books the appointment. I come home to a full calendar."</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">ML</div>
-        <div>
-          <div class="author-name">Mike Landry</div>
-          <div class="author-biz">Landry's Roofing — Atlanta, GA</div>
-        </div>
-      </div>
+      <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testimonial-text">"We went from 9 Google reviews to 143 in four months. The automatic texts after every job are the reason. Customers actually respond immediately because they're still happy from the service."</p>
+      <div class="testimonial-author"><div class="author-avatar">TM</div><div><div class="author-name">Travis Mitchell</div><div class="author-biz">Comfort Zone HVAC — Phoenix, AZ</div></div></div>
     </div>
-
     <div class="testimonial-card reveal">
-      <div class="testimonial-stars">
-        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-      </div>
-      <p class="testimonial-text">"The ROI is insane. Within the first month, we recovered $28k in estimates we had sent and forgot about. The follow-up sequences are relentless — in a good way."</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">SR</div>
-        <div>
-          <div class="author-name">Sarah Reyes</div>
-          <div class="author-biz">Pinnacle Roofing Co. — Phoenix, AZ</div>
-        </div>
-      </div>
+      <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testimonial-text">"The bilingual feature alone was worth it. About 30% of our area speaks Spanish. Alex handles those calls perfectly — we're now booking jobs our competitors can't even communicate with."</p>
+      <div class="testimonial-author"><div class="author-avatar">JR</div><div><div class="author-name">Jorge Reyes</div><div class="author-biz">Pro Air HVAC — Miami, FL</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ─── Pricing ─── -->
+<!-- PRICING -->
 <section class="pricing-section" id="pricing">
   <div class="centered reveal">
     <span class="section-label">Pricing</span>
     <h2 class="section-title">Simple, Transparent Pricing</h2>
-    <p class="section-sub">One-time setup. No long-term contracts. Cancel anytime. Built for contractors, priced for growth.</p>
+    <p class="section-sub">One-time setup. No long-term contracts. Cancel anytime. Priced for HVAC businesses, built for growth.</p>
   </div>
-
   <div class="pricing-compare reveal">
-    <div class="pc-item">
-      <div class="pc-label">Full-Time Receptionist</div>
-      <div class="pc-value bad">$3,200/mo</div>
-    </div>
+    <div class="pc-item"><div class="pc-label">Full-Time Receptionist</div><div class="pc-value bad">$3,200/mo</div></div>
     <div class="pc-divider">→</div>
-    <div class="pc-item">
-      <div class="pc-label">Answering Service</div>
-      <div class="pc-value mid">$500/mo</div>
-    </div>
+    <div class="pc-item"><div class="pc-label">Answering Service</div><div class="pc-value mid">$500/mo</div></div>
     <div class="pc-divider">→</div>
-    <div class="pc-item">
-      <div class="pc-label">LeadLock</div>
-      <div class="pc-value best">from $397/mo</div>
-    </div>
-    <div class="pc-note">Answers every call · Books every job · Follows up · Requests reviews · Provides monthly reports — for less than a part-time hire.</div>
+    <div class="pc-item"><div class="pc-label">Dominion AI</div><div class="pc-value best">from $397/mo</div></div>
+    <div class="pc-note">Answers every call · Routes emergencies · Books every job · Requests reviews · Monthly reports — for less than a part-time hire.</div>
   </div>
-
   <div class="pricing-grid">
     <div class="pricing-card reveal">
       <div class="pricing-name">Starter</div>
       <div class="pricing-price"><span class="dollar">$</span>397<span class="period">/mo</span></div>
-      <div class="pricing-desc">Perfect for solo contractors. Includes $800 one-time setup fee.</div>
+      <div class="pricing-desc">Perfect for solo HVAC operators. Includes $800 one-time setup fee.</div>
       <ul class="pricing-features">
-        <li><span class="chk">✓</span> LeadLock AI Voice Agent 24/7</li>
-        <li><span class="chk">✓</span> Smart Lead Triage (Urgent vs. Planned)</li>
+        <li><span class="chk">✓</span> Alex AI Voice Agent 24/7</li>
+        <li><span class="chk">✓</span> Emergency / Repair / Maintenance Call Routing</li>
         <li><span class="chk">✓</span> Appointment Booking — Google Calendar</li>
-        <li><span class="chk">✓</span> Appointment Confirmation SMS After Every Booking</li>
+        <li><span class="chk">✓</span> Appointment Confirmation SMS</li>
         <li><span class="chk">✓</span> Monthly Call Report</li>
-        <li><span class="x-icon">✕</span> <span style="color:var(--muted)">Review Request Automation</span></li>
-        <li><span class="x-icon">✕</span> <span style="color:var(--muted)">Custom AI Persona & Script</span></li>
+        <li><span class="x-icon">✕</span><span style="color:var(--muted)">Review Request Automation</span></li>
+        <li><span class="x-icon">✕</span><span style="color:var(--muted)">Bilingual Spanish Support</span></li>
       </ul>
       <a href="#contact" class="btn-plan outline">Get Started</a>
     </div>
-
     <div class="pricing-card featured reveal">
       <div class="pricing-name">Pro</div>
       <div class="pricing-price"><span class="dollar">$</span>697<span class="period">/mo</span></div>
-      <div class="pricing-desc">For growing contractors who want every edge. Includes $800 one-time setup.</div>
+      <div class="pricing-desc">For growing HVAC businesses who want every edge. Includes $800 one-time setup.</div>
       <ul class="pricing-features">
-        <li><span class="chk">✓</span> LeadLock AI Voice Agent 24/7</li>
-        <li><span class="chk">✓</span> Smart Lead Triage + Storm Surge Mode</li>
-        <li><span class="chk">✓</span> Appointment Booking + Reminders</li>
-        <li><span class="chk">✓</span> Unlimited Simultaneous Calls — No Busy Signals</li>
-        <li><span class="chk">✓</span> Appointment Confirmation + Google Review Request SMS</li>
+        <li><span class="chk">✓</span> Alex AI Voice Agent 24/7</li>
+        <li><span class="chk">✓</span> Emergency Priority Routing + Live Transfer</li>
+        <li><span class="chk">✓</span> Unlimited Simultaneous Calls — Peak Season Ready</li>
+        <li><span class="chk">✓</span> Appointment Booking + SMS Reminders</li>
         <li><span class="chk">✓</span> Review Request Automation After Every Job</li>
-        <li><span class="chk">✓</span> Custom AI Persona & Brand Voice</li>
-        <li><span class="chk">✓</span> Priority Support + Monthly Reports</li>
+        <li><span class="chk">✓</span> Bilingual English &amp; Spanish</li>
+        <li><span class="chk">✓</span> Maintenance Membership Upsell Script</li>
+        <li><span class="chk">✓</span> Priority Support + Monthly Analytics Report</li>
       </ul>
       <a href="#contact" class="btn-plan filled">Get Started</a>
     </div>
-
     <div class="pricing-card reveal">
       <div class="pricing-name">Scale</div>
       <div class="pricing-price" style="font-size:42px; padding-top:12px;">Custom</div>
-      <div class="pricing-desc">For roofing companies with multiple crews and locations.</div>
+      <div class="pricing-desc">For multi-location HVAC companies and fleet operators.</div>
       <ul class="pricing-features">
         <li><span class="chk">✓</span> Everything in Pro</li>
         <li><span class="chk">✓</span> Multi-location Support</li>
+        <li><span class="chk">✓</span> ServiceTitan / Jobber Integration</li>
         <li><span class="chk">✓</span> Dedicated Account Manager</li>
-        <li><span class="chk">✓</span> Custom Integrations</li>
+        <li><span class="chk">✓</span> Custom AI Persona &amp; Call Scripts</li>
         <li><span class="chk">✓</span> White-Glove Onboarding</li>
-        <li><span class="chk">✓</span> Priority Support</li>
         <li><span class="chk">✓</span> Team Training Included</li>
       </ul>
       <a href="#contact" class="btn-plan outline">Contact Sales</a>
@@ -1908,169 +762,75 @@
   </div>
 </section>
 
-<!-- ─── CTA ─── -->
+<!-- CTA -->
 <section class="cta-section" id="contact">
-  <h2>Ready to <span>Dominate</span><br>Your Market?</h2>
-  <p>Join roofing contractors who are winning more jobs, collecting more reviews, and growing faster with Dominion AI.</p>
+  <h2>Ready to <span>Own</span><br>Your Market?</h2>
+  <p>Join HVAC contractors who are answering every call, collecting more reviews, and growing faster — even in their slowest season.</p>
   <button class="btn-primary" onclick="openLeadForm()">Book Your Free Demo →</button>
   <p class="cta-note">$800 one-time setup · Live in 48 hours · Cancel anytime</p>
 </section>
 
-<!-- ─── Privacy Policy ─── -->
-<section id="privacy" style="background: var(--dark); padding: 100px 5%;">
-  <div style="max-width: 800px; margin: 0 auto;">
+<!-- PRIVACY -->
+<section id="privacy" style="background:var(--dark); padding:100px 5%;">
+  <div style="max-width:800px; margin:0 auto;">
     <span class="section-label">Legal</span>
     <h2 class="section-title">Privacy Policy</h2>
     <p style="font-size:13px; color:var(--muted); margin-bottom:48px;">Last updated: June 2025</p>
-
     <div style="display:flex; flex-direction:column; gap:36px;">
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">1. Who We Are</h3>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Dominion AI ("Company," "we," "us," or "our") is a software services company that provides LeadLock, an AI-powered voice receptionist and messaging automation platform built for roofing contractors in the United States. Our registered business contact is: <a href="mailto:hello@dominionai.com" style="color:var(--copper); text-decoration:none;">hello@dominionai.com</a>.</p>
-      </div>
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">2. Information We Collect</h3>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">We collect information in two ways:</p>
-        <ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px; margin-top:10px;">
-          <li><strong style="color:var(--text);">From contractors (our clients):</strong> Business name, contact name, phone number, email address, service area, and Google Calendar access credentials required to operate the LeadLock agent.</li>
-          <li><strong style="color:var(--text);">From end-users (homeowners who call contractors):</strong> Name, phone number, property address, nature of roofing inquiry, and appointment details — collected during AI-assisted phone calls on behalf of our contractor clients.</li>
-          <li><strong style="color:var(--text);">Automatically:</strong> Call recordings, call duration, call logs, and appointment data processed through our systems.</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">3. How We Use Your Information</h3>
-        <ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px;">
-          <li>To operate and deliver the LeadLock AI voice agent service</li>
-          <li>To book appointments and send confirmation messages</li>
-          <li>To send automated SMS follow-up messages on behalf of contractor clients</li>
-          <li>To send review request messages after job completion</li>
-          <li>To generate monthly call and lead reports for contractor clients</li>
-          <li>To improve our AI models and service quality</li>
-        </ul>
-      </div>
-
-      <div style="background:rgba(200,120,58,0.08); border:1px solid rgba(200,120,58,0.25); border-radius:10px; padding:28px;">
-        <h3 style="font-size:16px; font-weight:600; color:var(--copper); margin-bottom:16px; letter-spacing:0.3px;">4. SMS Messaging — Consent, Frequency &amp; Opt-Out</h3>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:14px;"><strong style="color:var(--text);">How you consent to receive SMS:</strong> When a homeowner provides their phone number to a roofing contractor using LeadLock — whether verbally, on a service agreement, or through an online inquiry form — they consent to receive service-related text messages. These messages include appointment confirmations, missed-call follow-ups, and post-job review requests sent on behalf of that contractor.</p>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:14px;"><strong style="color:var(--text);">Message types and frequency:</strong> Message frequency varies based on your interaction with the contractor. You may receive: (1) one appointment confirmation SMS per booked appointment, (2) one missed-call follow-up SMS per unanswered call, and (3) one review request SMS per completed job.</p>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:14px;"><strong style="color:var(--text);">How to opt out:</strong> Reply <strong style="color:var(--white);">STOP</strong> to any message at any time to unsubscribe. You will receive one final confirmation message and no further messages will be sent. Reply <strong style="color:var(--white);">HELP</strong> for assistance.</p>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;"><strong style="color:var(--text);">Rates:</strong> Message and data rates may apply depending on your mobile carrier plan.</p>
-      </div>
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">5. Third-Party Services</h3>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">We use the following third-party providers to operate our service:</p>
-        <ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px; margin-top:10px;">
-          <li><strong style="color:var(--text);">Telnyx LLC.</strong> — Provides US phone numbers and SMS/voice infrastructure. Telnyx processes call and message data in accordance with their Privacy Policy at telnyx.com/privacy-policy.</li>
-          <li><strong style="color:var(--text);">Vapi AI</strong> — Powers the AI voice agent that handles inbound calls. Vapi processes call audio and transcripts.</li>
-          <li><strong style="color:var(--text);">Google Calendar API</strong> — Used to book and manage appointments on behalf of contractor clients. Subject to Google's Privacy Policy.</li>
-          <li><strong style="color:var(--text);">n8n / Make</strong> — Workflow automation platforms used to route data between services.</li>
-        </ul>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-top:14px;">We do not sell, rent, or share personal data with third parties for marketing purposes.</p>
-      </div>
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">6. Data Retention</h3>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Call logs and lead data are retained for 12 months and then deleted. Contractor account data is retained for the duration of the service agreement and deleted within 30 days of account termination upon request.</p>
-      </div>
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">7. Data Security</h3>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">We implement industry-standard security measures including encrypted data transmission (TLS), access controls, and secure credential storage. We do not store full payment card information — payments are processed by our payment providers.</p>
-      </div>
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">8. Your Rights</h3>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">You have the right to request access to, correction of, or deletion of your personal data. To exercise these rights, contact us at <a href="mailto:hello@dominionai.com" style="color:var(--copper); text-decoration:none;">hello@dominionai.com</a>. We will respond within 30 days.</p>
-      </div>
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px; letter-spacing:0.3px;">9. Contact Us</h3>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">For questions about this Privacy Policy or our data practices, contact:<br>
-        <strong style="color:var(--text);">Dominion AI</strong><br>
-        Email: <a href="mailto:hello@dominionai.com" style="color:var(--copper); text-decoration:none;">hello@dominionai.com</a></p>
-      </div>
-
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">1. Who We Are</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Dominion AI provides an AI-powered voice receptionist and messaging automation platform built for HVAC contractors in the United States. Contact: <a href="mailto:hello@dominionai.com" style="color:var(--copper); text-decoration:none;">hello@dominionai.com</a>.</p></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">2. Information We Collect</h3><ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px; margin-top:10px;"><li><strong style="color:var(--text);">From contractors:</strong> Business name, contact name, phone, email, service area, and Google Calendar access.</li><li><strong style="color:var(--text);">From end-users:</strong> Name, phone, address, nature of HVAC issue, and appointment details collected during AI-assisted calls.</li><li><strong style="color:var(--text);">Automatically:</strong> Call recordings, duration, logs, and appointment data.</li></ul></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">3. How We Use Your Information</h3><ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px;"><li>To operate and deliver the Alex AI voice agent service</li><li>To book appointments and send confirmation messages</li><li>To send automated SMS follow-up and review request messages on behalf of contractors</li><li>To generate monthly analytics reports</li><li>To improve our AI models and service quality</li></ul></div>
+      <div style="background:rgba(200,120,58,0.08); border:1px solid rgba(200,120,58,0.25); border-radius:10px; padding:28px;"><h3 style="font-size:16px; font-weight:600; color:var(--copper); margin-bottom:16px;">4. SMS Messaging — Consent, Frequency &amp; Opt-Out</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:14px;"><strong style="color:var(--text);">How you consent:</strong> When a homeowner provides their phone number to an HVAC contractor using Dominion AI — verbally, on a service agreement, or through an online inquiry — they consent to receive service-related text messages.</p><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:14px;"><strong style="color:var(--text);">Message frequency:</strong> (1) one appointment confirmation per booking, (2) one missed-call follow-up per unanswered call, (3) one review request per completed job.</p><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:14px;"><strong style="color:var(--text);">Opt out:</strong> Reply <strong style="color:var(--white);">STOP</strong> at any time. You'll receive one final confirmation. Reply <strong style="color:var(--white);">HELP</strong> for assistance.</p><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;"><strong style="color:var(--text);">Rates:</strong> Message and data rates may apply.</p></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">5. Third-Party Services</h3><ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px; margin-top:10px;"><li><strong style="color:var(--text);">Telnyx LLC.</strong> — US phone numbers and SMS/voice infrastructure.</li><li><strong style="color:var(--text);">Vapi AI</strong> — Powers the AI voice agent.</li><li><strong style="color:var(--text);">Google Calendar API</strong> — Appointment booking and management.</li><li><strong style="color:var(--text);">n8n / Make</strong> — Workflow automation.</li></ul><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-top:14px;">We do not sell, rent, or share personal data with third parties for marketing purposes.</p></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">6. Contact Us</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;"><strong style="color:var(--text);">Dominion AI</strong><br>Email: <a href="mailto:hello@dominionai.com" style="color:var(--copper); text-decoration:none;">hello@dominionai.com</a></p></div>
     </div>
   </div>
 </section>
 
-<!-- ─── Terms of Service ─── -->
-<section id="terms" style="background: var(--black); padding: 100px 5%; border-top: 1px solid var(--border);">
-  <div style="max-width: 800px; margin: 0 auto;">
+<!-- TERMS -->
+<section id="terms" style="background:var(--black); padding:100px 5%; border-top:1px solid var(--border);">
+  <div style="max-width:800px; margin:0 auto;">
     <span class="section-label">Legal</span>
     <h2 class="section-title">Terms of Service</h2>
     <p style="font-size:13px; color:var(--muted); margin-bottom:48px;">Last updated: June 2025</p>
-
     <div style="display:flex; flex-direction:column; gap:32px;">
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">1. Acceptance of Terms</h3>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">By engaging Dominion AI's LeadLock service, you ("Client") agree to these Terms of Service. If you do not agree, do not use the service.</p>
-      </div>
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">2. Services Provided</h3>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Dominion AI provides LeadLock: an AI-powered voice receptionist service that answers inbound calls, qualifies leads, books appointments, and sends automated SMS messages on behalf of the Client's roofing business. Services are delivered remotely. Setup is completed within 48 hours of agreement and payment of the setup fee.</p>
-      </div>
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">3. Payment Terms</h3>
-        <ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px;">
-          <li>A one-time setup fee is due before service activation.</li>
-          <li>Monthly retainer fees are billed at the start of each month beginning with month two.</li>
-          <li>All fees are non-refundable except as stated in our 30-Day Performance Guarantee.</li>
-          <li>Payments are processed via Stripe or agreed alternative. Late payments may result in service suspension.</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">4. 30-Day Performance Guarantee</h3>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">If the LeadLock AI agent fails to answer any incoming call within 3 rings during the first 30 days of service due to a technical failure attributable to Dominion AI, we will issue a full refund of the setup fee. This guarantee covers agent uptime and call answering performance only. Client revenue outcomes, lead conversion rates, or job close rates are not guaranteed.</p>
-      </div>
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">5. Client Responsibilities</h3>
-        <ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px;">
-          <li>Configure call forwarding on your business phone as instructed during onboarding.</li>
-          <li>Provide accurate business information, service hours, and Google Calendar access.</li>
-          <li>Ensure that end-users (homeowners) have provided consent to receive SMS communications.</li>
-          <li>Not use the service for any unlawful, deceptive, or SPAM messaging purposes.</li>
-          <li>Comply with all applicable US telecommunications laws including TCPA and CTIA guidelines.</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">6. Cancellation</h3>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Either party may cancel the service with 14 days written notice. Upon cancellation, the Client's dedicated phone number will be released and all automations will be deactivated. Data may be exported upon request within 30 days of cancellation.</p>
-      </div>
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">7. Limitation of Liability</h3>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Dominion AI's total liability for any claim arising from the service shall not exceed the total fees paid by the Client in the 3 months preceding the claim. We are not liable for lost revenue, missed leads, or business losses arising from service downtime beyond our direct control, including third-party infrastructure failures (Telnyx, Vapi, Google).</p>
-      </div>
-
-      <div>
-        <h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">8. Governing Law</h3>
-        <p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">These Terms are governed by applicable international commercial law. Disputes shall first be addressed through good-faith negotiation. For questions, contact <a href="mailto:hello@dominionai.com" style="color:var(--copper); text-decoration:none;">hello@dominionai.com</a>.</p>
-      </div>
-
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">1. Acceptance of Terms</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">By engaging Dominion AI's service, you ("Client") agree to these Terms. If you do not agree, do not use the service.</p></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">2. Services Provided</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Dominion AI provides Alex: an AI-powered voice receptionist that answers inbound calls, handles emergency prioritization, books service appointments, and sends automated SMS messages on behalf of the Client's HVAC business. Setup completed within 48 hours of agreement and payment of the setup fee.</p></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">3. Payment Terms</h3><ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px;"><li>One-time setup fee due before service activation.</li><li>Monthly retainer billed at the start of each month beginning month two.</li><li>All fees non-refundable except as stated in the 30-Day Performance Guarantee.</li><li>Payments via Stripe or agreed alternative. Late payments may result in service suspension.</li></ul></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">4. 30-Day Performance Guarantee</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">If Alex fails to answer any incoming call within 3 rings during the first 30 days due to a technical failure attributable to Dominion AI, we will issue a full refund of the setup fee. Covers agent uptime and call answering performance only — not revenue outcomes or conversion rates.</p></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">5. Client Responsibilities</h3><ul style="font-size:14px; color:var(--muted); line-height:2; font-weight:300; padding-left:20px;"><li>Configure call forwarding as instructed during onboarding.</li><li>Provide accurate business info, service hours, and Google Calendar access.</li><li>Ensure end-users have consented to receive SMS communications.</li><li>Comply with all US telecommunications laws including TCPA and CTIA guidelines.</li></ul></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">6. Cancellation</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Either party may cancel with 14 days written notice. Upon cancellation, the dedicated phone number is released and all automations deactivated. Data exported upon request within 30 days.</p></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">7. Limitation of Liability</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Total liability shall not exceed fees paid in the 3 months preceding any claim. Not liable for losses from third-party infrastructure failures (Telnyx, Vapi, Google).</p></div>
+      <div><h3 style="font-size:16px; font-weight:600; color:var(--white); margin-bottom:12px;">8. Governing Law</h3><p style="font-size:14px; color:var(--muted); line-height:1.8; font-weight:300;">Governed by applicable international commercial law. Disputes addressed through good-faith negotiation first. Contact: <a href="mailto:hello@dominionai.com" style="color:var(--copper); text-decoration:none;">hello@dominionai.com</a>.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ─── Footer ─── -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="nav-logo" style="margin-bottom:4px;">
-        <div class="logo-icon">D</div>
+        <div class="logo-icon">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="38" height="38" rx="9" fill="#C8783A"/>
+            <line x1="10" y1="19" x2="16" y2="19" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="13" y1="16" x2="13" y2="22" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="11.2" y1="17.2" x2="14.8" y2="20.8" stroke="#090A0C" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="14.8" y1="17.2" x2="11.2" y2="20.8" stroke="#090A0C" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="19" y1="11" x2="19" y2="27" stroke="#090A0C" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <path d="M22 14.5 C23.5 14.5 23.5 16 25 16 C26.5 16 26.5 14.5 28 14.5" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+            <path d="M22 19 C23.5 19 23.5 20.5 25 20.5 C26.5 20.5 26.5 19 28 19" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+            <path d="M22 23.5 C23.5 23.5 23.5 25 25 25 C26.5 25 26.5 23.5 28 23.5" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
         <div class="logo-text">Dominion <span>AI</span></div>
       </div>
-      <p>The AI agent built exclusively for roofing contractors. More leads. More reviews. More revenue — on autopilot.</p>
+      <p>The AI voice agent built exclusively for HVAC contractors. More calls answered. More reviews. More revenue — on autopilot.</p>
+      <a href="https://web.facebook.com/profile.php?id=61588234268290" target="_blank" rel="noopener noreferrer" class="fb-link">
+        <span class="fb-icon-wrap">f</span>
+        Follow us on Facebook
+      </a>
     </div>
     <div class="footer-col">
       <h4>Product</h4>
@@ -2087,7 +847,7 @@
         <li><a href="#">About Us</a></li>
         <li><a href="#">Case Studies</a></li>
         <li><a href="#">Blog</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -2102,138 +862,48 @@
   </div>
   <div class="footer-bottom">
     <span>© 2025 Dominion AI. All rights reserved.</span>
-    <span>Built for the roofing industry. &nbsp;⬥&nbsp; <a href="mailto:hello@dominionai.com">hello@dominionai.com</a></span>
+    <span>Built for the HVAC industry. &nbsp;⬥&nbsp; <a href="mailto:hello@dominionai.com">hello@dominionai.com</a></span>
   </div>
 </footer>
 
-<script>
-  // ─── Scroll Reveal ───
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-  revealEls.forEach(el => observer.observe(el));
-
-  // ─── Nav active scroll ───
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    nav.style.background = window.scrollY > 50
-      ? 'rgba(9,10,12,0.97)'
-      : 'rgba(9,10,12,0.88)';
-  });
-
-  // ─── Smooth scroll for all anchors ───
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  // ─── Counter animation for stats ───
-  function animateCounter(el, target, suffix, duration = 1800) {
-    let start = 0;
-    const step = timestamp => {
-      if (!start) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(ease * target);
-      el.textContent = current + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target + suffix;
-    };
-    requestAnimationFrame(step);
-  }
-
-  const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const nums = e.target.querySelectorAll('.stat-num');
-        nums.forEach(num => {
-          const text = num.textContent.trim();
-          if (text === '3×') animateCounter(num, 3, '×');
-          else if (text === '85%') animateCounter(num, 85, '%');
-          else if (text === '40%') animateCounter(num, 40, '%');
-        });
-        statsObserver.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  const statsBar = document.querySelector('.stats-bar');
-  if (statsBar) statsObserver.observe(statsBar);
-</script>
-<!-- ─── Demo Video Modal ─── -->
+<!-- DEMO MODAL -->
 <div class="demo-modal-overlay" id="demoModal" onclick="handleOverlayClick(event)">
   <div class="demo-modal" id="demoModalBox">
-
     <div class="demo-modal-header">
       <div class="demo-modal-title">
         <div class="demo-live-dot"></div>
-        LeadLock — Live Demo Call &nbsp;·&nbsp; <span style="color:var(--muted);font-weight:400">AI Agent handling a real roofing inquiry</span>
+        Alex — Live Demo Call &nbsp;·&nbsp; <span style="color:var(--muted);font-weight:400">AI Agent handling a real HVAC inquiry</span>
       </div>
-      <button class="demo-close" onclick="closeDemo()" aria-label="Close demo">&times;</button>
+      <button class="demo-close" onclick="closeDemo()" aria-label="Close">&times;</button>
     </div>
-
     <div class="demo-video-wrap">
-
-      <!-- Cover shown before play -->
       <div class="video-cover" id="videoCover" onclick="startVideo()">
         <div class="video-play-circle">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="#0D0F14" style="margin-left:3px">
-            <path d="M5 3 L19 12 L5 21 Z"/>
-          </svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#0D0F14" style="margin-left:3px"><path d="M5 3 L19 12 L5 21 Z"/></svg>
         </div>
-        <span class="video-cover-label">Watch LeadLock handle a real storm damage call</span>
+        <span class="video-cover-label">Watch Alex handle a real AC emergency call</span>
       </div>
-
-      <!-- Error fallback -->
       <div class="video-error-state" id="videoError">
-        <p>Video unavailable — make sure <strong style="color:var(--text)">demo.mp4</strong> is in the same folder as index.html</p>
+        <p>Video unavailable — place <strong style="color:var(--text)">demo.mp4</strong> in the same folder as index.html</p>
         <a href="#contact" onclick="closeDemo()">Book a live demo instead →</a>
       </div>
-
-      <video
-        id="demoVideo"
-        controls
-        preload="metadata"
-        playsinline
-        style="position:relative;z-index:1"
-      >
+      <video id="demoVideo" controls preload="metadata" playsinline style="position:relative;z-index:1">
         <source src="demo.mp4" type="video/mp4">
       </video>
     </div>
-
     <div class="demo-modal-footer">
       <div class="demo-footer-note">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--copper)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Real call — AI answers, qualifies the lead, books the inspection into Google Calendar
+        Real call — AI answers, triages urgency, books appointment into Google Calendar
       </div>
-      <a href="#contact" class="demo-footer-cta" onclick="closeDemo()">Get LeadLock →</a>
+      <a href="#contact" class="demo-footer-cta" onclick="closeDemo()">Get Dominion AI →</a>
     </div>
-
   </div>
 </div>
 
-<!-- ─── Lead Capture Modal ─── -->
-<!--
-  SETUP (one-time, 2 minutes):
-  1. Go to https://web3forms.com
-  2. Enter your email address
-  3. Copy your Access Key
-  4. Replace "YOUR_WEB3FORMS_KEY_HERE" below with your key
-  Done — form submissions will arrive in your email inbox.
--->
+<!-- LEAD MODAL -->
 <div class="lead-overlay" id="leadModal" onclick="handleLeadOverlay(event)">
   <div class="lead-modal" id="leadModalBox">
-
     <div class="lead-modal-hd">
       <div>
         <div class="lead-modal-title">Book Your Free Demo</div>
@@ -2241,133 +911,138 @@
       </div>
       <button class="lead-close" onclick="closeLeadForm()" aria-label="Close">&times;</button>
     </div>
-
-    <!-- Form state -->
     <form class="lead-form" id="leadForm" onsubmit="submitLeadForm(event)">
       <input type="hidden" name="access_key" value="adfd02a2-f0d3-4aac-9181-676025bb1334">
-      <input type="hidden" name="subject" value="New LeadLock Demo Request">
-      <input type="hidden" name="from_name" value="LeadLock Website">
+      <input type="hidden" name="subject" value="New Dominion AI Demo Request — HVAC">
+      <input type="hidden" name="from_name" value="Dominion AI HVAC Website">
       <input type="checkbox" name="botcheck" style="display:none">
-
       <div class="lead-field">
         <label class="lead-label" for="leadName">Your Name</label>
-        <input class="lead-input" type="text" id="leadName" name="name"
-          placeholder="e.g. Mike Johnson" required autocomplete="name">
+        <input class="lead-input" type="text" id="leadName" name="name" placeholder="e.g. Ray Castillo" required autocomplete="name">
       </div>
-
       <div class="lead-field">
         <label class="lead-label" for="leadPhone">Phone Number</label>
-        <input class="lead-input" type="tel" id="leadPhone" name="phone"
-          placeholder="e.g. (713) 555-0192" required autocomplete="tel">
+        <input class="lead-input" type="tel" id="leadPhone" name="phone" placeholder="e.g. (713) 555-0192" required autocomplete="tel">
       </div>
-
-      <button type="submit" class="lead-submit" id="leadSubmitBtn">
-        Request My Demo →
-      </button>
-
-      <div class="lead-guarantee">
-        <div class="lead-guarantee-dot"></div>
-        We'll contact you within a few hours. No spam, ever.
-      </div>
+      <button type="submit" class="lead-submit" id="leadSubmitBtn">Request My Demo →</button>
+      <div class="lead-guarantee"><div class="lead-guarantee-dot"></div> We'll contact you within a few hours. No spam, ever.</div>
     </form>
-
-    <!-- Success state -->
     <div class="lead-success-state" id="leadSuccess">
       <div class="lead-success-icon">✓</div>
       <div class="lead-success-title">Request received!</div>
-      <div class="lead-success-msg">We'll be in touch within a few hours to schedule your LeadLock demo. Check your phone.</div>
+      <div class="lead-success-msg">We'll be in touch within a few hours to schedule your Dominion AI demo. Check your phone.</div>
     </div>
-
   </div>
 </div>
 
 <script>
-  /* ── Lead Form ── */
-  function openLeadForm() {
-    document.getElementById('leadModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
+  /* SCROLL REVEAL */
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  /* NAV */
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => { nav.style.background = window.scrollY > 50 ? 'rgba(9,10,12,0.97)' : 'rgba(9,10,12,0.88)'; });
+
+  /* SMOOTH SCROLL */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  /* STATS COUNTER */
+  function animateCounter(el, target, suffix, duration) {
+    duration = duration || 1800;
+    let start = 0;
+    const step = timestamp => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target + suffix;
+    };
+    requestAnimationFrame(step);
   }
-  function closeLeadForm() {
-    document.getElementById('leadModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function handleLeadOverlay(e) {
-    if (e.target === document.getElementById('leadModal')) closeLeadForm();
-  }
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const nums = e.target.querySelectorAll('.stat-num');
+        nums.forEach(num => {
+          const t = num.textContent.trim();
+          if (t === '3×') animateCounter(num, 3, '×');
+          else if (t === '78%') animateCounter(num, 78, '%');
+          else if (t === '45%') animateCounter(num, 45, '%');
+        });
+        statsObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  const statsBar = document.querySelector('.stats-bar');
+  if (statsBar) statsObserver.observe(statsBar);
+
+  /* LEAD FORM */
+  function openLeadForm() { document.getElementById('leadModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeLeadForm() { document.getElementById('leadModal').classList.remove('open'); document.body.style.overflow = ''; }
+  function handleLeadOverlay(e) { if (e.target === document.getElementById('leadModal')) closeLeadForm(); }
   async function submitLeadForm(e) {
     e.preventDefault();
     const btn = document.getElementById('leadSubmitBtn');
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
+    btn.disabled = true; btn.textContent = 'Sending...';
     try {
-      const formData = new FormData(document.getElementById('leadForm'));
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST', body: formData
-      });
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(document.getElementById('leadForm')) });
       const data = await res.json();
       if (data.success) {
         document.getElementById('leadForm').style.display = 'none';
         document.getElementById('leadSuccess').style.display = 'block';
         setTimeout(closeLeadForm, 4000);
-      } else {
-        btn.disabled = false;
-        btn.textContent = 'Request My Demo →';
-        alert('Something went wrong. Please try again.');
-      }
-    } catch {
-      btn.disabled = false;
-      btn.textContent = 'Request My Demo →';
-      alert('Connection error. Please try again.');
-    }
+      } else { btn.disabled = false; btn.textContent = 'Request My Demo →'; alert('Something went wrong. Please try again.'); }
+    } catch { btn.disabled = false; btn.textContent = 'Request My Demo →'; alert('Connection error. Please try again.'); }
   }
 
-  /* ── Demo Video ── */
-  function openDemo() {
-    document.getElementById('demoModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
+  /* DEMO MODAL */
+  function openDemo() { document.getElementById('demoModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
   function closeDemo() {
-    const modal = document.getElementById('demoModal');
     const video = document.getElementById('demoVideo');
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
-    video.pause();
-    video.currentTime = 0;
+    document.getElementById('demoModal').classList.remove('open'); document.body.style.overflow = '';
+    video.pause(); video.currentTime = 0;
     document.getElementById('videoCover').classList.remove('hidden');
   }
-  function handleOverlayClick(e) {
-    if (e.target === document.getElementById('demoModal')) closeDemo();
-  }
+  function handleOverlayClick(e) { if (e.target === document.getElementById('demoModal')) closeDemo(); }
   function startVideo() {
     const video = document.getElementById('demoVideo');
     const cover = document.getElementById('videoCover');
     cover.classList.add('hidden');
     video.play().catch(() => { cover.classList.remove('hidden'); });
   }
-  /* ── ROI Calculator ── */
+
+  /* ROI CALCULATOR */
   function updateCalc() {
     const calls  = parseInt(document.getElementById('s-calls').value);
     const missed = parseInt(document.getElementById('s-missed').value);
     const conv   = parseInt(document.getElementById('s-conv').value);
     const job    = parseInt(document.getElementById('s-job').value);
-
     document.getElementById('v-calls').textContent  = calls + ' calls';
     document.getElementById('v-missed').textContent = missed + '%';
     document.getElementById('v-conv').textContent   = conv + '%';
     document.getElementById('v-job').textContent    = '$' + job.toLocaleString();
-
-    const missedN   = Math.round(calls * missed / 100);
-    const lostJobs  = Math.round(missedN * conv / 100);
-    const lostMo    = lostJobs * job;
-    const lostYr    = lostMo * 12;
-
-    const capCalls  = Math.round(missedN * 0.80);
-    const capJobs   = Math.round(capCalls * conv / 100);
-    const recYr     = capJobs * job * 12;
-    const llCost    = 5564;
-    const net       = recYr - llCost;
-    const roi       = llCost > 0 ? Math.round((net / llCost) * 100) : 0;
-
+    const missedN  = Math.round(calls * missed / 100);
+    const lostJobs = Math.round(missedN * conv / 100);
+    const lostMo   = lostJobs * job;
+    const lostYr   = lostMo * 12;
+    const capCalls = Math.round(missedN * 0.80);
+    const capJobs  = Math.round(capCalls * conv / 100);
+    const recYr    = capJobs * job * 12;
+    const llCost   = 5564;
+    const net      = recYr - llCost;
+    const roi      = llCost > 0 ? Math.round((net / llCost) * 100) : 0;
     document.getElementById('r-missed-n').textContent  = missedN + ' calls';
     document.getElementById('r-lost-jobs').textContent = lostJobs + ' jobs';
     document.getElementById('r-lost-mo').textContent   = '$' + lostMo.toLocaleString();
@@ -2376,37 +1051,31 @@
     document.getElementById('r-recovered').textContent = '$' + recYr.toLocaleString();
     document.getElementById('r-net').textContent       = (net >= 0 ? '$' : '-$') + Math.abs(net).toLocaleString();
     document.getElementById('r-roi').textContent       = 'ROI — ' + roi.toLocaleString() + '%';
-    document.getElementById('calc-cta').textContent    = 'Get LeadLock — Recover $' + recYr.toLocaleString() + ' This Year →';
-
+    document.getElementById('calc-cta').textContent    = 'Get Alex — Recover $' + recYr.toLocaleString() + ' This Year →';
     ['s-calls','s-missed','s-conv','s-job'].forEach(function(id) {
-      const el  = document.getElementById(id);
-      const min = parseFloat(el.min);
-      const max = parseFloat(el.max);
-      const pct = ((el.value - min) / (max - min)) * 100;
+      const el = document.getElementById(id);
+      const pct = ((el.value - parseFloat(el.min)) / (parseFloat(el.max) - parseFloat(el.min))) * 100;
       el.style.background = 'linear-gradient(to right, var(--copper) ' + pct + '%, var(--border) ' + pct + '%)';
     });
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function() {
     updateCalc();
     const video = document.getElementById('demoVideo');
     if (video) {
-      video.addEventListener('error', function () {
+      video.addEventListener('error', function() {
         document.getElementById('videoCover').style.display = 'none';
         document.getElementById('videoError').style.display = 'flex';
       });
     }
   });
 
-
-
-  /* ── ESC closes whichever modal is open ── */
-  document.addEventListener('keydown', function (e) {
+  /* ESC TO CLOSE */
+  document.addEventListener('keydown', function(e) {
     if (e.key !== 'Escape') return;
     if (document.getElementById('demoModal').classList.contains('open')) closeDemo();
     if (document.getElementById('leadModal').classList.contains('open')) closeLeadForm();
   });
 </script>
-
 </body>
 </html>
