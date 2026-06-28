@@ -382,7 +382,39 @@
 <nav>
   <a href="#" class="nav-logo">
     <div class="logo-icon">
-      <img src="favicon-64.png" alt="Dominion AI" width="40" height="40" style="border-radius:8px;display:block;">
+      <!-- HVAC Logo: circular badge, flame top-right, snowflake bottom-left, bold D center -->
+      <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bgGrad" x1="0" y1="0" x2="42" y2="42" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#1C1F28"/>
+            <stop offset="100%" stop-color="#0F1115"/>
+          </linearGradient>
+          <linearGradient id="flameGrad" x1="29" y1="6" x2="35" y2="18" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FFB800"/>
+            <stop offset="100%" stop-color="#C8783A"/>
+          </linearGradient>
+          <linearGradient id="iceGrad" x1="7" y1="24" x2="14" y2="36" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#7DD8F0"/>
+            <stop offset="100%" stop-color="#4AA8CC"/>
+          </linearGradient>
+        </defs>
+        <!-- Circle background -->
+        <circle cx="21" cy="21" r="21" fill="url(#bgGrad)"/>
+        <!-- Copper ring -->
+        <circle cx="21" cy="21" r="20" fill="none" stroke="#C8783A" stroke-width="1.2" opacity="0.6"/>
+        <!-- Bold D - center mark -->
+        <path d="M14 12 L14 30 L20.5 30 C25.8 30 29.5 26.5 29.5 21 C29.5 15.5 25.8 12 20.5 12 Z" fill="#C8783A"/>
+        <path d="M17 15.5 L20 15.5 C23.5 15.5 26 17.8 26 21 C26 24.2 23.5 26.5 20 26.5 L17 26.5 Z" fill="#0F1115"/>
+        <!-- Flame top-right -->
+        <path d="M31 7 C31 7 33.5 10 32.5 13 C32 14.5 30.5 15.5 29.5 14.5 C30 13 29 11.5 28 11 C28.5 12.5 28 14.5 26.5 15.5 C26 13 26.5 10 28.5 8 C27.5 9 27 10.5 27.5 12 C28.5 9.5 30 7.5 31 7 Z" fill="url(#flameGrad)"/>
+        <!-- Snowflake bottom-left -->
+        <g stroke="url(#iceGrad)" stroke-width="1.3" stroke-linecap="round">
+          <line x1="10" y1="32" x2="10" y2="37"/>
+          <line x1="7.5" y1="34.5" x2="12.5" y2="34.5"/>
+          <line x1="8.2" y1="32.8" x2="11.8" y2="36.2"/>
+          <line x1="11.8" y1="32.8" x2="8.2" y2="36.2"/>
+        </g>
+      </svg>
     </div>
     <div>
       <div class="logo-text">Dominion <span>AI</span></div>
@@ -833,7 +865,33 @@
     <div class="footer-brand">
       <div class="nav-logo" style="margin-bottom:4px;">
         <div class="logo-icon">
-          <img src="favicon-64.png" alt="Dominion AI" width="40" height="40" style="border-radius:8px;display:block;">
+          <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bgGrad2" x1="0" y1="0" x2="42" y2="42" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#1C1F28"/>
+                <stop offset="100%" stop-color="#0F1115"/>
+              </linearGradient>
+              <linearGradient id="flameGrad2" x1="29" y1="6" x2="35" y2="18" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FFB800"/>
+                <stop offset="100%" stop-color="#C8783A"/>
+              </linearGradient>
+              <linearGradient id="iceGrad2" x1="7" y1="24" x2="14" y2="36" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#7DD8F0"/>
+                <stop offset="100%" stop-color="#4AA8CC"/>
+              </linearGradient>
+            </defs>
+            <circle cx="21" cy="21" r="21" fill="url(#bgGrad2)"/>
+            <circle cx="21" cy="21" r="20" fill="none" stroke="#C8783A" stroke-width="1.2" opacity="0.6"/>
+            <path d="M14 12 L14 30 L20.5 30 C25.8 30 29.5 26.5 29.5 21 C29.5 15.5 25.8 12 20.5 12 Z" fill="#C8783A"/>
+            <path d="M17 15.5 L20 15.5 C23.5 15.5 26 17.8 26 21 C26 24.2 23.5 26.5 20 26.5 L17 26.5 Z" fill="#0F1115"/>
+            <path d="M31 7 C31 7 33.5 10 32.5 13 C32 14.5 30.5 15.5 29.5 14.5 C30 13 29 11.5 28 11 C28.5 12.5 28 14.5 26.5 15.5 C26 13 26.5 10 28.5 8 C27.5 9 27 10.5 27.5 12 C28.5 9.5 30 7.5 31 7 Z" fill="url(#flameGrad2)"/>
+            <g stroke="url(#iceGrad2)" stroke-width="1.3" stroke-linecap="round">
+              <line x1="10" y1="32" x2="10" y2="37"/>
+              <line x1="7.5" y1="34.5" x2="12.5" y2="34.5"/>
+              <line x1="8.2" y1="32.8" x2="11.8" y2="36.2"/>
+              <line x1="11.8" y1="32.8" x2="8.2" y2="36.2"/>
+            </g>
+          </svg>
         </div>
         <div>
           <div class="logo-text">Dominion <span>AI</span></div>
