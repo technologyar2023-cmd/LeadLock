@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Start Your Free Trial — LeadLock by Dominion AI</title>
+  <title>Start Your Free Trial — Alex by Dominion AI</title>
   <meta name="description" content="Fill out this short form and your AI receptionist will be ready within 24 hours." />
   <meta name="theme-color" content="#C8783A" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -11,11 +11,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --black:   #090A0C; --dark: #0F1115; --card: #161820; --card2: #1C1F28;
-      --border:  rgba(255,255,255,0.07); --bh: rgba(255,255,255,0.14);
-      --copper:  #C8783A; --clt: #E09050; --cdk: #9A5A25;
-      --white:   #F2EDE6; --muted: #8A8882; --text: #D8D4CC;
-      --green:   #4CAF78; --error: #f87171;
+      --black:#090A0C; --dark:#0F1115; --card:#161820; --card2:#1C1F28;
+      --border:rgba(255,255,255,0.07); --bh:rgba(255,255,255,0.14);
+      --copper:#C8783A; --clt:#E09050; --cdk:#9A5A25;
+      --white:#F2EDE6; --muted:#8A8882; --text:#D8D4CC;
+      --green:#4CAF78; --error:#f87171;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -25,7 +25,7 @@
     /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(9,10,12,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
     .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .logo-icon{width:36px;height:36px;background:var(--copper);clip-path:polygon(50% 0%,100% 30%,100% 100%,0% 100%,0% 30%);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--black);letter-spacing:1px}
+    .logo-icon{width:38px;height:38px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
     .logo-text{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:var(--white)}
     .logo-text span{color:var(--copper)}
     .nav-right{display:flex;align-items:center;gap:16px}
@@ -37,7 +37,7 @@
     .back-link svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
     /* BG */
-    .page-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:repeating-linear-gradient(-45deg,transparent,transparent 80px,rgba(200,120,58,.025) 80px,rgba(200,120,58,.025) 81px),repeating-linear-gradient(45deg,transparent,transparent 80px,rgba(200,120,58,.025) 80px,rgba(200,120,58,.025) 81px)}
+    .page-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:repeating-linear-gradient(0deg,transparent,transparent 48px,rgba(200,120,58,.02) 48px,rgba(200,120,58,.02) 49px),repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(91,184,212,.012) 80px,rgba(91,184,212,.012) 81px)}
     .page-glow{position:fixed;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(200,120,58,.07) 0%,transparent 70%);top:30%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:0}
 
     /* HERO */
@@ -106,7 +106,7 @@
     .radio-label{font-size:14px;font-weight:500;color:var(--text)}
     .radio-sub{font-size:12px;color:var(--muted);margin-top:1px;font-weight:300}
 
-    /* TWO-COL ROW */
+    /* TWO-COL */
     .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 
     /* FILE UPLOAD */
@@ -124,7 +124,12 @@
     .field.has-error input,.field.has-error select,.field.has-error textarea{border-color:var(--error)}
     .field.has-error .field-error{display:block}
 
-    /* CALL FORWARDING BOX */
+    /* EMERGENCY BOX */
+    .emerg-box{background:rgba(200,120,58,.06);border:1px solid rgba(200,120,58,.25);border-radius:10px;padding:16px 20px;margin-top:10px;font-size:13px;color:var(--muted);font-weight:300;line-height:1.6;display:none}
+    .emerg-box.visible{display:block}
+    .emerg-box strong{color:var(--text);font-weight:500}
+
+    /* CALL FORWARDING */
     .cf-box{display:none;background:rgba(200,120,58,.06);border:1px solid rgba(200,120,58,.25);border-radius:10px;padding:20px;margin-top:16px}
     .cf-box.visible{display:block}
     .cf-box-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--copper);margin-bottom:12px;display:flex;align-items:center;gap:7px}
@@ -195,11 +200,23 @@
 <!-- NAV -->
 <nav>
   <a href="https://dominionai.site" class="nav-logo">
-    <div class="logo-icon">DA</div>
+    <div class="logo-icon">
+      <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="38" height="38" rx="9" fill="#C8783A"/>
+        <line x1="10" y1="19" x2="16" y2="19" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="13" y1="16" x2="13" y2="22" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="11.2" y1="17.2" x2="14.8" y2="20.8" stroke="#090A0C" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="14.8" y1="17.2" x2="11.2" y2="20.8" stroke="#090A0C" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="19" y1="11" x2="19" y2="27" stroke="#090A0C" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="2 2"/>
+        <path d="M22 14.5 C23.5 14.5 23.5 16 25 16 C26.5 16 26.5 14.5 28 14.5" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        <path d="M22 19 C23.5 19 23.5 20.5 25 20.5 C26.5 20.5 26.5 19 28 19" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        <path d="M22 23.5 C23.5 23.5 23.5 25 25 25 C26.5 25 26.5 23.5 28 23.5" stroke="#090A0C" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
     <div class="logo-text">DOMINION <span>AI</span></div>
   </a>
   <div class="nav-right">
-    <a href="https://www.facebook.com/profile.php?id=61588234268290" target="_blank" rel="noopener" class="fb-link" title="Follow us on Facebook">
+    <a href="https://web.facebook.com/profile.php?id=61588234268290" target="_blank" rel="noopener" class="fb-link" title="Follow us on Facebook">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
     </a>
     <a href="https://dominionai.site" class="back-link">
@@ -213,12 +230,12 @@
 <header class="hero">
   <div class="hero-badge"><span class="badge-dot"></span>Free 7-Day Trial</div>
   <h1>YOUR AI RECEPTIONIST<br/><span class="accent">READY IN</span> <span class="outline">24 HOURS</span></h1>
-  <p class="hero-sub">Fill out this short form. I'll build your agent, connect it to your calendar, and send you the activation code — <strong>no technical setup on your end.</strong></p>
+  <p class="hero-sub">Fill out this short form. I'll build your HVAC agent, connect it to your calendar, and send you the activation code — <strong>no technical setup on your end.</strong></p>
   <div class="checklist">
     <div class="check-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>No fees for 7 days</div>
     <div class="check-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>No commitment</div>
     <div class="check-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>2-min activation on your phone</div>
-    <div class="check-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Direct support from me</div>
+    <div class="check-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Emergency calls handled 24/7</div>
   </div>
 </header>
 
@@ -238,41 +255,69 @@
       <div class="form-section active" id="step-1">
         <div class="section-eyebrow">Step 1 of 3</div>
         <div class="section-title">Your Company</div>
-        <div class="section-desc">How your AI receptionist will introduce itself to every caller.</div>
+        <div class="section-desc">How your AI receptionist will introduce itself to every caller — and what it needs to know about your HVAC business.</div>
 
         <div class="field" id="field-companyName">
           <label for="companyName">Company name <span class="req">*</span></label>
-          <div class="hint">e.g. "Green Valley Roofing"</div>
-          <input type="text" id="companyName" name="companyName" placeholder="Your roofing company name" autocomplete="organization"/>
+          <div class="hint">e.g. "Castillo HVAC Services"</div>
+          <input type="text" id="companyName" name="companyName" placeholder="Your HVAC company name" autocomplete="organization"/>
           <div class="field-error">Please enter your company name.</div>
         </div>
 
         <div class="field" id="field-cityState">
           <label for="cityState">City &amp; State you serve <span class="req">*</span></label>
-          <div class="hint">e.g. "Dallas, TX"</div>
+          <div class="hint">e.g. "Houston, TX"</div>
           <input type="text" id="cityState" name="cityState" placeholder="City, State"/>
           <div class="field-error">Please enter your service area.</div>
         </div>
 
         <div class="field" id="field-services">
           <label>Services you offer <span class="req">*</span></label>
-          <div class="hint">Select all that apply</div>
+          <div class="hint">Select all that apply — the agent uses this to triage callers correctly</div>
           <div class="checkbox-group">
-            <label class="checkbox-item"><input type="checkbox" name="services" value="New roof installation"/><span>New roof installation</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="services" value="Roof repair"/><span>Roof repair</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="services" value="Storm damage"/><span>Storm damage</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="services" value="Gutters"/><span>Gutters</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="services" value="Insurance claims"/><span>Insurance claims</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="services" value="Inspections"/><span>Inspections</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="AC repair"/><span>AC repair</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="AC installation"/><span>AC installation</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="Heating repair"/><span>Heating repair</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="Heating installation"/><span>Heating installation</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="Seasonal tune-ups"/><span>Seasonal tune-ups</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="Maintenance plans"/><span>Maintenance plans</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="Indoor air quality"/><span>Indoor air quality</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="Duct cleaning"/><span>Duct cleaning</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="Commercial HVAC"/><span>Commercial HVAC</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="Emergency service"/><span>Emergency service</span></label>
           </div>
           <div class="field-error" id="services-error" style="display:none">Please select at least one service.</div>
         </div>
 
         <div class="field" id="field-hours">
           <label for="hours">Working hours <span class="req">*</span></label>
-          <div class="hint">The agent answers 24/7 — this tells it when to offer inspection slots</div>
+          <div class="hint">The agent answers 24/7 — this tells it when to offer service appointment slots</div>
           <input type="text" id="hours" name="hours" placeholder="e.g. Mon–Fri 7am–6pm, Sat 8am–2pm"/>
           <div class="field-error">Please enter your working hours.</div>
+        </div>
+
+        <div class="field" id="field-emergency">
+          <label>Do you offer 24/7 emergency service? <span class="req">*</span></label>
+          <div class="hint">The agent will either escalate or schedule based on your answer</div>
+          <div class="radio-group">
+            <label class="radio-item">
+              <input type="radio" name="emergency" value="Yes — 24/7 emergency"/>
+              <div><div class="radio-label">Yes — 24/7 emergency</div><div class="radio-sub">Agent will alert you immediately for urgent calls</div></div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="emergency" value="Emergencies during business hours only"/>
+              <div><div class="radio-label">During business hours only</div><div class="radio-sub">After-hours emergencies will be scheduled for next morning</div></div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="emergency" value="No emergency service"/>
+              <div><div class="radio-label">No — appointments only</div><div class="radio-sub">All calls handled as standard bookings</div></div>
+            </label>
+          </div>
+          <div class="field-error" id="emergency-error" style="display:none">Please select an option.</div>
+          <!-- Dynamic instruction box for emergency -->
+          <div class="emerg-box" id="emergBox">
+            <strong>Good to know:</strong> For 24/7 emergency service, your agent will text you immediately with the caller's name, number, and issue — so you can decide whether to dispatch. Make sure to provide your direct cell number in the next step.
+          </div>
         </div>
 
         <div class="field">
@@ -289,21 +334,27 @@
         </div>
 
         <div class="field">
-          <label for="warranty">Warranty you offer <span class="opt">(optional)</span></label>
-          <div class="hint">e.g. "10-year workmanship warranty" — the agent can mention this to callers</div>
-          <input type="text" id="warranty" name="warranty" placeholder="e.g. 10-year workmanship, lifetime materials"/>
+          <label for="warranty">Warranty or guarantee you offer <span class="opt">(optional)</span></label>
+          <div class="hint">e.g. "1-year parts &amp; labor warranty" — the agent can mention this to build trust</div>
+          <input type="text" id="warranty" name="warranty" placeholder="e.g. 1-year parts & labor, 10-year equipment warranty"/>
+        </div>
+
+        <div class="field">
+          <label for="brands">Brands / equipment you work with <span class="opt">(optional)</span></label>
+          <div class="hint">e.g. "Carrier, Trane, Lennox, Goodman" — lets callers know you service their unit</div>
+          <input type="text" id="brands" name="brands" placeholder="e.g. Carrier, Trane, Lennox, Rheem, Goodman"/>
         </div>
       </div>
 
-      <!-- STEP 2: AGENT -->
+      <!-- STEP 2: AGENT CONFIG -->
       <div class="form-section" id="step-2">
         <div class="section-eyebrow">Step 2 of 3</div>
         <div class="section-title">Your Agent</div>
-        <div class="section-desc">Personalize how your AI receptionist handles calls.</div>
+        <div class="section-desc">Personalize how your AI receptionist handles HVAC calls.</div>
 
         <div class="field" id="field-agentName">
           <label for="agentName">Agent name <span class="req">*</span></label>
-          <div class="hint">The name your AI uses when answering — e.g. Alex, Sarah, Mike</div>
+          <div class="hint">The name your AI uses when answering — default is Alex, but any name works</div>
           <input type="text" id="agentName" name="agentName" placeholder="e.g. Alex"/>
           <div class="field-error">Please enter a name for your agent.</div>
         </div>
@@ -318,41 +369,50 @@
           <div class="field-error" id="voice-error" style="display:none">Please select a voice preference.</div>
         </div>
 
-        <div class="field" id="field-inspFree">
-          <label>Is the inspection free? <span class="req">*</span></label>
+        <div class="field" id="field-language">
+          <label>Languages the agent should support <span class="req">*</span></label>
           <div class="radio-group">
-            <label class="radio-item"><input type="radio" name="inspFree" value="Yes — free inspection"/><div class="radio-label">Yes — free inspection</div></label>
-            <label class="radio-item"><input type="radio" name="inspFree" value="No — paid inspection"/><div class="radio-label">No — paid inspection</div></label>
+            <label class="radio-item"><input type="radio" name="language" value="English only"/><div class="radio-label">English only</div></label>
+            <label class="radio-item"><input type="radio" name="language" value="Bilingual — English & Spanish"/><div><div class="radio-label">Bilingual — English &amp; Spanish</div><div class="radio-sub">Agent detects language automatically and switches</div></div></label>
           </div>
-          <div class="field-error" id="inspFree-error" style="display:none">Please select an option.</div>
+          <div class="field-error" id="language-error" style="display:none">Please select a language option.</div>
         </div>
 
-        <!-- Paid price — shown only if "No" selected -->
-        <div class="field" id="field-inspPrice" style="display:none">
-          <label for="inspPrice">Inspection price <span class="req">*</span></label>
+        <div class="field" id="field-diagFee">
+          <label>Do you charge a diagnostic / service call fee? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-item"><input type="radio" name="diagFee" value="No — free diagnostic"/><div class="radio-label">No — free diagnostic</div></label>
+            <label class="radio-item"><input type="radio" name="diagFee" value="Yes — paid diagnostic"/><div class="radio-label">Yes — paid diagnostic</div></label>
+          </div>
+          <div class="field-error" id="diagFee-error" style="display:none">Please select an option.</div>
+        </div>
+
+        <!-- Fee amount — shown only if paid -->
+        <div class="field" id="field-diagPrice" style="display:none">
+          <label for="diagPrice">Diagnostic fee amount <span class="req">*</span></label>
           <div class="hint">The agent will quote this to callers who ask</div>
-          <input type="text" id="inspPrice" name="inspPrice" placeholder="e.g. $75 flat fee"/>
-          <div class="field-error">Please enter the inspection price.</div>
+          <input type="text" id="diagPrice" name="diagPrice" placeholder="e.g. $89 flat fee, waived if you book repair"/>
+          <div class="field-error">Please enter the diagnostic fee.</div>
         </div>
 
         <div class="field-row">
           <div class="field" id="field-jobsPerDay">
-            <label for="jobsPerDay">Max inspections per day <span class="req">*</span></label>
+            <label for="jobsPerDay">Max service calls per day <span class="req">*</span></label>
             <div class="hint">So the agent doesn't overbook</div>
             <select id="jobsPerDay" name="jobsPerDay">
               <option value="">Select…</option>
               <option>1</option><option>2</option><option>3</option>
-              <option>4</option><option>5</option><option>6+</option>
+              <option>4</option><option>5</option><option>6</option><option>7+</option>
             </select>
             <div class="field-error">Please select a number.</div>
           </div>
           <div class="field" id="field-jobDuration">
-            <label for="jobDuration">Inspection duration <span class="req">*</span></label>
+            <label for="jobDuration">Average service call duration <span class="req">*</span></label>
             <div class="hint">For calendar blocking</div>
             <select id="jobDuration" name="jobDuration">
               <option value="">Select…</option>
               <option>30 minutes</option><option>45 minutes</option>
-              <option>1 hour</option><option>1.5 hours</option><option>2 hours</option>
+              <option>1 hour</option><option>1.5 hours</option><option>2 hours</option><option>2.5 hours</option><option>3+ hours</option>
             </select>
             <div class="field-error">Please select a duration.</div>
           </div>
@@ -367,25 +427,34 @@
 
         <div class="field" id="field-transferTime">
           <label for="transferTime">When can the agent transfer a live call to you? <span class="req">*</span></label>
-          <div class="hint">If a caller insists on speaking with someone — what hours are you available?</div>
-          <input type="text" id="transferTime" name="transferTime" placeholder="e.g. Mon–Fri 8am–5pm, or 'anytime'"/>
+          <div class="hint">If a caller insists on speaking with someone — what hours are you reachable?</div>
+          <input type="text" id="transferTime" name="transferTime" placeholder="e.g. Mon–Fri 8am–5pm, or 'anytime for emergencies'"/>
           <div class="field-error">Please enter your available transfer hours.</div>
         </div>
 
         <div class="field">
+          <label for="maintenancePlan">Do you offer a maintenance membership / plan? <span class="opt">(optional)</span></label>
+          <div class="hint">If yes, briefly describe it — the agent will promote it on appropriate calls</div>
+          <input type="text" id="maintenancePlan" name="maintenancePlan" placeholder="e.g. $15/mo — 2 tune-ups/year + priority service + 10% repair discount"/>
+        </div>
+
+        <div class="field">
           <label for="avgJob">Average job value <span class="opt">(optional)</span></label>
-          <div class="hint">Helps the agent prioritize high-value leads</div>
+          <div class="hint">Helps the agent prioritize high-value calls</div>
           <select id="avgJob" name="avgJob">
             <option value="">Select a range…</option>
-            <option>Under $5,000</option><option>$5,000 – $10,000</option>
-            <option>$10,000 – $20,000</option><option>Over $20,000</option>
+            <option>Under $500</option>
+            <option>$500 – $1,500</option>
+            <option>$1,500 – $5,000</option>
+            <option>$5,000 – $10,000</option>
+            <option>Over $10,000</option>
           </select>
         </div>
 
         <div class="field">
           <label for="extraInfo">Anything else the agent should know? <span class="opt">(optional)</span></label>
-          <div class="hint">e.g. insurance work only, specific areas you don't serve, bilingual callers</div>
-          <textarea id="extraInfo" name="extraInfo" placeholder="Any details that help me build a better agent for your business…"></textarea>
+          <div class="hint">e.g. areas you don't serve, specific equipment you don't work on, financing options, license number</div>
+          <textarea id="extraInfo" name="extraInfo" placeholder="Any details that help me build a better agent for your HVAC business…"></textarea>
         </div>
 
         <div class="field">
@@ -410,14 +479,14 @@
         <div class="field" id="field-phone">
           <label for="phone">Business phone number <span class="req">*</span></label>
           <div class="hint">The number your customers call — missed calls will forward to your agent</div>
-          <input type="tel" id="phone" name="phone" placeholder="e.g. (214) 555-0192" autocomplete="tel"/>
+          <input type="tel" id="phone" name="phone" placeholder="e.g. (713) 555-0192" autocomplete="tel"/>
           <div class="field-error">Please enter your business phone number.</div>
         </div>
 
         <div class="field" id="field-email">
           <label for="email">Email address <span class="req">*</span></label>
           <div class="hint">I'll send your agent number + activation instructions here</div>
-          <input type="email" id="email" name="email" placeholder="you@yourcompany.com" autocomplete="email"/>
+          <input type="email" id="email" name="email" placeholder="you@yourhvaccompany.com" autocomplete="email"/>
           <div class="field-error">Please enter a valid email address.</div>
         </div>
 
@@ -434,7 +503,7 @@
           <div class="field-error" id="carrier-error" style="display:none">Please select your carrier.</div>
         </div>
 
-        <!-- CALL FORWARDING INSTRUCTIONS — shown after carrier selected -->
+        <!-- CALL FORWARDING INSTRUCTIONS -->
         <div class="cf-box" id="cfBox">
           <div class="cf-box-title">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
@@ -452,12 +521,12 @@
       <div class="success-screen" id="successScreen">
         <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <h2>YOU'RE ALL SET.</h2>
-        <p>Your AI receptionist will be ready within <strong style="color:var(--text)">24 hours</strong>. Check your email for the agent number and activation code.</p>
+        <p>Your AI HVAC receptionist will be ready within <strong style="color:var(--text)">24 hours</strong>. Check your email for the agent number and activation code.</p>
         <div class="next-steps">
           <div class="next-steps-title">What happens next</div>
-          <div class="nsi"><div class="nsi-num">1</div><p><strong>Within 24 hours</strong> — I'll email your agent number and a calendar link.</p></div>
+          <div class="nsi"><div class="nsi-num">1</div><p><strong>Within 24 hours</strong> — I'll email your agent number, activation code, and a calendar link.</p></div>
           <div class="nsi"><div class="nsi-num">2</div><p><strong>2-minute activation</strong> — Use the forwarding code for your carrier. That's it.</p></div>
-          <div class="nsi"><div class="nsi-num">3</div><p><strong>You're live</strong> — Every missed call goes to your agent. Booked inspections appear on your calendar automatically.</p></div>
+          <div class="nsi"><div class="nsi-num">3</div><p><strong>You're live</strong> — Every missed call goes to Alex. Emergencies escalated instantly. Appointments booked to your calendar automatically.</p></div>
         </div>
         <a href="https://dominionai.site" class="btn-home">Back to Dominion AI <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
@@ -474,7 +543,7 @@
     </form>
   </div>
   <div class="form-footer">
-    <p>Questions? Message Yacine on <a href="https://www.facebook.com/profile.php?id=61588234268290" target="_blank">Facebook</a> &nbsp;·&nbsp; <a href="https://dominionai.site">dominionai.site</a></p>
+    <p>Questions? Message us on <a href="https://web.facebook.com/profile.php?id=61588234268290" target="_blank">Facebook</a> &nbsp;·&nbsp; <a href="https://dominionai.site">dominionai.site</a></p>
   </div>
 </main>
 
@@ -488,12 +557,12 @@
   const formDivider   = document.getElementById('formDivider');
   const successScreen = document.getElementById('successScreen');
 
-  // ── Checkbox styling ──
+  // Checkbox styling
   document.querySelectorAll('.checkbox-item input').forEach(cb => {
     cb.addEventListener('change', () => cb.closest('.checkbox-item').classList.toggle('checked', cb.checked));
   });
 
-  // ── Radio styling ──
+  // Radio styling
   document.querySelectorAll('.radio-item input').forEach(rb => {
     rb.addEventListener('change', () => {
       rb.closest('.radio-group').querySelectorAll('.radio-item').forEach(i => i.classList.remove('selected'));
@@ -501,16 +570,24 @@
     });
   });
 
-  // ── Show/hide inspection price ──
-  document.querySelectorAll('input[name="inspFree"]').forEach(r => {
+  // Emergency service box
+  document.querySelectorAll('input[name="emergency"]').forEach(r => {
     r.addEventListener('change', () => {
-      const priceField = document.getElementById('field-inspPrice');
-      priceField.style.display = r.value === 'No — paid inspection' ? 'block' : 'none';
-      if (r.value !== 'No — paid inspection') document.getElementById('inspPrice').value = '';
+      const box = document.getElementById('emergBox');
+      box.classList.toggle('visible', r.value === 'Yes — 24/7 emergency');
     });
   });
 
-  // ── File upload display ──
+  // Show/hide diagnostic fee
+  document.querySelectorAll('input[name="diagFee"]').forEach(r => {
+    r.addEventListener('change', () => {
+      const priceField = document.getElementById('field-diagPrice');
+      priceField.style.display = r.value === 'Yes — paid diagnostic' ? 'block' : 'none';
+      if (r.value !== 'Yes — paid diagnostic') document.getElementById('diagPrice').value = '';
+    });
+  });
+
+  // File upload
   document.getElementById('kbFile').addEventListener('change', function() {
     const area = document.getElementById('fileUploadArea');
     const display = document.getElementById('fileNameDisplay');
@@ -524,54 +601,53 @@
     }
   });
 
-  // ── Call forwarding instructions ──
-  const cfInstructions = {
+  // Call forwarding instructions
+  const cfData = {
     'AT&T': [
-      { step: 'Dial <code>*61*[AGENT NUMBER]#</code> on your phone, then press <strong>Call</strong>.', },
-      { step: 'You\'ll hear a confirmation tone — that means it\'s active.', },
-      { step: 'To test: call your number from another phone and don\'t pick up. You should hear your agent answer.', },
-      { step: 'To deactivate anytime: dial <code>#61#</code> and press <strong>Call</strong>.', },
+      { step: 'Dial <code>*61*[AGENT NUMBER]#</code> on your phone, then press <strong>Call</strong>.' },
+      { step: 'You\'ll hear a confirmation tone — forwarding is now active.' },
+      { step: 'To test: call your number from another phone and don\'t pick up. Alex should answer.' },
+      { step: 'To deactivate anytime: dial <code>#61#</code> and press <strong>Call</strong>.' },
     ],
     'T-Mobile': [
-      { step: 'Dial <code>**61*[AGENT NUMBER]#</code> on your phone, then press <strong>Call</strong>.', },
-      { step: 'You\'ll hear a confirmation tone — forwarding is now active.', },
-      { step: 'To test: call your number from another phone and don\'t pick up. Your agent will answer.', },
-      { step: 'To deactivate anytime: dial <code>##61#</code> and press <strong>Call</strong>.', },
+      { step: 'Dial <code>**61*[AGENT NUMBER]#</code> on your phone, then press <strong>Call</strong>.' },
+      { step: 'You\'ll hear a confirmation tone — forwarding is now active.' },
+      { step: 'To test: call your number from another phone and don\'t pick up. Alex should answer.' },
+      { step: 'To deactivate anytime: dial <code>##61#</code> and press <strong>Call</strong>.' },
     ],
     'Verizon': [
-      { step: 'Open your <strong>Phone app</strong> → tap the <strong>3-dot menu</strong> → go to <strong>Settings</strong>.', },
-      { step: 'Tap <strong>Calls</strong> → <strong>Call Forwarding</strong> → <strong>Forward when unanswered</strong>.', },
-      { step: 'Enter <strong>[AGENT NUMBER]</strong> and save.', },
-      { step: 'To test: call your number from another phone and don\'t pick up. Your agent will answer.', },
+      { step: 'Open your <strong>Phone app</strong> → tap the <strong>3-dot menu</strong> → go to <strong>Settings</strong>.' },
+      { step: 'Tap <strong>Calls</strong> → <strong>Call Forwarding</strong> → <strong>Forward when unanswered</strong>.' },
+      { step: 'Enter <strong>[AGENT NUMBER]</strong> and save.' },
+      { step: 'To test: call your number from another phone and don\'t pick up. Alex should answer.' },
     ],
     'Other': [
-      { step: 'Try this universal code first: dial <code>*71[AGENT NUMBER]</code> then press <strong>Call</strong>. If you hear a confirmation tone, it worked.', },
-      { step: 'If that doesn\'t work, go to your <strong>Phone app Settings → Call Forwarding → Forward when unanswered</strong> and enter your agent number.', },
-      { step: 'If neither works, call your carrier and ask them to enable <strong>"conditional call forwarding"</strong> to your agent number.', },
-      { step: 'To test: call your number from another phone and don\'t pick up. Your agent should answer.', },
+      { step: 'Try this universal code: dial <code>*71[AGENT NUMBER]</code> then press <strong>Call</strong>. A confirmation tone means it worked.' },
+      { step: 'If that doesn\'t work: Phone app → Settings → Call Forwarding → Forward when unanswered → enter agent number.' },
+      { step: 'If neither works, call your carrier and ask to enable <strong>"conditional call forwarding"</strong> to your agent number.' },
+      { step: 'To test: call your number from another phone and don\'t pick up. Alex should answer.' },
     ],
     'Not sure': [
-      { step: '<strong>Option A — Universal code:</strong> dial <code>*71[AGENT NUMBER]</code> then press <strong>Call</strong>. If you hear a confirmation, it worked.', },
-      { step: '<strong>Option B — AT&amp;T/T-Mobile:</strong> dial <code>*61*[AGENT NUMBER]#</code> then press <strong>Call</strong>.', },
-      { step: '<strong>Option C — Verizon/Android:</strong> Phone app → Settings → Calls → Call Forwarding → Forward when unanswered → enter agent number.', },
-      { step: 'To test: call your number from another phone and don\'t pick up. Your agent should answer within a few seconds.', },
+      { step: '<strong>Option A — Universal:</strong> dial <code>*71[AGENT NUMBER]</code> then press <strong>Call</strong>. Confirmation tone = active.' },
+      { step: '<strong>Option B — AT&amp;T / T-Mobile:</strong> dial <code>*61*[AGENT NUMBER]#</code> then press <strong>Call</strong>.' },
+      { step: '<strong>Option C — Verizon / Android:</strong> Phone app → Settings → Calls → Call Forwarding → Forward when unanswered → enter agent number.' },
+      { step: 'To test: call your number from another phone and don\'t pick up. Alex should answer within a few seconds.' },
     ],
   };
 
   document.querySelectorAll('input[name="carrier"]').forEach(r => {
     r.addEventListener('change', () => {
       const box = document.getElementById('cfBox');
-      const instructions = cfInstructions[r.value];
+      const instructions = cfData[r.value];
       if (!instructions) return;
       box.classList.add('visible');
-      const container = document.getElementById('cfInstructions');
-      container.innerHTML = instructions.map((item, i) =>
+      document.getElementById('cfInstructions').innerHTML = instructions.map((item, i) =>
         `<div class="cf-step"><div class="cf-num">${i+1}</div><p>${item.step}</p></div>`
       ).join('');
     });
   });
 
-  // ── Progress update ──
+  // Progress
   function updateProgress() {
     progressFill.style.width = (((currentStep - 1) / totalSteps) * 100) + '%';
     for (let i = 1; i <= totalSteps; i++) {
@@ -586,7 +662,7 @@
     btnNext.innerHTML = currentStep === totalSteps ? 'Submit ' + checkI : 'Continue ' + arrowR;
   }
 
-  // ── Validation helpers ──
+  // Validation
   function clearErr(id) { const f = document.getElementById('field-' + id); if (f) f.classList.remove('has-error'); }
   function setErr(id)   { const f = document.getElementById('field-' + id); if (f) f.classList.add('has-error'); }
 
@@ -601,30 +677,29 @@
       const sf = document.getElementById('field-services');
       if (!sv.length) { se.style.display='block'; sf.classList.add('has-error'); ok=false; }
       else            { se.style.display='none';  sf.classList.remove('has-error'); }
+      const emv = document.querySelector('input[name="emergency"]:checked');
+      const eme = document.getElementById('emergency-error');
+      const emf = document.getElementById('field-emergency');
+      if (!emv) { eme.style.display='block'; emf.classList.add('has-error'); ok=false; }
+      else       { eme.style.display='none';  emf.classList.remove('has-error'); }
     }
     if (step === 2) {
       if (!document.getElementById('agentName').value.trim()) { setErr('agentName'); ok=false; } else clearErr('agentName');
-      // voice
       const vo = document.querySelector('input[name="voice"]:checked');
-      const ve = document.getElementById('voice-error');
-      const vf = document.getElementById('field-voice');
+      const ve = document.getElementById('voice-error'); const vf = document.getElementById('field-voice');
       if (!vo) { ve.style.display='block'; vf.classList.add('has-error'); ok=false; } else { ve.style.display='none'; vf.classList.remove('has-error'); }
-      // insp free
-      const inf = document.querySelector('input[name="inspFree"]:checked');
-      const ife = document.getElementById('inspFree-error');
-      const iff = document.getElementById('field-inspFree');
-      if (!inf) { ife.style.display='block'; iff.classList.add('has-error'); ok=false; } else { ife.style.display='none'; iff.classList.remove('has-error'); }
-      // insp price if paid
-      if (inf && inf.value === 'No — paid inspection') {
-        if (!document.getElementById('inspPrice').value.trim()) { setErr('inspPrice'); ok=false; } else clearErr('inspPrice');
+      const la = document.querySelector('input[name="language"]:checked');
+      const le = document.getElementById('language-error'); const lf = document.getElementById('field-language');
+      if (!la) { le.style.display='block'; lf.classList.add('has-error'); ok=false; } else { le.style.display='none'; lf.classList.remove('has-error'); }
+      const df = document.querySelector('input[name="diagFee"]:checked');
+      const dfe = document.getElementById('diagFee-error'); const dff = document.getElementById('field-diagFee');
+      if (!df) { dfe.style.display='block'; dff.classList.add('has-error'); ok=false; } else { dfe.style.display='none'; dff.classList.remove('has-error'); }
+      if (df && df.value === 'Yes — paid diagnostic') {
+        if (!document.getElementById('diagPrice').value.trim()) { setErr('diagPrice'); ok=false; } else clearErr('diagPrice');
       }
-      // jobs per day
       if (!document.getElementById('jobsPerDay').value) { setErr('jobsPerDay'); ok=false; } else clearErr('jobsPerDay');
-      // job duration
       if (!document.getElementById('jobDuration').value) { setErr('jobDuration'); ok=false; } else clearErr('jobDuration');
-      // preferred slots
       if (!document.getElementById('preferredSlots').value.trim()) { setErr('preferredSlots'); ok=false; } else clearErr('preferredSlots');
-      // transfer time
       if (!document.getElementById('transferTime').value.trim()) { setErr('transferTime'); ok=false; } else clearErr('transferTime');
     }
     if (step === 3) {
@@ -632,14 +707,13 @@
       const em = document.getElementById('email').value.trim();
       if (!em || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { setErr('email'); ok=false; } else clearErr('email');
       const ca = document.querySelector('input[name="carrier"]:checked');
-      const ce = document.getElementById('carrier-error');
-      const cf = document.getElementById('field-carrier');
+      const ce = document.getElementById('carrier-error'); const cf = document.getElementById('field-carrier');
       if (!ca) { ce.style.display='block'; cf.classList.add('has-error'); ok=false; } else { ce.style.display='none'; cf.classList.remove('has-error'); }
     }
     return ok;
   }
 
-  // ── Navigation ──
+  // Navigation
   btnNext.addEventListener('click', () => {
     if (!validate(currentStep)) return;
     if (currentStep < totalSteps) {
@@ -661,47 +735,46 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // ── Submit ──
+  // Submit
   async function submitForm() {
     btnNext.disabled = true;
     btnNext.innerHTML = 'Sending…';
-
-    const services = [...document.querySelectorAll('input[name="services"]:checked')].map(c => c.value).join(', ');
-    const voice    = document.querySelector('input[name="voice"]:checked')?.value || '';
-    const carrier  = document.querySelector('input[name="carrier"]:checked')?.value || '';
-    const inspFree = document.querySelector('input[name="inspFree"]:checked')?.value || '';
-
-    // If there's a file, encode it as base64 note (Web3Forms doesn't support file uploads — we note the filename)
-    const fileInput = document.getElementById('kbFile');
-    const fileName  = fileInput.files[0] ? fileInput.files[0].name : 'None';
+    const services  = [...document.querySelectorAll('input[name="services"]:checked')].map(c => c.value).join(', ');
+    const voice     = document.querySelector('input[name="voice"]:checked')?.value || '';
+    const language  = document.querySelector('input[name="language"]:checked')?.value || '';
+    const carrier   = document.querySelector('input[name="carrier"]:checked')?.value || '';
+    const diagFee   = document.querySelector('input[name="diagFee"]:checked')?.value || '';
+    const emergency = document.querySelector('input[name="emergency"]:checked')?.value || '';
+    const fileName  = document.getElementById('kbFile').files[0] ? document.getElementById('kbFile').files[0].name : 'None';
 
     const payload = {
-      access_key:       'adfd02a2-f0d3-4aac-9181-676025bb1334',
-      subject:          'New LeadLock Trial — ' + document.getElementById('companyName').value.trim(),
-      from_name:        'LeadLock Onboarding',
-      botcheck:         '',
-      // Step 1
-      company_name:     document.getElementById('companyName').value.trim(),
-      city_state:       document.getElementById('cityState').value.trim(),
+      access_key:         'adfd02a2-f0d3-4aac-9181-676025bb1334',
+      subject:            'New HVAC Trial — ' + document.getElementById('companyName').value.trim(),
+      from_name:          'Dominion AI HVAC Onboarding',
+      botcheck:           '',
+      company_name:       document.getElementById('companyName').value.trim(),
+      city_state:         document.getElementById('cityState').value.trim(),
       services,
-      working_hours:    document.getElementById('hours').value.trim(),
-      years_in_business:document.getElementById('yearsInBiz').value,
-      warranty:         document.getElementById('warranty').value.trim(),
-      // Step 2
-      agent_name:       document.getElementById('agentName').value.trim(),
+      working_hours:      document.getElementById('hours').value.trim(),
+      emergency_service:  emergency,
+      years_in_business:  document.getElementById('yearsInBiz').value,
+      warranty:           document.getElementById('warranty').value.trim(),
+      brands:             document.getElementById('brands').value.trim(),
+      agent_name:         document.getElementById('agentName').value.trim(),
       voice,
-      inspection_free:  inspFree,
-      inspection_price: document.getElementById('inspPrice').value.trim(),
-      jobs_per_day:     document.getElementById('jobsPerDay').value,
-      job_duration:     document.getElementById('jobDuration').value,
-      preferred_slots:  document.getElementById('preferredSlots').value.trim(),
-      transfer_hours:   document.getElementById('transferTime').value.trim(),
-      avg_job:          document.getElementById('avgJob').value,
-      extra_info:       document.getElementById('extraInfo').value.trim(),
+      language,
+      diagnostic_fee:     diagFee,
+      diagnostic_price:   document.getElementById('diagPrice').value.trim(),
+      jobs_per_day:       document.getElementById('jobsPerDay').value,
+      job_duration:       document.getElementById('jobDuration').value,
+      preferred_slots:    document.getElementById('preferredSlots').value.trim(),
+      transfer_hours:     document.getElementById('transferTime').value.trim(),
+      maintenance_plan:   document.getElementById('maintenancePlan').value.trim(),
+      avg_job:            document.getElementById('avgJob').value,
+      extra_info:         document.getElementById('extraInfo').value.trim(),
       knowledge_base_file: fileName,
-      // Step 3
-      phone:            document.getElementById('phone').value.trim(),
-      email:            document.getElementById('email').value.trim(),
+      phone:              document.getElementById('phone').value.trim(),
+      email:              document.getElementById('email').value.trim(),
       carrier,
     };
 
@@ -727,7 +800,7 @@
     } catch {
       btnNext.disabled = false;
       updateProgress();
-      alert('Something went wrong — please try again or message Yacine on Facebook.');
+      alert('Something went wrong — please try again or message us on Facebook.');
     }
   }
 
