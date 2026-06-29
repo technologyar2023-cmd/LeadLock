@@ -548,51 +548,111 @@
 <section class="calc-section" id="calculator">
   <div class="centered reveal">
     <span class="section-label">ROI Calculator</span>
-    <h2 class="section-title">How Much Are You Losing Right Now?</h2>
-    <p class="section-sub">Adjust the sliders to match your HVAC business — see your real numbers instantly.</p>
+    <h2 class="section-title">See What LeadLock Makes You</h2>
+    <p class="section-sub">Move the sliders — see your real numbers in seconds. No complicated formulas.</p>
   </div>
   <div class="calc-wrap">
     <div class="calc-inputs">
+
+      <!-- Slider 1: calls/month -->
       <div class="calc-group">
-        <div class="calc-group-hd"><span class="calc-group-label">Monthly incoming calls</span><span class="calc-group-val" id="v-calls">100 calls</span></div>
+        <div class="calc-group-hd">
+          <span class="calc-group-label">How many calls do you get per month?</span>
+          <span class="calc-group-val" id="v-calls">100 calls</span>
+        </div>
         <input class="calc-range" type="range" min="20" max="400" value="100" id="s-calls" oninput="updateCalc()">
-        <div class="calc-range-limits"><span>20</span><span>400</span></div>
+        <div class="calc-range-limits"><span>20 calls</span><span>400 calls</span></div>
       </div>
+
+      <!-- Slider 2: % missed -->
       <div class="calc-group">
-        <div class="calc-group-hd"><span class="calc-group-label">Calls missed while on a job</span><span class="calc-group-val" id="v-missed">40%</span></div>
-        <input class="calc-range" type="range" min="10" max="70" value="40" id="s-missed" oninput="updateCalc()">
-        <div class="calc-range-limits"><span>10%</span><span>70%</span></div>
+        <div class="calc-group-hd">
+          <span class="calc-group-label">How often do you miss a call while on the job?</span>
+          <span class="calc-group-val" id="v-missed">4 in 10 calls</span>
+        </div>
+        <input class="calc-range" type="range" min="1" max="9" value="4" id="s-missed" oninput="updateCalc()">
+        <div class="calc-range-limits"><span>1 in 10</span><span>9 in 10</span></div>
       </div>
+
+      <!-- Slider 3: avg job value -->
       <div class="calc-group">
-        <div class="calc-group-hd"><span class="calc-group-label">Calls that convert to a booked job</span><span class="calc-group-val" id="v-conv">20%</span></div>
-        <input class="calc-range" type="range" min="5" max="50" value="20" id="s-conv" oninput="updateCalc()">
-        <div class="calc-range-limits"><span>5%</span><span>50%</span></div>
-      </div>
-      <div class="calc-group">
-        <div class="calc-group-hd"><span class="calc-group-label">Average job value (service / repair / install)</span><span class="calc-group-val" id="v-job">$3,900</span></div>
+        <div class="calc-group-hd">
+          <span class="calc-group-label">What's your average job worth?</span>
+          <span class="calc-group-val" id="v-job">$3,900</span>
+        </div>
         <input class="calc-range" type="range" min="300" max="15000" value="3900" step="100" id="s-job" oninput="updateCalc()">
-        <div class="calc-range-limits"><span>$300</span><span>$15K</span></div>
+        <div class="calc-range-limits"><span>$300</span><span>$15,000</span></div>
       </div>
+
+      <!-- Slider 4: close rate -->
+      <div class="calc-group">
+        <div class="calc-group-hd">
+          <span class="calc-group-label">Out of every 10 people who call, how many become customers?</span>
+          <span class="calc-group-val" id="v-conv">2 in 10</span>
+        </div>
+        <input class="calc-range" type="range" min="1" max="8" value="2" id="s-conv" oninput="updateCalc()">
+        <div class="calc-range-limits"><span>1 in 10</span><span>8 in 10</span></div>
+      </div>
+
     </div>
+
     <div class="calc-results">
-      <div class="calc-results-title">Your numbers</div>
-      <div class="calc-row"><span class="calc-row-label">Calls missed per month</span><span class="calc-row-val val-neutral" id="r-missed-n">40 calls</span></div>
-      <div class="calc-row"><span class="calc-row-label">Jobs lost per month</span><span class="calc-row-val val-loss" id="r-lost-jobs">8 jobs</span></div>
-      <div class="calc-row"><span class="calc-row-label">Revenue lost per month</span><span class="calc-row-val val-loss" id="r-lost-mo">$31,200</span></div>
-      <div class="calc-row"><span class="calc-row-label">Revenue lost per year</span><span class="calc-row-val val-loss" id="r-lost-yr">$374,400</span></div>
-      <div class="calc-sep"></div>
-      <div class="calc-row"><span class="calc-row-label">Extra jobs LeadLock captures / month</span><span class="calc-row-val val-gain" id="r-cap-jobs">6 jobs</span></div>
-      <div class="calc-row"><span class="calc-row-label">Revenue recovered / year</span><span class="calc-row-val val-gain" id="r-recovered">$280,800</span></div>
-      <div class="calc-row"><span class="calc-row-label">Dominion AI annual investment</span><span class="calc-row-val val-neutral">$5,564</span></div>
-      <div class="calc-net-box">
-        <div class="calc-net-label">Net annual profit with Dominion AI</div>
-        <div class="calc-net-val" id="r-net">$275,236</div>
-        <div class="calc-net-roi" id="r-roi">ROI — 4,946%</div>
+      <div class="calc-results-title">Your numbers — updated live</div>
+
+      <!-- What you're losing -->
+      <div class="calc-row">
+        <span class="calc-row-label">Calls you miss every month</span>
+        <span class="calc-row-val val-neutral" id="r-missed-n">40 calls</span>
       </div>
-      <button class="calc-action" id="calc-cta" onclick="openLeadForm()">Get LeadLock — Recover $280,800 This Year →</button>
+      <div class="calc-row">
+        <span class="calc-row-label">Jobs you lose every month</span>
+        <span class="calc-row-val val-loss" id="r-lost-jobs">8 jobs</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-row-label">Revenue walking out the door — monthly</span>
+        <span class="calc-row-val val-loss" id="r-lost-mo">$31,200</span>
+      </div>
+
+      <div class="calc-sep"></div>
+
+      <!-- What LeadLock recovers -->
+      <div class="calc-row">
+        <span class="calc-row-label">Extra jobs LeadLock captures for you — monthly</span>
+        <span class="calc-row-val val-gain" id="r-cap-jobs">6 jobs</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-row-label">Extra revenue LeadLock brings in — monthly</span>
+        <span class="calc-row-val val-gain" id="r-recovered-mo">$23,400</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-row-label">LeadLock monthly cost (Starter plan)</span>
+        <span class="calc-row-val val-neutral">$397/mo</span>
+      </div>
+
+      <div class="calc-sep"></div>
+
+      <!-- Net results — the money in your pocket -->
+      <div class="calc-row">
+        <span class="calc-row-label" style="font-weight:600;color:var(--text);">Net profit LeadLock adds — every month</span>
+        <span class="calc-row-val val-gain" id="r-net-mo">$23,003</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-row-label" style="font-weight:600;color:var(--text);">Net profit LeadLock adds — every year</span>
+        <span class="calc-row-val val-gain" style="font-size:22px;" id="r-net-yr">$276,036</span>
+      </div>
+
+      <div class="calc-net-box">
+        <div class="calc-net-label">For every $1 you spend on LeadLock, you get back</div>
+        <div class="calc-net-val" id="r-roi">$59</div>
+        <div class="calc-net-roi" id="r-roi-sub">Based on $397/mo plan · results vary by market</div>
+      </div>
+
+      <button class="calc-action" id="calc-cta" onclick="openLeadForm()">
+        Get LeadLock — Add $23,003 to Your Bottom Line →
+      </button>
     </div>
   </div>
-  <p class="calc-disclaimer">* LeadLock captures approximately 80% of previously missed calls. Conversion rates and job values vary by market and business. Results not guaranteed.</p>
+  <p class="calc-disclaimer">* LeadLock captures ~80% of previously missed calls. Close rates and job values vary by market and season. Results not guaranteed.</p>
 </section>
 
 <!-- FEATURES -->
@@ -770,6 +830,11 @@
       <div class="pricing-name">Starter</div>
       <div class="pricing-price"><span class="dollar">$</span>397<span class="period">/mo</span></div>
       <div class="pricing-desc">Perfect for solo HVAC operators. Includes $800 one-time setup fee.</div>
+      <!-- Minutes included badge -->
+      <div style="margin:-8px 0 20px;padding:10px 14px;background:rgba(200,120,58,0.08);border:1px solid rgba(200,120,58,0.2);border-radius:8px;font-size:12px;color:var(--text);line-height:1.6;">
+        <strong style="color:var(--copper);">1,500 minutes/month included</strong><br>
+        <span style="color:var(--muted);">Each extra minute beyond that: <strong style="color:var(--text);">$0.15/min</strong></span>
+      </div>
       <ul class="pricing-features">
         <li><span class="chk">✓</span> LeadLock AI Voice Agent 24/7</li>
         <li><span class="chk">✓</span> Emergency / Repair / Maintenance Call Routing</li>
@@ -785,6 +850,10 @@
       <div class="pricing-name">Pro</div>
       <div class="pricing-price"><span class="dollar">$</span>697<span class="period">/mo</span></div>
       <div class="pricing-desc">For growing HVAC businesses who want every edge. Includes $800 one-time setup.</div>
+      <div style="margin:-8px 0 20px;padding:10px 14px;background:rgba(200,120,58,0.1);border:1px solid rgba(200,120,58,0.3);border-radius:8px;font-size:12px;color:var(--text);line-height:1.6;">
+        <strong style="color:var(--copper);">1,500 minutes/month included</strong><br>
+        <span style="color:var(--muted);">Each extra minute beyond that: <strong style="color:var(--text);">$0.15/min</strong></span>
+      </div>
       <ul class="pricing-features">
         <li><span class="chk">✓</span> LeadLock AI Voice Agent 24/7</li>
         <li><span class="chk">✓</span> Emergency Priority Routing + Live Transfer</li>
@@ -1097,35 +1166,50 @@
 
   /* ROI CALCULATOR */
   function updateCalc() {
-    const calls  = parseInt(document.getElementById('s-calls').value);
-    const missed = parseInt(document.getElementById('s-missed').value);
-    const conv   = parseInt(document.getElementById('s-conv').value);
-    const job    = parseInt(document.getElementById('s-job').value);
+    const calls     = parseInt(document.getElementById('s-calls').value);
+    const missedN10 = parseInt(document.getElementById('s-missed').value); // "N in 10 calls"
+    const job       = parseInt(document.getElementById('s-job').value);
+    const convN10   = parseInt(document.getElementById('s-conv').value);   // "N in 10 callers"
+
+    // Update slider labels (plain language)
     document.getElementById('v-calls').textContent  = calls + ' calls';
-    document.getElementById('v-missed').textContent = missed + '%';
-    document.getElementById('v-conv').textContent   = conv + '%';
+    document.getElementById('v-missed').textContent = missedN10 + ' in 10 calls';
     document.getElementById('v-job').textContent    = '$' + job.toLocaleString();
-    const missedN  = Math.round(calls * missed / 100);
-    const lostJobs = Math.round(missedN * conv / 100);
-    const lostMo   = lostJobs * job;
-    const lostYr   = lostMo * 12;
-    const capCalls = Math.round(missedN * 0.80);
-    const capJobs  = Math.round(capCalls * conv / 100);
-    const recYr    = capJobs * job * 12;
-    const llCost   = 5564;
-    const net      = recYr - llCost;
-    const roi      = llCost > 0 ? Math.round((net / llCost) * 100) : 0;
-    document.getElementById('r-missed-n').textContent  = missedN + ' calls';
-    document.getElementById('r-lost-jobs').textContent = lostJobs + ' jobs';
-    document.getElementById('r-lost-mo').textContent   = '$' + lostMo.toLocaleString();
-    document.getElementById('r-lost-yr').textContent   = '$' + lostYr.toLocaleString();
-    document.getElementById('r-cap-jobs').textContent  = capJobs + ' jobs';
-    document.getElementById('r-recovered').textContent = '$' + recYr.toLocaleString();
-    document.getElementById('r-net').textContent       = (net >= 0 ? '$' : '-$') + Math.abs(net).toLocaleString();
-    document.getElementById('r-roi').textContent       = 'ROI — ' + roi.toLocaleString() + '%';
-    document.getElementById('calc-cta').textContent    = 'Get LeadLock — Recover $' + recYr.toLocaleString() + ' This Year →';
-    ['s-calls','s-missed','s-conv','s-job'].forEach(function(id) {
-      const el = document.getElementById(id);
+    document.getElementById('v-conv').textContent   = convN10 + ' in 10';
+
+    // Calculate
+    const missedPct  = missedN10 / 10;          // fraction of calls missed
+    const convPct    = convN10 / 10;             // fraction of callers who book
+    const missedN    = Math.round(calls * missedPct);                 // calls missed/mo
+    const lostJobs   = Math.round(missedN * convPct);                 // jobs lost/mo
+    const lostMo     = lostJobs * job;                                // revenue lost/mo
+
+    // LeadLock captures 80% of missed calls
+    const capCalls   = Math.round(missedN * 0.80);
+    const capJobs    = Math.round(capCalls * convPct);                // jobs recovered/mo
+    const recovMo    = capJobs * job;                                 // revenue recovered/mo
+
+    // Cost: $397/mo (Starter plan)
+    const costMo     = 397;
+    const netMo      = recovMo - costMo;                              // net profit/mo
+    const netYr      = netMo * 12;                                    // net profit/yr
+    const roi        = costMo > 0 ? Math.round(recovMo / costMo) : 0; // $X back per $1 spent
+
+    // Update results
+    document.getElementById('r-missed-n').textContent    = missedN + ' calls';
+    document.getElementById('r-lost-jobs').textContent   = lostJobs + (lostJobs === 1 ? ' job' : ' jobs');
+    document.getElementById('r-lost-mo').textContent     = '$' + lostMo.toLocaleString();
+    document.getElementById('r-cap-jobs').textContent    = capJobs + (capJobs === 1 ? ' job' : ' jobs');
+    document.getElementById('r-recovered-mo').textContent= '$' + recovMo.toLocaleString();
+    document.getElementById('r-net-mo').textContent      = (netMo >= 0 ? '$' : '-$') + Math.abs(netMo).toLocaleString();
+    document.getElementById('r-net-yr').textContent      = (netYr >= 0 ? '$' : '-$') + Math.abs(netYr).toLocaleString();
+    document.getElementById('r-roi').textContent         = '$' + roi.toLocaleString();
+    document.getElementById('r-roi-sub').textContent     = 'For every $1 you spend, LeadLock brings back $' + roi + ' in revenue';
+    document.getElementById('calc-cta').textContent      = 'Get LeadLock — Add $' + Math.abs(netMo).toLocaleString() + '/mo to Your Bottom Line →';
+
+    // Slider fill colors
+    ['s-calls','s-missed','s-job','s-conv'].forEach(function(id) {
+      const el  = document.getElementById(id);
       const pct = ((el.value - parseFloat(el.min)) / (parseFloat(el.max) - parseFloat(el.min))) * 100;
       el.style.background = 'linear-gradient(to right, var(--copper) ' + pct + '%, var(--border) ' + pct + '%)';
     });
