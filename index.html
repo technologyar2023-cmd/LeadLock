@@ -120,6 +120,14 @@
 
   /* FLYWHEEL */
   .loop-section{background:var(--dark)}
+  .bar-strip{max-width:760px;margin:40px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border:1px solid rgba(200,120,58,.25);border-radius:12px;overflow:hidden}
+  .bar-item{background:var(--card);padding:26px 18px;text-align:center;border-right:1px solid var(--border)}
+  .bar-item:last-child{border-right:none}
+  .bar-val{font-family:'Bebas Neue',sans-serif;font-size:44px;letter-spacing:1px;color:var(--copper);line-height:1}
+  .bar-lbl{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+  .bar-caption{max-width:680px;margin:20px auto 0;text-align:center;font-size:14px;color:var(--muted);line-height:1.7;font-weight:300}
+  .bar-caption strong{color:var(--text)}
+  @media(max-width:520px){.bar-strip{grid-template-columns:1fr}.bar-item{border-right:none;border-bottom:1px solid var(--border)}.bar-item:last-child{border-bottom:none}}
   .loop-wrap{max-width:1080px;margin:56px auto 0;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
   .loop-diagram{position:relative;aspect-ratio:1;max-width:440px;width:100%;margin:0 auto}
   .loop-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(200,120,58,.16),rgba(200,120,58,.03) 70%,transparent);border:1px solid rgba(200,120,58,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:3}
@@ -476,11 +484,19 @@
     <span class="section-label">Why It Compounds</span>
     <h2 class="section-title">Answering the Phone Is How You Show Up on Google</h2>
     <p class="section-sub">
-      Google and AI tools rank the contractors with a steady stream of fresh reviews. You can't get a review
-      for a job you never booked — and you can't book a job from a call you never answered. It's one loop, and
-      the phone is where it starts.
+      Ask ChatGPT for the best HVAC contractors in your city. Look at what every name it returns has in common —
+      then look at where you land against that bar.
     </p>
   </div>
+  <div class="bar-strip reveal">
+    <div class="bar-item"><div class="bar-val">4.8★+</div><div class="bar-lbl">Rating on every one it named</div></div>
+    <div class="bar-item"><div class="bar-val">100+</div><div class="bar-lbl">Reviews — the lowest on the list</div></div>
+    <div class="bar-item"><div class="bar-val">24/7</div><div class="bar-lbl">Real availability, not just a claim</div></div>
+  </div>
+  <p class="bar-caption reveal">
+    That's not our opinion — it's what ChatGPT actually returns today. Under that bar, you're invisible.
+    Here's the loop that gets you over it, and keeps you there.
+  </p>
   <div class="loop-wrap reveal">
     <div class="loop-diagram">
       <svg class="loop-svg" viewBox="0 0 100 100" aria-hidden="true">
@@ -503,7 +519,7 @@
         <div class="loop-step"><span class="ls-num">2</span><p><strong>It books the job</strong> into your calendar. Now there's a real customer to serve — and later, to ask.</p></div>
         <div class="loop-step"><span class="ls-num">3</span><p><strong>After the job, it asks for a review automatically</strong> — while the customer is still glad their AC is running. This is the step almost every shop forgets.</p></div>
         <div class="loop-step"><span class="ls-num">4</span><p><strong>Fresh reviews, every week</strong>, are exactly what Google and AI tools reward. Recency beats a big old pile of reviews that stopped a year ago.</p></div>
-        <div class="loop-step"><span class="ls-num">5</span><p><strong>Higher ranking rings your phone more</strong> — and every one of those new calls gets answered too. The loop feeds itself.</p></div>
+        <div class="loop-step"><span class="ls-num">5</span><p><strong>Higher ranking rings your phone more</strong> — and because the agent answers 24/7, you genuinely earn the "always available" signal those top listings all share. Every new call gets answered too. The loop feeds itself.</p></div>
       </div>
     </div>
   </div>
