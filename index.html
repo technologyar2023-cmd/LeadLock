@@ -118,8 +118,37 @@
   .es-quote p{font-size:16px;color:var(--text);line-height:1.7;font-weight:300;font-style:italic}
   .es-quote .who{font-size:12.5px;color:var(--muted);margin-top:14px;font-style:normal}
 
+  /* FLYWHEEL */
+  .loop-section{background:var(--dark)}
+  .loop-wrap{max-width:1080px;margin:56px auto 0;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+  .loop-diagram{position:relative;aspect-ratio:1;max-width:440px;width:100%;margin:0 auto}
+  .loop-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(200,120,58,.16),rgba(200,120,58,.03) 70%,transparent);border:1px solid rgba(200,120,58,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:3}
+  .loop-center .lc-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1.5px;color:var(--copper);line-height:1}
+  .loop-center .lc-sub{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:5px}
+  .loop-node{position:absolute;width:118px;text-align:center;transform:translate(-50%,-50%)}
+  .loop-node .ln-badge{width:44px;height:44px;border-radius:50%;background:var(--card2);border:1px solid rgba(200,120,58,.35);display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto 8px}
+  .loop-node .ln-text{font-size:12.5px;color:var(--text);line-height:1.35;font-weight:500}
+  .loop-node.n1{top:8%;left:50%}
+  .loop-node.n2{top:34%;left:93%}
+  .loop-node.n3{top:82%;left:76%}
+  .loop-node.n4{top:82%;left:24%}
+  .loop-node.n5{top:34%;left:7%}
+  .loop-svg{position:absolute;inset:0;width:100%;height:100%;z-index:1;overflow:visible}
+  .loop-svg circle{fill:none;stroke:rgba(200,120,58,.28);stroke-width:1.5;stroke-dasharray:5 7}
+  .loop-arrow{fill:var(--copper)}
+  .loop-copy .section-title{margin-bottom:22px}
+  .loop-steps{display:flex;flex-direction:column;gap:2px}
+  .loop-step{display:flex;gap:16px;padding:15px 0;border-bottom:1px solid var(--border)}
+  .loop-step:last-child{border-bottom:none}
+  .loop-step .ls-num{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(200,120,58,.12);border:1px solid rgba(200,120,58,.3);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--copper);margin-top:2px}
+  .loop-step p{font-size:14.5px;color:var(--text);line-height:1.6;font-weight:300}
+  .loop-step p strong{color:var(--white);font-weight:600}
+  .loop-note{max-width:1080px;margin:34px auto 0;font-size:14px;color:var(--muted);line-height:1.8;font-weight:300;text-align:center;border-top:1px solid var(--border);padding-top:26px}
+  .loop-note strong{color:var(--text);font-weight:500}
+  @media(max-width:860px){.loop-wrap{grid-template-columns:1fr;gap:20px}.loop-diagram{margin-bottom:20px}}
+
   /* CALCULATOR */
-  .calc-section{background:var(--dark)}
+  .calc-section{background:var(--black)}
   .calc-wrap{display:grid;grid-template-columns:1fr 1fr;gap:46px;max-width:1020px;margin:56px auto 0}
   .calc-inputs{display:flex;flex-direction:column;gap:28px}
   .calc-group{display:flex;flex-direction:column;gap:10px}
@@ -320,6 +349,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#how-it-answers">How It Answers</a></li>
+    <li><a href="#loop">Get Found</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li>
@@ -438,6 +468,51 @@
       <div class="who">— Actual agent response. Call (740) 730-4160 and speak Spanish to hear it yourself.</div>
     </div>
   </div>
+</section>
+
+<!-- FLYWHEEL -->
+<section class="loop-section" id="loop">
+  <div class="centered reveal">
+    <span class="section-label">Why It Compounds</span>
+    <h2 class="section-title">Answering the Phone Is How You Show Up on Google</h2>
+    <p class="section-sub">
+      Google and AI tools rank the contractors with a steady stream of fresh reviews. You can't get a review
+      for a job you never booked — and you can't book a job from a call you never answered. It's one loop, and
+      the phone is where it starts.
+    </p>
+  </div>
+  <div class="loop-wrap reveal">
+    <div class="loop-diagram">
+      <svg class="loop-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="42"/>
+        <polygon class="loop-arrow" points="92,46 88,53 84,46"/>
+      </svg>
+      <div class="loop-center">
+        <span class="lc-title">The Loop</span>
+        <span class="lc-sub">runs itself</span>
+      </div>
+      <div class="loop-node n1"><div class="ln-badge">📞</div><div class="ln-text">Every call answered</div></div>
+      <div class="loop-node n2"><div class="ln-badge">📅</div><div class="ln-text">Job booked</div></div>
+      <div class="loop-node n3"><div class="ln-badge">⭐</div><div class="ln-text">Review requested</div></div>
+      <div class="loop-node n4"><div class="ln-badge">📈</div><div class="ln-text">You rank higher</div></div>
+      <div class="loop-node n5"><div class="ln-badge">🔔</div><div class="ln-text">More calls come in</div></div>
+    </div>
+    <div class="loop-copy">
+      <div class="loop-steps">
+        <div class="loop-step"><span class="ls-num">1</span><p><strong>The agent answers every call</strong> — including the ones that used to hit a busy signal or voicemail. Nothing leaks.</p></div>
+        <div class="loop-step"><span class="ls-num">2</span><p><strong>It books the job</strong> into your calendar. Now there's a real customer to serve — and later, to ask.</p></div>
+        <div class="loop-step"><span class="ls-num">3</span><p><strong>After the job, it asks for a review automatically</strong> — while the customer is still glad their AC is running. This is the step almost every shop forgets.</p></div>
+        <div class="loop-step"><span class="ls-num">4</span><p><strong>Fresh reviews, every week</strong>, are exactly what Google and AI tools reward. Recency beats a big old pile of reviews that stopped a year ago.</p></div>
+        <div class="loop-step"><span class="ls-num">5</span><p><strong>Higher ranking rings your phone more</strong> — and every one of those new calls gets answered too. The loop feeds itself.</p></div>
+      </div>
+    </div>
+  </div>
+  <p class="loop-note">
+    <strong>Straight answer:</strong> no one can promise you the #1 spot — Google and ChatGPT own their rankings, not us.
+    What we control is that every call gets answered and every happy customer gets asked. That's the engine that
+    builds the steady review flow ranking rewards. Free fixes like replying to your reviews and adding photos help
+    once — this is what keeps it growing.
+  </p>
 </section>
 
 <!-- CALCULATOR -->
